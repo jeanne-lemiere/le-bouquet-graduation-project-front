@@ -10,9 +10,9 @@ const Footer = ({}) => (
       <div className="footer__content__links">
         <p>Qui sommes nous?</p>
         <p>Conditions générales de vente</p>
-        <div className="footer__content__links__icons">
-          <img src={FacebookLogo} className="footer__logo" alt="Logo Facebook" />
-          <img src={InstaLogo} className="footer__logo" alt="Logo Instagram" />
+        <div className="footer__content__icons">
+          <img src={FacebookLogo} className="footer__content__icons__logo__fb" alt="Logo Facebook" />
+          <img src={InstaLogo} className="footer__content__icons__logo__insta" alt="Logo Instagram" />
         </div>
       </div>
     </div>
