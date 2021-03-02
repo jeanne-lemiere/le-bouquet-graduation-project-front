@@ -1,14 +1,7 @@
-# C'est le bouquet!
+# This is the dev branch
 
-Un projet par:
+In this branch will commit every milestone of the development. The sole use of this branch is to pass the last debug test before beinf to the master branch which is definitiv.
 
-Abdoulla Voraev
-Djabraïl Voraev
-Jeanne Lemiere
-Thibaut Jouet
+To commit on this branch make sure to contact your git master (Thibaut jouet c'est moi!) and get his approval. Every non autorised push will be deleted and the perpetrator will be punished with beatings.
 
-## But 
-
-NOtre but est de créé un market place permettant aux horticulteurs francais de vendre leurs fleurs de saisons. Ce projet a pour but de remettre à l'avant de la scène les fleurs francaises que le grand public a ouublié malgrès lui.
-# projet-c-est-le-bouquet
-# projet-c-est-le-bouquet
+If you have any questions please refere to me. 
