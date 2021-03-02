@@ -2,6 +2,7 @@
 
 .header {
   
+  height: 10vh;
   border-bottom: solid 3px vars.$font-color;
   
   
@@ -22,7 +23,7 @@
         
         position: relative;
         display: block;
-        padding: 20px;
+        padding: 25px;
         font-family: vars.$global-font;
         color: vars.$font-color;
         text-decoration: none;
@@ -49,8 +50,8 @@
     }
 
     &__pic{
-     height:50px;
-     padding: 0% 2%;
+     height:60px;
+     padding: 0.2vh 2vh;
      
     }
 }
