@@ -9,7 +9,7 @@ import './styles.css';
 // == Composant
 const App = () => (
   <div >
-    <Header/>
+    <Header isLoggedIn={true}/>
     <Footer/>
   </div>
 );
