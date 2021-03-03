@@ -4,11 +4,13 @@ import React from 'react';
 // == Import
 import './styles.css';
 import AuthModal from '../AuthModal';
+import Dashboard from '../Dashboard';
 
 // == Composant
 const App = () => (
   <div>
-    <AuthModal isHidden={false} />
+    <Dashboard userType="seller" />
+    <AuthModal isHidden />
   </div>
 );
 
