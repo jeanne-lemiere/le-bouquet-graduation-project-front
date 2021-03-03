@@ -1,16 +1,18 @@
 // == Import npm
 import React from 'react';
+
+// == Import
+import './styles.css';
 import Header from '../Header';
 import Footer from '../Footer';
-// == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import AuthModal from '../AuthModal';
 
 // == Composant
 const App = () => (
-  <div >
-    <Header isLoggedIn={true}/>
-    <Footer/>
+  <div>
+    <Header isLoggedIn />
+    <AuthModal isHidden={false} />
+    <Footer />
   </div>
 );
 

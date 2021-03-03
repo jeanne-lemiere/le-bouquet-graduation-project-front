@@ -1,0 +1,17 @@
+.form__label {
+font-weight: 400;
+display: block;
+padding: 0.5em 0;
+}
+
+.form__input {
+width: 100%;
+padding: 0.5em;
+border: solid 1px;
+border-color: #0A1D7D;
+margin: 0.5em 0;
+}
+
+::placeholder {
+  color:  #0A1D7D;
+}
