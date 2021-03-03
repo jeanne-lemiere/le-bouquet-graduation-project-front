@@ -6,11 +6,19 @@ import './styles.css';
 import AuthModal from '../AuthModal';
 import Dashboard from '../Dashboard';
 
+// == Fake data for testing
+import currentOrders from '../../data/current-orders';
+import orderHistory from '../../data/order-history';
+
 // == Composant
 const App = () => (
   <div>
-    <Dashboard userType="seller" />
-    <AuthModal isHidden />
+    <Dashboard
+      userType="seller"
+      currentOrders={currentOrders}
+      orderHistory={orderHistory}
+    />
+    <AuthModal isHidden={false} />
   </div>
 );
 

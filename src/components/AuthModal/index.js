@@ -7,6 +7,9 @@ import Radio from '../Radio';
 
 const AuthModal = ({ isHidden }) => {
   const modalClass = isHidden ? 'modal modal--is-hidden' : 'modal';
+  const testMessage = (message) => {
+    console.log(`coucou, je veux ${message}`);
+  };
 
   return (
     <div className={modalClass}>
@@ -59,10 +62,11 @@ const AuthModal = ({ isHidden }) => {
               <button
                 className="auth__button"
                 type="submit"
-                aria-label="Créer un compte client"
-                onClick={
-                console.log('je veux me connecter!')
-              }
+                aria-label="Me connecter"
+                onClick={(event) => {
+                  event.preventDefault();
+                  testMessage('me connecter');
+                }}
               >Se connecter
               </button>
             </form>
@@ -75,18 +79,18 @@ const AuthModal = ({ isHidden }) => {
               className="auth__button"
               type="button"
               aria-label="Créer un compte client"
-              onClick={
-      console.log("je veux m'inscrire comme customer!")
-    }
+              onClick={() => {
+                testMessage('créer un compte client');
+              }}
             >Créer un compte client
             </button>
             <button
               className="auth__button"
               type="button"
               aria-label="Créer un compte pro"
-              onClick={
-      console.log("je veux m'inscrire comme seller!")
-            }
+              onClick={() => {
+                testMessage('créer un compte pro');
+              }}
             >Créer un compte pro
             </button>
           </div>

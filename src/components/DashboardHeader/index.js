@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const DashboardHeader = ({ profile, currentOrderAmount, userType }) => {
+  // if the connected user is a seller we want to display their profile picture
   const profilePicture = userType === 'seller' ? (
     <img
       src={profile.picture_url}
@@ -53,13 +54,8 @@ DashboardHeader.propTypes = {
     shop_name: PropTypes.string,
     shop_presentation: PropTypes.string,
   }).isRequired,
-  currentOrderAmount: PropTypes.number,
+  currentOrderAmount: PropTypes.number.isRequired,
   userType: PropTypes.string.isRequired,
 };
 
-// I am giving currentOrderAmount a 0 default value
-// in case the seller has no current order to handle
-DashboardHeader.defaultProps = {
-  currentOrderAmount: 0,
-};
 export default DashboardHeader;
