@@ -8,7 +8,7 @@ import OrderItem from '../OrderItem';
 // I will be reused for Current orders, Order History, in seller AND customer dashboards
 // but also to handle the stock
 const DropdownMenu = ({
-  title, seemore, open, items,
+  title, unfoldMessage, open, items, toggle,
 }) => {
   // here is the list of items which will be contained in the dropdown menu
   const itemList = items.map((item) => (
@@ -25,13 +25,16 @@ const DropdownMenu = ({
   return (
     <section>
       <header
-        className="menu_header"
+        className="menu-header"
       >
-        <h2 className="menu__title">{title}</h2>
+        <h2 className="header__title">{title}</h2>
         <button
+          className="header__unfold-button"
           type="button"
-          className="menu_see-more"
-        >{arrow} {seemore}
+          onClick={() => {
+            toggle(open);
+          }}
+        >{arrow} {unfoldMessage}
         </button>
       </header>
       {menuContent}
@@ -41,7 +44,7 @@ const DropdownMenu = ({
 
 DropdownMenu.propTypes = {
   title: PropTypes.string.isRequired,
-  seemore: PropTypes.string.isRequired,
+  unfoldMessage: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -50,5 +53,6 @@ DropdownMenu.propTypes = {
     status: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   })).isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 export default DropdownMenu;

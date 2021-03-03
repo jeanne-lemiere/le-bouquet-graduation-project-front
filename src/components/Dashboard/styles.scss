@@ -1,0 +1,35 @@
+.dashboard {
+  width: 100%;
+  height: 80vh;
+  background-color: #eeeeee;
+  position: relative;
+  &__stock{
+  display:flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #bbbbbb;
+  margin: 0.5em 0;
+}
+&__settings{
+position: absolute;
+top: 0.5em;
+right: 0.5em;
+color: #0A1D7D;
+}
+}
+
+.stock__link {
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: #0A1D7D;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+}

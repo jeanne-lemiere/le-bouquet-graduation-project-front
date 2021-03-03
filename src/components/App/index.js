@@ -18,7 +18,7 @@ const App = () => (
       currentOrders={currentOrders}
       orderHistory={orderHistory}
     />
-    <AuthModal isHidden={false} />
+    <AuthModal isHidden />
   </div>
 );
 

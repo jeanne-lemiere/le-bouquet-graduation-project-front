@@ -1,0 +1,23 @@
+.menu-header {
+  display:flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #bbbbbb;
+  margin: 0.5em 0;
+}
+
+.header__unfold-button {
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: #0A1D7D;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  
+  &:hover {
+    opacity: 0.6;
+  }
+}

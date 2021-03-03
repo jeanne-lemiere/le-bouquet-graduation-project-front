@@ -11,25 +11,38 @@ const DashboardHeader = ({ profile, currentOrderAmount, userType }) => {
       className="profile__picture"
     />
   ) : null;
+  // specific header class for different user types
+  const headerClass = userType === 'seller' ? 'dashboard__header dashboard__header--seller' : 'dashboard__header dashboard__header--customer';
 
   return (
-    <header className="dashboard-header">
-      <span className="dashboard-header__profile">
-        {profilePicture}
-        <div className="profile__contact"> <h2>{profile.shop_name}</h2>
-          <p>{profile.email}</p>
-          <p>{profile.phone_number}</p>
+    <header className={headerClass}>
+      <div className="header__profile">
+        <div className="profile__background">
+          <div className="profile-flex">
+            {profilePicture}
+            <div>
+              <h2 className="profile__shopname">{profile.shop_name}</h2>
+              <div className="profile__infos">
+                <div className="profile__contact">
+                  <div><p>{profile.email}</p>
+                    <p>{profile.phone_number}</p>
+                  </div>
+                </div>
+                <div className="profile__address">
+                  <p>{profile.street_number}, {profile.street_name} </p>
+                  <p>{profile.zipcode} {profile.city}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <p className="profile__presentation">{profile.shop_presentation}</p>
         </div>
-        <div className="profile__address">
-          <p>{profile.street_number}, {profile.street_name} </p>
-          <p>{profile.zipcode} {profile.city}</p>
-        </div>
-        <p className="profile__description">{profile.shop_presentation}</p>
-      </span>
-      <span className="dashboard-header__welcome">
+      </div>
+      <div className="header__message">
         <strong>Bonjour {profile.first_name},</strong>
         <p>Vous avez actuellement {currentOrderAmount} commandes en cours.</p>
-      </span>
+      </div>
     </header>
   );
 };
