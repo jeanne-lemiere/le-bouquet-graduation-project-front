@@ -18,24 +18,9 @@ const Header = ({isLoggedIn}) => (
         <li className= "header__content__links__link"> <a href= "#">Nos producteurs</a></li>
         <li className= "header__content__links__link"> <a href= "#">Devenir partenaire</a></li>
         <li className= "header__content__links__link"> <a href= "#">Se connecter</a></li>
+        {isLoggedIn ? <li className="header__content__links__link"><a href= "#">Mon Espace</a></li> : console.log('veuillez vous connecter !') }
         <li className= "header__content__links__link"> <FiShoppingBag /> </li>
-        
-        {/* <script>
-      window.onscroll = function() {myFunction()};
-
-      var header = document.getElementById("myHeader");
-      var sticky = header.offsetTop;
-
-      function myFunction() {
-      if (window.pageYOffset > sticky) {
-      header.classList.add("sticky");
-      } else {
-      header.classList.remove("sticky");
-     } 
-}
-    </script> */}
-        
-      {/* {isLoggedIn ? <li className="header__content__links__link"><a href= "#">Mon Espace</a></li> : console.log('veuillez vous connecter !')} */}
+       
       </ul>
 
     </nav>
