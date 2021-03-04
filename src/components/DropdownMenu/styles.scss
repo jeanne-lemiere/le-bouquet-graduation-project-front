@@ -4,6 +4,11 @@
   width: 100%;
   background-color: #bbbbbb;
   margin: 0.5em 0;
+  padding: 0.3em;
+}
+
+.header__title {
+font-weight: 400;
 }
 
 .header__unfold-button {
@@ -12,12 +17,13 @@
   border: none;
   color: #0A1D7D;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
   cursor: pointer;
   text-align: center;
+  //margin:none;
   
   &:hover {
-    opacity: 0.6;
+    opacity: 0.85;
   }
 }

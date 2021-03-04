@@ -1,0 +1,16 @@
+.stock__unfold-button {
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: #0A1D7D;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  //margin:none;
+  
+  &:hover {
+    opacity: 0.85;
+  }
+}

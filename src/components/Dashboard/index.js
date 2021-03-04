@@ -9,6 +9,7 @@ import profile from '../../data/seller-profile';
 const Dashboard = ({ userType, orderHistory, currentOrders }) => {
   // if the connected user is a seller we want to give them
   // a link to access their product stock
+  const pageTitle = userType === 'seller' ? <h1>Mon espace Pro</h1> : <h1>Mon espace</h1>;
   const stock = userType === 'seller' ? (
     <div className="dashboard__stock"><h2>Stock</h2>
       <a className="stock__link" href="/stock"><FiArrowRight /> Gérer le stock</a>
@@ -26,29 +27,34 @@ const Dashboard = ({ userType, orderHistory, currentOrders }) => {
   };
 
   return (
-    <div className="dashboard">
-      <FiSettings className="dashboard__settings" />
-      <DashboardHeader
-        profile={profile}
-        currentOrderAmount={currentOrders.length}
-        userType={userType}
-      />
-      <DropdownMenu
-        title="Commandes en cours"
-        unfoldMessage="Voir toutes les commandes"
-        open={currentOpen}
-        items={currentOrders}
-        toggle={toggleCurrentOrders}
-      />
-      <DropdownMenu
-        title="Historique de commandes"
-        unfoldMessage="Voir l'historique"
-        open={historyOpen}
-        items={orderHistory}
-        toggle={toggleHistory}
-      />
-      {stock}
-    </div>
+    <main>{ pageTitle }
+      <div className="dashboard">
+        <FiSettings className="dashboard__settings" />
+        <DashboardHeader
+          profile={profile}
+          currentOrderAmount={currentOrders.length}
+          userType={userType}
+        />
+        <DropdownMenu
+          title="Commandes en cours"
+          unfoldMessage="Voir toutes les commandes"
+          open={currentOpen}
+          items={currentOrders}
+          toggle={toggleCurrentOrders}
+          itemType="order"
+        />
+        <DropdownMenu
+          title="Historique de commandes"
+          unfoldMessage="Voir l'historique"
+          open={historyOpen}
+          items={orderHistory}
+          toggle={toggleHistory}
+          itemType="order"
+        />
+        {stock}
+      </div>
+    </main>
+
   );
 };
 
