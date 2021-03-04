@@ -5,9 +5,18 @@ import './styles.scss';
 
 const BouquetSemaine = ({}) => (
 
-  <div className="bandeau">
-  <div className="bandeau__article">
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  <div className="band">
+  <div className="band__article">
+    <div className="band__article__text">
+    <h1 className="band__article__text__title">Des fleurs oubliées, locales et de saison</h1>
+    <p className="band__article__text__writing">
+      Marre des orchidées d'Australie, et des roses du Kenya! Quel dommage d'aller chercher si loin pour faire plaisir quand il existe <spanw className="gras"> une myriade de belles fleurs oubliées</spanw> sous nos latitudes.
+    <br/>
+
+    <br/>
+    Dans les jardins de nos grand-mères, entre les rosiers, poussaient giroflées, delphiniums, myosotis et autres renoncules. Notre mission? Faire redécouvrir ces fleurs d’antan en vente directe, du producteur au particulier.</p>
+    <p className="band__article__text__link" > <a href="#">Découvrir nos fleurs </a></p>
+    </div>
   </div>
   </div>
 

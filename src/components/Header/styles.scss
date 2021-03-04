@@ -2,8 +2,11 @@
 
 .header {
   
-  height: 10vh;
+  height: 15vh;
   border-bottom: solid 3px vars.$font-color;
+  position: fixed;
+  top: 0;
+  width: 100%;
   
   
   &__content{
@@ -15,14 +18,16 @@
     &__links{
       
       
+      padding: 6vh 0vh 0vh 40vh;
       display: flex;
-      
+      font-weight: 500;
       
       &__link{
         
-        
+        height: 1vh;
         position: relative;
         display: block;
+        
         padding: 25px;
         font-family: vars.$global-font;
         color: vars.$font-color;
@@ -49,12 +54,37 @@
 
     }
 
-    &__pic{
-     height:60px;
-     padding: 0.2vh 2vh;
+    &__logo{
+
+      display: flex;
+      color: vars.$font-color;
+      padding: 0vh 0vh 0vh 3vh;
+      text-align: left;
+
+      &__pic{
+        
+      max-width:7vw;
+      max-height: 1h;
+      width: auto;
+      height: auto;
+}
+      &__text{
+        
+        font-family: vars.$logo-font;
+        width: 25vh;
+        
+        padding: 7.5vh 5vh 0vh 0vh;
+        font-size: 3vh;
+        font-weight: 400;
+      }
      
-    }
+     
+    
 }
 }
   
+}
 
+.gras {
+  font-weight: 600;
+}

@@ -4,6 +4,64 @@
 .article{
 
   // background-position: center;
-  height:100vh;
+  height:120vh;
+  
+  &__content{
+    display: flex;
+    height: 100%;
+
+    &__text{
+      color: vars.$font-color;
+      
+      
+      height: 100%;
+      padding: 15% 15% 5% 10%;
+
+
+    &__title{
+      line-height: 5vh;
+      font-size: 5vh;
+      font-weight: 450;
+      padding: 3vh 0vh;
+    }
+
+    &__writing{
+
+      line-height: 3.5vh;
+      font-weight: 300;
+      font-size: 3vh;
+    }
+
+    &__link{
+      padding: 2vh 0vh;
+      font-weight: 500;
+      font-size: 3vh;
+
+      :after {
+        content: "→";
+        padding: auto;
+    }
+    
+  }
+}
+  &__pic{
+      
+     padding: 2vh 5vh 2vh 0vh; 
+    display: block;
+    max-width:45vw;
+    max-height:120vh;
+    width: auto;
+    height: auto;
+      
+    }
+}
 
 }
+.gras{
+  font-weight: 500;
+}
+
+.italic{
+  font-style: italic;
+}
+

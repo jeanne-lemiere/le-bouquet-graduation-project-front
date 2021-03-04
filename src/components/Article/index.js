@@ -1,13 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import PicArticle from 'src/assets/zoe-schaeffer.jpg';
 
 
 const Article = ({}) => (
   
   <div className="article">
   <div className="article__content">
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    
+  <div className="article__content__text">
+  <h1 className="article__content__text__title">Cultivées avec amour par des passionnés.</h1>
+    <p className="article__content__text__writing">
+      <span className="italic">C’est le bouquet!</span> est né du désir de participer à 
+      <span className="gras"> relocaliser la production et la vente de fleurs</span>, en proposant un outil pour 
+      <span className="gras"> valoriser la filière française, faciliter les échanges</span> 
+        entre producteurs et particuliers, et favoriser l’achat de <span className="gras">fleurs locales et de saison</span>.
+      <br/>
+
+      <br/>
+        Ainsi nous avons conçu une plateforme multi-vendeurs sur laquelle les horticulteurs français pourraient proposer leur production à la vente 
+      <span className="gras"> sans intermédiaire.</span>
+      </p>
+       <p className="article__content__text__link" > <a href="#">Découvrir nos producteurs</a></p>
+   </div>    
+    <img className = "article__content__pic" src={PicArticle} alt="Producer"/>
+
   </div>
   </div>
 
