@@ -5,13 +5,16 @@ import Footer from '../Footer';
 import BouquetSemaine from '../BouquetSemaine';
 import Article from '../Article';
 // == Import
-import './styles.css';
+import './styles.scss';
 
 // == Composant
 
 const App = () => (
-  <div>
-    <Article />
+  <div className="app-container">
+    <main className="main-container">
+      <Article />
+    </main>
+    <Footer />
   </div>
 );
 

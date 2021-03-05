@@ -2,45 +2,61 @@
 
 
 .footer {
-  
-  height: 20vh;
+  margin-top: 5%;
+  height: 8vh;
   background-color: vars.$footer-color;
-  
-  
-  &__content{
-    
-    padding: 4%;
-    
-    
+  position: absolute;
+  bottom: 0;
+width: 100%;
+display: flex;
+padding: 0 1rem;
+&__content {
+  width: 100%;
+  display: flex;
+}
+&__icon {
+  width: 0.8rem;
+  height: 100%;
+  margin: 0 0.5rem;
+}  
     &__links{
-      font-size: 15px;
-      padding: 0% 0% 0% 55%;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      
+      justify-content: flex-start;
       color: vars.$font-color;
-    }
-    
-    &__icons{
-        
-      display: flex;
-      flex-direction: row;
-        
-        
-        &__logo__fb{
-        padding:0% 7%;
-        height: 20px;
-        }
-        
-        &__logo__insta{
-        padding:0% 7%;
-        height: 25px;
-        }
+      font-size: 0.8rem;
+      align-items: center;
+      font-weight: 400;
+      height: 8vh;
+      width: 100%;
+       & a {
+        padding-right: 1rem;
+      } 
+      &--icons {
+        justify-content: flex-end;
       }
     }
-    
-  }
+}
 
   
+ @media only screen and (max-width: 1024px) {
 
+.footer__links a {
+  font-size: 0.7rem;
+}
+}
+ 
+ // specific picture width for tablets and phones (landscape)
+ @media only screen and (max-width: 812px) {
+ 
+.footer__links a {
+  font-size: 0.6rem;
+}
+}
+
+
+// specific lay out for smartphones
+@media only screen and (max-width: 414px) {
+  .footer__links a {
+    font-size: 0.5rem;
+  }
+}

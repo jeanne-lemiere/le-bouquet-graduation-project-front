@@ -13,8 +13,8 @@
      font-size: 1.1em;
      position: absolute;
      padding-bottom: 0.5em;
-     left: 2em;
-     bottom: 2em;
+     left: 3em;
+     bottom: 3em;
   }  
  &__picture{
 max-height:100%;
@@ -33,6 +33,8 @@ max-width: 100%;
 
 .picture-container {
   padding: 0.5em;
+  // some extra padding on the right for the scroll bar
+  padding-right: 1em;
   height: 100%;
   max-height: 100vh;
   max-width: 32vw;
