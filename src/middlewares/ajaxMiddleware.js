@@ -23,12 +23,10 @@ export default (store) => (next) => async (action) => {
           },
         });
         const actionToDispatch = userLoginSuccess(response.data);
-        console.log('seller data:', response.data);
         store.dispatch(actionToDispatch);
       }
       catch (error) {
         const actionToDispatch = userLoginError();
-        console.log(error);
         store.dispatch(actionToDispatch);
       }
       break;
@@ -36,4 +34,5 @@ export default (store) => (next) => async (action) => {
     default:
       return next(action);
   }
+  return null;
 };

@@ -9,10 +9,7 @@ const Radio = (props) => (
       type="radio"
       className="radio__button"
       onChange={(evt) => {
-        const dataToSend = {
-          [props.name]: evt.target.value,
-        };
-        props.onChange(dataToSend);
+        props.onChange(evt.target.value, props.name);
       }}
     />
     <label

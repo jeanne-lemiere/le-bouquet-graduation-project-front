@@ -5,11 +5,12 @@ import { userInputChange, userLogin } from 'src/actions/userActions';
 
 const mapState = (state) => {
   const {
-    email, password,
+    email, password, userType,
   } = state.user;
   return {
     email,
     password,
+    selected: userType,
   };
 };
 

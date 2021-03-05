@@ -8,7 +8,7 @@ import {
 const initialState = {
   email: 'dantes@gmail.com',
   password: 'lepharaon14',
-  userType: 'seller',
+  userType: '',
   isLogged: false,
   infos: {
     token: localStorage.getItem('token'),
