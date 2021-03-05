@@ -81,16 +81,6 @@ color: #0A1D7D;
    position: relative;
 }
 
-.login-form {
-margin: 1em 0;
-margin-top: 25%;
-width: 100%;
-}
-
-.login-form__radio {
-  display: flex;
-}
-
 .auth__button {
   width: 100%;
   height: auto;
@@ -98,7 +88,6 @@ width: 100%;
   display: block;
   border: none;
   padding: 0.5rem 0;
-  text-decoration: none;
   background: #0A1D7D;
   color: #ffffff;
   font-size: 0.9rem;
@@ -107,33 +96,39 @@ width: 100%;
   text-align: center;
   border: solid 1px;
   border-color: #0A1D7D;
-  
   &:hover {
     background: none;
     color: #0A1D7D;
   }
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1000px){
 
  .modal__card {
   min-width: 70%;
  }
-
+.auth__header {
+   margin-top: 1.5em;
+   font-size: 1em;
+ }
 }
 
 @media only screen and (max-width: 768px){
 
+ .auth__header {
+   margin-top: 1.5em;
+   font-size: 0.85em;
+ }
+ .auth__button {
+   font-size: 0.8em;
+ }
  .modal__card {
   flex-direction: column;
-  height: 70%;
+  height: 80%;
  }
-
- .auth__header {
-   margin-top: 1em;
- }
-
- .login-form {
-margin-top: 30%;
 }
+
+@media only screen and (max-width: 480px){
+
+ 
 }
