@@ -1,0 +1,43 @@
+.login-form {
+margin: 1em 0;
+margin-top: 25%;
+width: 100%;
+}
+
+.login-form__radio {
+  display: flex;
+}
+
+.auth__button {
+  width: 100%;
+  height: auto;
+  margin: 1em auto;
+  display: block;
+  border: none;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  background: #0A1D7D;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  border: solid 1px;
+  border-color: #0A1D7D;
+  
+  &:hover {
+    background: none;
+    color: #0A1D7D;
+  }
+}
+
+
+@media only screen and (max-width: 768px){
+
+ .login-form {
+margin-top: 35%;
+}
+.auth__button {
+  font-size: 0.8em;
+}
+}

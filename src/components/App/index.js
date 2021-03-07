@@ -6,6 +6,7 @@ import Footer from '../Footer';
 import Article from '../Article';
 import NavBar from '../NavBar';
 import NotFound from '../NotFound';
+import AuthModal from '../AuthModal';
 // == Import
 import './styles.scss';
 
@@ -16,6 +17,7 @@ const App = () => (
     <NavBar
       isLoggedIn={false}
     />
+    <AuthModal isHidden />
     <Switch>
       <Route exact key="/" path="/">
         <Header />
@@ -23,7 +25,6 @@ const App = () => (
       </Route>
       <NotFound />
     </Switch>
-
     <Footer />
   </div>
 );
