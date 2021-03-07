@@ -1,33 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './styles.scss';
-import FleurLogo from 'src/assets/logo.png';
-import {FiShoppingBag} from "react-icons/fi";
+import { Link } from 'react-router-dom';
+import NavBar from './NavBar';
 
-const Header = ({isLoggedIn}) => (
-  <header className="header">
-    <nav className = "header__content">
-        
-        <div className="header__content__logo">
-        <img className = "header__content__logo__pic" src={FleurLogo} alt="logo placeholder"/>
-        <p className = "header__content__logo__text"> C'EST LE <span className="gras">BOUQUET!</span></p>
+const Header = () => (
+  <div className="header">
+    {/*  <NavBar /> */}
+    <div className="header__text">
+      <div className="text-container">
+        <h1>Des fleurs oubliées, locales et de saison</h1>
+        <p>
+          Marre des orchidées d'Australie, et des roses du Kenya! Quel dommage d'aller chercher si
+          loin pour faire plaisir quand il existe
+          <em> une myriade de belles fleurs oubliées</em> sous nos latitudes.
+        </p>
+        <p> Dans les jardins de nos grand-mères, entre les rosiers, poussaient giroflées,
+          delphiniums, myosotis et autres renoncules.
+          Notre mission? Faire redécouvrir ces fleurs d’antan
+          <em> en vente directe, du producteur au particulier.
+          </em>
+        </p>
+
+        <Link className="link" to="/nos-fleurs">Découvrir nos fleurs →</Link>
       </div>
-        <ul className= "header__content__links">
-        <li className= "header__content__links__link"> <a href= "#">Accueil</a></li>
-        <li className= "header__content__links__link"> <a href= "#">Nos produits</a></li>
-        <li className= "header__content__links__link"> <a href= "#">Nos producteurs</a></li>
-        <li className= "header__content__links__link"> <a href= "#">Devenir partenaire</a></li>
-        <li className= "header__content__links__link"> <a href= "#">Se connecter</a></li>
-        {isLoggedIn ? <li className="header__content__links__link"><a href= "#">Mon Espace</a></li> : console.log('veuillez vous connecter !') }
-        <li className= "header__content__links__link"> <FiShoppingBag /> </li>
-       
-      </ul>
-
-    </nav>
-
-
-  </header>
-)
-
+    </div>
+  </div>
+);
 
 export default Header;

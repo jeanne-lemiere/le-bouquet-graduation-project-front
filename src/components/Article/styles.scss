@@ -5,7 +5,9 @@
   display: flex;
   height: auto;
   max-height: 100vh;
-  width: 100vw;
+  width: 98vw;
+  max-width: 98vw;
+  margin: 0 auto;
   justify-content: space-between ;
  
    &__text{
@@ -33,65 +35,73 @@ max-width: 100%;
 
 .picture-container {
   padding: 0.5em;
-  // some extra padding on the right for the scroll bar
-  padding-right: 1em;
   height: 100%;
   max-height: 100vh;
-  max-width: 32vw;
+  max-width: 450px;
+  min-width: 320px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
 
-//specific width for ipad pro and small pc screens
- @media only screen and (max-width: 1024px) {
-
-.picture-container {
-  max-width: 40vw;
-}
+ @media only screen and (max-width: 1350px) {
  .article__text{
   font-size: 1.6vw;
   }
 }
  
- // specific picture width for tablets and phones (landscape)
- @media only screen and (max-width: 812px) {
- 
-.picture-container {
-  max-width: 30vw;
+//specific width for ipad pro and small pc screens
+ @media only screen and (max-width: 1024px) {
+
+ .picture-container {
+  max-width: 400px;
+}
+ .article__text{
+  font-size: 1.6vw;
+  }
 }
 
-.text-container {
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-}
+// adapting font size for readability
+ @media only screen and (max-width: 812px) {
 .article__text {
-position: static;
 font-size: 1.8vw;
 }
 }
+ 
+ // specific picture width for tablets and phones (landscape)
+  @media (min-width: 415px) and (max-width: 650px) { 
+ .article__picture {
+  max-width: 260px;
+}
+.article__text {
+  width: 90%;
+}
+}
 
-
-// specific lay out for smartphones
+// specific lay out for smartphones (portrait)
 @media only screen and (max-width: 414px) {
   .article {
-    flex-direction: column;
-    max-width: 100vw;
-    max-height: 100%;
+  flex-direction: column-reverse;
+  max-width: 100vw;
+  max-height: 100%;
   &__text{
   font-size: 3.4vw;
   margin-top: none;
-  }
+  width: 70%;
+  position: absolute;
+  padding-bottom: none;
+  left: 1em;
+  bottom: 1em;
+  }  
 }
 .text-container {
      max-width: 100vw;
      height: auto;
 }
 .picture-container {
-  padding: 0.5em;
+  margin: auto;
+  max-width: 100%;
   height: auto;
   max-height: 100%;
-  max-width: 100vw;
 }
 }

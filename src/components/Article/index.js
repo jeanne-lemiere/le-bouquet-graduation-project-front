@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import ArticlePic from 'src/assets/zoe-schaeffer.jpg';
+import { Link } from 'react-router-dom';
 
 const Article = () => (
 
@@ -19,7 +20,7 @@ const Article = () => (
           français pourraient proposer leur production à la vente
           <em> sans intermédiaire.</em>
         </p>
-        <a href="#">Découvrir nos producteurs →</a>
+        <Link className="link" to="/nos-producteurs">Découvrir nos producteurs →</Link>
       </div>
     </div>
     <div className="picture-container">

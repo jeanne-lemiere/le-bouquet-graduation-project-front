@@ -7,6 +7,7 @@ body {
   font-weight: 300;
   line-height: 1.1;
   font-size: 1vw;
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
@@ -35,7 +36,7 @@ em {
   font-weight: 500;
 }
 
-a {
+.link, a {
    transition: 0.75s;
    position: relative;
    padding: 0.5em 0 0.3em 0;
@@ -74,3 +75,13 @@ a {
 */
 
 
+@media only screen and (max-width: 414px) {
+  h1 {
+    font-size: 1.2em;
+    margin: 0.3em 0;
+  }
+  a {
+    padding: 0.3em 0 0.1em 0;
+    font-size: 1em;
+  }
+}

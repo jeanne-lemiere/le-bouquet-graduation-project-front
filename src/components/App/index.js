@@ -2,7 +2,6 @@
 import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-import BouquetSemaine from '../BouquetSemaine';
 import Article from '../Article';
 // == Import
 import './styles.scss';
@@ -12,6 +11,7 @@ import './styles.scss';
 const App = () => (
   <div className="app-container">
     <main className="main-container">
+      <Header />
       <Article />
     </main>
     <Footer />
