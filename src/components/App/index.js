@@ -1,8 +1,11 @@
 // == Import npm
 import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
+import NavBar from '../NavBar';
+import NotFound from '../NotFound';
 // == Import
 import './styles.scss';
 
@@ -10,8 +13,17 @@ import './styles.scss';
 
 const App = () => (
   <div className="app-container">
-    <Header />
-    <Article />
+    <NavBar
+      isLoggedIn={false}
+    />
+    <Switch>
+      <Route exact key="/" path="/">
+        <Header />
+        <Article />
+      </Route>
+      <NotFound />
+    </Switch>
+
     <Footer />
   </div>
 );

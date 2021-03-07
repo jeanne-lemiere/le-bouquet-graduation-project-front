@@ -1,13 +1,9 @@
 import React from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import NavBar from './NavBar';
 
 const Header = () => (
   <div className="header">
-    <NavBar
-      isLoggedIn={false}
-    />
     <div className="header__text">
       <div className="text-container">
         <h1>Des fleurs oubliées, locales et de saison</h1>
