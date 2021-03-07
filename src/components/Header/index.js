@@ -5,7 +5,9 @@ import NavBar from './NavBar';
 
 const Header = () => (
   <div className="header">
-    {/*  <NavBar /> */}
+    <NavBar
+      isLoggedIn={false}
+    />
     <div className="header__text">
       <div className="text-container">
         <h1>Des fleurs oubliées, locales et de saison</h1>
@@ -21,7 +23,7 @@ const Header = () => (
           </em>
         </p>
 
-        <Link className="link" to="/nos-fleurs">Découvrir nos fleurs →</Link>
+        <Link className="homepage__link" to="/nos-fleurs">Découvrir nos fleurs →</Link>
       </div>
     </div>
   </div>

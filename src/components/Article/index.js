@@ -20,7 +20,7 @@ const Article = () => (
           français pourraient proposer leur production à la vente
           <em> sans intermédiaire.</em>
         </p>
-        <Link className="link" to="/nos-producteurs">Découvrir nos producteurs →</Link>
+        <Link className="homepage__link" to="/nos-producteurs">Découvrir nos producteurs →</Link>
       </div>
     </div>
     <div className="picture-container">

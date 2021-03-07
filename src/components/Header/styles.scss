@@ -21,7 +21,10 @@
      height: auto;
   }  
 }
-
+.homepage__link {
+  font-size: 1.2em;
+  font-weight: 500;
+}
 @media only screen and (max-width: 1350px) {
  .header__text{
   font-size: 1.6vw;

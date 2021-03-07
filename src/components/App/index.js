@@ -10,10 +10,8 @@ import './styles.scss';
 
 const App = () => (
   <div className="app-container">
-    <main className="main-container">
-      <Header />
-      <Article />
-    </main>
+    <Header />
+    <Article />
     <Footer />
   </div>
 );
