@@ -17,7 +17,7 @@ const App = () => (
     <NavBar
       isLoggedIn={false}
     />
-    <AuthModal isHidden />
+    <AuthModal isHidden={false} />
     <Switch>
       <Route exact key="/" path="/">
         <Header />
