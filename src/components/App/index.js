@@ -1,14 +1,31 @@
 // == Import npm
 import React from 'react';
-import { Route } from 'react-router-dom';
-// == Import
-import './styles.css';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Header from '../Header';
+import Footer from '../Footer';
+import Article from '../Article';
+import NavBar from '../NavBar';
+import NotFound from '../NotFound';
 import AuthModal from '../AuthModal';
+// == Import
+import './styles.scss';
 
 // == Composant
+
 const App = () => (
-  <div>
+  <div className="app-container">
+    <NavBar
+      isLoggedIn={false}
+    />
     <AuthModal isHidden={false} />
+    <Switch>
+      <Route exact key="/" path="/">
+        <Header />
+        <Article />
+      </Route>
+      <NotFound />
+    </Switch>
+    <Footer />
   </div>
 );
 
