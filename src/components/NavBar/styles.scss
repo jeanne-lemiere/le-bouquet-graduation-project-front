@@ -34,7 +34,7 @@ opacity: 0.9;
   &__link {
     margin: 1em;
     font-weight: 400;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   }
   &__icon {
    display: block;
@@ -60,9 +60,6 @@ opacity: 0.9;
 
 //specific font-size for tablets and small pc screens
  @media only screen and (max-width: 1024px) {
-   .nav__link {
-     font-size: 1.3em;
-   }
    .nav__links {
      margin-top: 1.3em;
      width: 92%;
@@ -78,12 +75,18 @@ opacity: 0.9;
 min-width: 18px;
 min-height: 18px;
 }
+.nav__link {
+     font-size: 0.6rem;
+   }
 }
 
   @media (min-width: 415px) and (max-width: 650px) { 
 .nav {
   height: 10vh;
 }
+.nav__link {
+     font-size: 0.55rem;
+   }
 } 
 
 // specific lay out for smartphones (portrait)
