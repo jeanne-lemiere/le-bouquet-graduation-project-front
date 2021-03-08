@@ -8,10 +8,7 @@ const Field = (props) => (
       {...props}
       className="form__input"
       onChange={(evt) => {
-        const dataToSend = {
-          [props.name]: evt.target.value,
-        };
-        props.onChange(dataToSend);
+        props.onChange(evt.target.value, props.name);
       }}
     />
   </div>

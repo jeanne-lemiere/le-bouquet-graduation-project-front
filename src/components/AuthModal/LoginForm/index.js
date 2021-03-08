@@ -11,6 +11,7 @@ const LoginForm = ({
   changeField,
   handleLogin,
   selected,
+  loginError,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -21,6 +22,8 @@ const LoginForm = ({
     { text: 'Producteur', value: 'seller' },
     { text: 'Client', value: 'customer' },
   ];
+
+  const errorMessage = loginError ? <p className="login__error">Vos identifiants sont incorrects. </p> : null;
 
   return (
     <form
@@ -45,7 +48,7 @@ const LoginForm = ({
           />
         ))}
       </div>
-
+      {errorMessage}
       <Field
         label="Email"
         placeholder="ADRESSE EMAIL"
@@ -78,6 +81,7 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   selected: PropTypes.string.isRequired,
+  loginError: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;

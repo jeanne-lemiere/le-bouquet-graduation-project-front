@@ -6,13 +6,11 @@ import {
 } from 'src/actions/userActions';
 
 const initialState = {
-  email: 'dantes@gmail.com',
-  password: 'lepharaon14',
+  email: '',
+  password: '',
   userType: '',
+  loginError: false,
   isLogged: false,
-  infos: {
-    token: localStorage.getItem('token'),
-  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,20 +21,22 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         isLogged: true,
-        infos: {
-          ...action.payload,
-        },
+        loginError: false,
+        ...action.payload.user,
       };
 
     case USER_LOGIN_ERROR:
       return {
         ...state,
         isLogged: false,
+        loginError: true,
         infos: {},
       };
     case USER_HANDLE_LOGOUT:
       return {
         ...state,
+        email: '',
+        password: '',
         isLogged: false,
         infos: {},
       };

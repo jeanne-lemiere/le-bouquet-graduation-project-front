@@ -39,6 +39,7 @@ em {
    transition: 0.75s;
    position: relative;
    padding: 0.5em 0 0.3em 0;
+   cursor: pointer;
 
   &::after {
         position: absolute;
