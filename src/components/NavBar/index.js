@@ -51,6 +51,18 @@ const NavBar = ({
               : (
                 <li>
                   <div
+                    // added labels and keyboard navigation for accessibility since
+                    // I didn't use a button tag
+                    // --------- Accessibility ---------
+                    tabIndex="0"
+                    role="button"
+                    aria-label="s'inscrire / se connecter"
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        toggleAuthModal();
+                      }
+                    }}
+                    // --------- Accessibility ---------
                     className="nav__link link"
                     onClick={() => {
                       toggleAuthModal();
@@ -62,6 +74,16 @@ const NavBar = ({
             {isLogged ? (
               <li>
                 <div
+                  // --------- Accessibility ---------
+                  tabIndex="0"
+                  role="button"
+                  aria-label="déconnexion"
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      toggleAuthModal();
+                    }
+                  }}
+                  // --------- Accessibility ---------
                   className="nav__link link"
                   onClick={() => {
                     localStorage.removeItem('token');
