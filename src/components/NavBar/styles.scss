@@ -30,11 +30,14 @@ opacity: 0.9;
       width: 90%;
       justify-content: flex-end;
       margin: 1em 1em 0 1em;
+      & div {
+        margin-top: 0.75em;
+      }
   }
   &__link {
     margin: 1em;
     font-weight: 400;
-  font-size: 0.8em;
+  font-size: 0.9em;
   }
   &__icon {
    display: block;
@@ -61,7 +64,7 @@ opacity: 0.9;
 //specific font-size for tablets and small pc screens
  @media only screen and (max-width: 1024px) {
    .nav__link {
-     font-size: 1.3em;
+     font-size: 1em;
    }
    .nav__links {
      margin-top: 1.3em;

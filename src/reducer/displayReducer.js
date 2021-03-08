@@ -1,5 +1,6 @@
 import {
   TOGGLE_AUTH_MODAL,
+  CHANGE_NAV_BACKGROUND,
 } from 'src/actions/displayActions';
 
 import {
@@ -8,6 +9,7 @@ import {
 
 const initialState = {
   authModal: false,
+  navBackground: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,6 +23,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         authModal: !state.authModal,
+      };
+    case CHANGE_NAV_BACKGROUND:
+      return {
+        ...state,
+        ...action.payload,
       };
     default:
       return state;

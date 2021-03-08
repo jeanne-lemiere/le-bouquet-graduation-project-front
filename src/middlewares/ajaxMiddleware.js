@@ -5,7 +5,7 @@ import {
   userLoginError,
 } from 'src/actions/userActions';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = ' https://c-le-bouquet.herokuapp.com';
 
 export default (store) => (next) => async (action) => {
   switch (action.type) {
@@ -17,7 +17,7 @@ export default (store) => (next) => async (action) => {
       try {
         const response = await axios({
           url: `${BASE_URL}/${userType}/login`,
-          method: 'post',
+          method: 'POST',
           data: {
             email, password,
           },
