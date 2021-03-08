@@ -27,7 +27,7 @@ const App = () => (
       <Route exact path="/nos-fleurs">
         <Products />
       </Route>
-      {/*sup <Route path="/product/:id">
+      {/*<Route path="/product/:id">
         <>
       </Route> */}
       <NotFound />
