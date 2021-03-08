@@ -15,9 +15,14 @@ padding: 0 1rem;
   display: flex;
 }
 &__icon {
-  width: 1rem;
+  &::after {
+        height: 0;
+      }
+  & svg {
+    width: 1rem;
   height: 100%;
   margin: 0 0.5rem;
+  }
 }  
     &__links{
       display: flex;

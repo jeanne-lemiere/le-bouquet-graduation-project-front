@@ -23,6 +23,7 @@ export default (store) => (next) => async (action) => {
           },
         });
         const actionToDispatch = userLoginSuccess(response.data);
+        localStorage.setItem('token', JSON.stringify(response.data.token));
         store.dispatch(actionToDispatch);
       }
       catch (error) {

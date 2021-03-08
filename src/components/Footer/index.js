@@ -1,17 +1,18 @@
 import React from 'react';
 import './styles.scss';
 import { FiFacebook, FiInstagram } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
-const Footer = ({}) => (
+const Footer = () => (
   <footer className="footer">
     <div className="footer__content">
       <div className="footer__links">
-        <a className=" footer__links--text" href="#">Qui sommes nous?</a>
-        <a className="footer__links--text" href="#">Conditions générales de vente</a>
+        <Link className=" footer__links--text" href="#">Qui sommes nous?</Link>
+        <Link className="footer__links--text" href="#">Conditions générales de vente</Link>
       </div>
       <div className="footer__links footer__links--icons">
-        <a href="https://www.instagram.com/oclock_io/?hl=fr"><FiInstagram className="footer__icon" /></a>
-        <a href="https://fr-fr.facebook.com/Oclock.io/"><FiFacebook className="footer__icon" /></a>
+        <Link className="footer__icon" to="https://www.instagram.com/oclock_io/?hl=fr"><FiInstagram /></Link>
+        <Link className="footer__icon" to="https://fr-fr.facebook.com/Oclock.io/"><FiFacebook /></Link>
       </div>
     </div>
   </footer>

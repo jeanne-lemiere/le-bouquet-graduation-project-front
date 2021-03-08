@@ -60,8 +60,14 @@ const NavBar = ({
                 </li>
               )}
             {isLogged ? (
-              <li className="nav__link">
-                <div className="link" onClick={logOut}>DECONNEXION
+              <li>
+                <div
+                  className="nav__link link"
+                  onClick={() => {
+                    localStorage.removeItem('token');
+                    logOut();
+                  }}
+                >DECONNEXION
                 </div>
               </li>
             )
