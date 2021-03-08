@@ -12,7 +12,7 @@ const Products = ({products}) => {
   return (
   <div className="products">
     {products.map((product) => (
-      <ProductCard id={'5'} flowerName={product.title} imgLink ={product.image}/>
+      <ProductCard key={product.id} id={product.id} flowerName={product.title} imgLink ={product.image} price={product.price}/>
     ))}
   </div>
   )

@@ -12,7 +12,8 @@ import './styles.scss';
 const ProductCard = ({
   imgLink,
   flowerName,
-  id
+  id,
+  price
 }) => (
   <article className="product">
     <Link to={`/product/${id}`}>
@@ -21,7 +22,7 @@ const ProductCard = ({
       </div>
       <div className="product-caption">
         <h2 className="product-title">{flowerName}</h2>
-        <p className="product-price">34,95€ </p>
+        <p className="product-price">{price}</p>
       </div>
     </Link>
   </article>
