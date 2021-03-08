@@ -1,26 +1,13 @@
-export const USER_LOGIN_INPUT_CHANGE = 'USER_LOGIN_INPUT_CHANGE';
-export const USER_HANDLE_LOGIN = 'USER_HANDLE_LOGIN';
-export const USER_HANDLE_LOGOUT = 'USER_HANDLE_LOGOUT';
-export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
-export const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR';
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 
-export const userInputChange = (payload) => ({
-  type: USER_LOGIN_INPUT_CHANGE,
-  payload,
+export const fetchProducts = () => ({
+  type: FETCH_PRODUCTS,
 });
 
-export const userLogin = (payload) => ({
-  type: USER_HANDLE_LOGIN,
-  payload,
-});
-export const userLoginSuccess = (payload) => ({
-  type: USER_LOGIN_SUCCESS,
-  payload,
-});
-export const userLoginError = () => ({
-  type: USER_LOGIN_ERROR,
+export const SET_PRODUCTS = 'SET_PRODUCTS';
+
+export const setProducts = (products) => ({
+  type: SET_PRODUCTS,
+  products,
 });
 
-export const userLogout = () => ({
-  type: USER_HANDLE_LOGOUT,
-});

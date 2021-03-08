@@ -11,7 +11,7 @@ import './styles.scss';
 
 const ProductCard = ({
   imgLink,
-  flowerName,
+  name,
   id,
   price
 }) => (
@@ -21,8 +21,8 @@ const ProductCard = ({
       <img className="product-img" src={imgLink} alt="femme"/>
       </div>
       <div className="product-caption">
-        <h2 className="product-title">{flowerName}</h2>
-        <p className="product-price">{price}</p>
+        <h2 className="product-title">{name}</h2>
+        <p className="product-price">{price}€</p>
       </div>
     </Link>
   </article>
@@ -31,7 +31,7 @@ const ProductCard = ({
 
 ProductCard.propTypes = {
   imgLink: PropTypes.string.isRequired,
-  flowerName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired
 };
 
