@@ -7,6 +7,7 @@ import Article from '../Article';
 import NavBar from '../NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../AuthModal';
+import Products from 'src/containers/Products';
 // == Import
 import './styles.scss';
 
@@ -17,11 +18,14 @@ const App = () => (
     <NavBar
       isLoggedIn={false}
     />
-    <AuthModal isHidden={false} />
+    <AuthModal isHidden={true} />
     <Switch>
       <Route exact key="/" path="/">
         <Header />
         <Article />
+      </Route>
+      <Route exact path="/nos-fleurs">
+        <Products />
       </Route>
       <NotFound />
     </Switch>
