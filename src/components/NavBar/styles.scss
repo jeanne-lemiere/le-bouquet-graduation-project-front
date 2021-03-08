@@ -9,7 +9,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 1em;
+  padding: 0 0.8em;
   z-index: 1;
   transition: background-color 0.5s ease;
   &__logo {
@@ -95,6 +95,12 @@ min-height: 18px;
   // and are replaced by a burger menu
   .nav__icon--burger {
     display: block;
+    height: 30px;
+    width: 30px;
+    & svg {
+      height: 100%;
+      width: 100%;
+    }
   }
   .nav__icon svg {
 min-width: 25px;

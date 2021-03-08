@@ -5,7 +5,7 @@ import Logo from 'src/assets/logo-bouquet.png';
 import { FiShoppingBag, FiMenu } from 'react-icons/fi';
 import { NavLink, Link } from 'react-router-dom';
 
-const NavBar = ({ isLogged, toggleAuthModal }) => {
+const NavBar = ({ isLogged, toggleAuthModal, logOut }) => {
   const [navBackground, setNavBackground] = useState(false);
 
   const changeBackground = () => {
@@ -33,18 +33,21 @@ const NavBar = ({ isLogged, toggleAuthModal }) => {
               <li className="nav__link"><NavLink exact to="/mon-espace">MON ESPACE</NavLink></li>)
               : (
                 <li className="nav__link">
-                  <NavLink
+                  <div
+                    className="link"
                     onClick={() => {
                       toggleAuthModal();
                     }}
-                    exact
-                    to="#"
                   >S'INSCRIRE/SE CONNECTER
-                  </NavLink>
+                  </div>
                 </li>
               )}
             {isLogged ? (
-              <li className="nav__link"><NavLink exact to="#">DECONNEXION</NavLink></li>)
+              <li className="nav__link">
+                <div className="link" onClick={logOut}>DECONNEXION
+                </div>
+              </li>
+            )
               : null }
           </ul>
           <Link
@@ -52,11 +55,10 @@ const NavBar = ({ isLogged, toggleAuthModal }) => {
             to="/panier"
           ><FiShoppingBag />
           </Link>
-          <Link
+          <div
             className="nav__icon nav__icon--burger"
-            to="#"
           ><FiMenu />
-          </Link>
+          </div>
         </div>
 
       </nav>
@@ -67,5 +69,6 @@ const NavBar = ({ isLogged, toggleAuthModal }) => {
 NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   toggleAuthModal: PropTypes.func.isRequired,
+  logOut: PropTypes.func.isRequired,
 };
 export default NavBar;

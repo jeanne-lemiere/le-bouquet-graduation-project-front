@@ -4,9 +4,6 @@ import {
   userLoginSuccess,
   userLoginError,
 } from 'src/actions/userActions';
-import {
-  toggleAuthModal,
-} from 'src/actions/displayActions';
 
 const BASE_URL = 'http://localhost:3000';
 

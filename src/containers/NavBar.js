@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NavBar from 'src/components/NavBar';
-
+import { userLogout } from 'src/actions/userActions';
 import { toggleAuthModal } from 'src/actions/displayActions';
 
 const mapState = (state) => {
@@ -15,6 +15,10 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => ({
   toggleAuthModal: () => {
     const action = toggleAuthModal();
+    dispatch(action);
+  },
+  logOut: () => {
+    const action = userLogout();
     dispatch(action);
   },
 });

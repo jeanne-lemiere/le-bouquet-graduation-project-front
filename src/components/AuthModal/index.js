@@ -7,9 +7,6 @@ import LoginForm from 'src/containers/LoginForm';
 
 const AuthModal = ({ isLogged, open, toggle }) => {
   const modalClass = open ? 'modal' : 'modal modal--is-hidden';
-  if (isLogged) {
-    return null;
-  }
   return (
     <div className={modalClass}>
       <div className="modal__card">

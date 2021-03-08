@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
 import ajaxMiddleware from 'src/middlewares/ajaxMiddleware';
-
 import reducer from 'src/reducer';
 
 // eslint-disable-next-line no-underscore-dangle
