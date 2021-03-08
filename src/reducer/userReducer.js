@@ -9,6 +9,7 @@ const initialState = {
   email: 'dantes@gmail.com',
   password: 'lepharaon14',
   userType: '',
+  loginError: false,
   isLogged: false,
   infos: {
     token: localStorage.getItem('token'),
@@ -23,6 +24,7 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         isLogged: true,
+        loginError: false,
         infos: {
           ...action.payload,
         },
@@ -32,6 +34,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
+        loginError: true,
         infos: {},
       };
     case USER_HANDLE_LOGOUT:

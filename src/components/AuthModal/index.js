@@ -5,13 +5,20 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 import LoginForm from 'src/containers/LoginForm';
 
-const AuthModal = ({ isHidden }) => {
-  const modalClass = isHidden ? 'modal modal--is-hidden' : 'modal';
-
+const AuthModal = ({ isLogged, open, toggle }) => {
+  const modalClass = open ? 'modal' : 'modal modal--is-hidden';
+  if (isLogged) {
+    return null;
+  }
   return (
     <div className={modalClass}>
       <div className="modal__card">
-        <FiXCircle className="modal__closing-icon" />
+        <button
+          type="button"
+          className="modal__closing-icon-container"
+          onClick={toggle}
+        ><FiXCircle className="modal__closing-icon" />
+        </button>
         <section className="auth__zone auth__zone--login">
           <div className="auth__content-container">
             <header className="auth__header">Vous possédez déjà un compte? </header>
@@ -31,7 +38,9 @@ const AuthModal = ({ isHidden }) => {
 };
 
 AuthModal.propTypes = {
-  isHidden: PropTypes.bool.isRequired,
+  open: PropTypes.bool.isRequired,
+  toggle: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 export default AuthModal;

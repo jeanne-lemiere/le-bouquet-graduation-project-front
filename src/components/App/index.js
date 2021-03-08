@@ -4,9 +4,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
-import NavBar from '../NavBar';
+import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
-import AuthModal from '../AuthModal';
+import AuthModal from '../../containers/AuthModal';
 // == Import
 import './styles.scss';
 
@@ -14,10 +14,8 @@ import './styles.scss';
 
 const App = () => (
   <div className="app-container">
-    <NavBar
-      isLoggedIn={false}
-    />
-    <AuthModal isHidden={false} />
+    <NavBar />
+    <AuthModal isHidden />
     <Switch>
       <Route exact key="/" path="/">
         <Header />

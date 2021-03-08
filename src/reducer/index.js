@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import userReducer from './userReducer';
-
+import displayReducer from './displayReducer';
 // Her we combine specific reducers (user, order, product...)
 // and export them so we can use them as one in createStore
 
@@ -10,4 +10,5 @@ import userReducer from './userReducer';
 
 export default combineReducers({
   user: userReducer,
+  display: displayReducer,
 });

@@ -5,7 +5,7 @@ import Logo from 'src/assets/logo-bouquet.png';
 import { FiShoppingBag, FiMenu } from 'react-icons/fi';
 import { NavLink, Link } from 'react-router-dom';
 
-const NavBar = ({ isLoggedIn }) => {
+const NavBar = ({ isLogged, toggleAuthModal }) => {
   const [navBackground, setNavBackground] = useState(false);
 
   const changeBackground = () => {
@@ -29,15 +29,34 @@ const NavBar = ({ isLoggedIn }) => {
             <li className="nav__link"> <NavLink exact to="/nos-fleurs">NOS FLEURS</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-producteurs">NOS PRODUCTEURS</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>
-            {isLoggedIn ? (
+            {isLogged ? (
               <li className="nav__link"><NavLink exact to="/mon-espace">MON ESPACE</NavLink></li>)
-              : (<li className="nav__link"> <NavLink exact to="#">S'INSCRIRE/SE CONNECTER</NavLink></li>)}
-            {isLoggedIn ? (
+              : (
+                <li className="nav__link">
+                  <NavLink
+                    onClick={() => {
+                      toggleAuthModal();
+                    }}
+                    exact
+                    to="#"
+                  >S'INSCRIRE/SE CONNECTER
+                  </NavLink>
+                </li>
+              )}
+            {isLogged ? (
               <li className="nav__link"><NavLink exact to="#">DECONNEXION</NavLink></li>)
               : null }
           </ul>
-          <Link className="nav__icon" to="/panier"><FiShoppingBag /></Link>
-          <Link className="nav__icon nav__icon--burger" to="#"><FiMenu /></Link>
+          <Link
+            className="nav__icon"
+            to="/panier"
+          ><FiShoppingBag />
+          </Link>
+          <Link
+            className="nav__icon nav__icon--burger"
+            to="#"
+          ><FiMenu />
+          </Link>
         </div>
 
       </nav>
@@ -46,6 +65,7 @@ const NavBar = ({ isLoggedIn }) => {
 };
 
 NavBar.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+  toggleAuthModal: PropTypes.func.isRequired,
 };
 export default NavBar;
