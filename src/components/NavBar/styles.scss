@@ -38,9 +38,6 @@ opacity: 0.9;
     margin: 1em;
     font-weight: 400;
   font-size: 0.8rem;
-  /*   & div {
-    margin-bottom: 0.7em;
-  } */
   }
   &__icon {
    display: block;
@@ -73,6 +70,9 @@ opacity: 0.9;
    }
 }
 
+.link {
+  font-weight: 400;
+}
 
 //specific font-size for tablets and small pc screens
  @media only screen and (max-width: 1024px) {
