@@ -7,6 +7,11 @@
   margin-top: vars.$gutter;
   overflow: hidden;
   cursor: pointer;
+  & a {
+    &::after {
+      height: 0;
+    }
+  }
 
   &-image-container {
     height: 80%;
