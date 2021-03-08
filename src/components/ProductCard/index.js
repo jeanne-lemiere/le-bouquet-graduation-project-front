@@ -17,9 +17,9 @@ const ProductCard = ({
 }) => (
   <article className="product">
     <Link to={`/product/${id}`}>
-      <div className="product-image-container">
+      {/* <div className="product-image-container"> */}
       <img className="product-img" src={imgLink} alt="femme"/>
-      </div>
+      {/* </div> */}
       <div className="product-caption">
         <h2 className="product-title">{name}</h2>
         <p className="product-price">{price}€</p>
