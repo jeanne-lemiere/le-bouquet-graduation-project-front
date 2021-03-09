@@ -1,22 +1,43 @@
 @use 'src/styles/vars';
 
-.singleProduct {
+.single-product {
   display: flex;
   margin-top: 5rem;
+  padding: 0.6rem 1rem;
+  justify-content: space-between;
 
-  &-picture {
-    height: 400px;
-    width: 50%;
+  &_leftside {
+    height: 500px;
+    margin-right: 2rem;
     overflow: hidden;
+    width: 40%;
+
     & img {
-      height: 400px;
+      height: 100%;
       width: 100%;
       object-fit: cover;
     }
   }
-  &-description {
+  &_rightside {
+    flex: 1;
     height: 400px;
-    width: 50%;
     background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.product {
+  &-name {
+    background-color: aqua;
+  }
+  &-shopname {
+    background-color: azure;
+  }
+  &-price {
+    background-color: blue;
+  }
+  &-description {
+    background-color: chartreuse;
   }
 }
