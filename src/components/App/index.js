@@ -7,6 +7,9 @@ import Article from '../Article';
 import NavBar from '../NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../AuthModal';
+// SingleProduct est la page pour les détails d'un seul produit
+import SingleProduct from '../SingleProduct';
+//Products est le page contenant tous les produits, ProductCard se trouve dans Products
 import Products from 'src/containers/Products';
 // == Import
 import './styles.scss';
@@ -27,9 +30,9 @@ const App = () => (
       <Route exact path="/nos-fleurs">
         <Products />
       </Route>
-      {/*<Route path="/product/:id">
-        <>
-      </Route> */}
+      <Route path="/product/:id">
+        <SingleProduct />
+      </Route>
       <NotFound />
     </Switch>
     <Footer />

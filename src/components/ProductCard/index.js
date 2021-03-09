@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 // import Erreur404 from '../Erreur404';
 
-
+// ProductCard représente la card d'un seul produit dans la page Products
 const ProductCard = ({
   imgLink,
   name,

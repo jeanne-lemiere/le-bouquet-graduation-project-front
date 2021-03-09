@@ -1,0 +1,22 @@
+@use 'src/styles/vars';
+
+.singleProduct {
+  display: flex;
+  margin-top: 5rem;
+
+  &-picture {
+    height: 400px;
+    width: 50%;
+    overflow: hidden;
+    & img {
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &-description {
+    height: 400px;
+    width: 50%;
+    background-color: red;
+  }
+}
