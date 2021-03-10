@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
+import productImage from 'src/assets/product-image.jpg';
 import NotFound from '../NotFound';
 
 import './styles.scss';
@@ -8,7 +9,6 @@ import './styles.scss';
 // Il s'agit ici de la page de détails d'un seul produit
 
 const SingleProduct = ({ products }) => {
- 
   // On extrait l'id des paramètres de la route
   const { id } = useParams();
   // Puis on cherche l'article demandé parmi la liste des articles
@@ -24,45 +24,44 @@ const SingleProduct = ({ products }) => {
   // Si on a trouvé l'article, on extrait les variables depuis cet article
   // Attention de renommer l'id puisqu'il est déclaré plus haut
   const {
-    id: productId, price, name, description, images, seller
+    id: productId, price, name, description, images, seller,
   } = productFound;
-  console.log(productFound)
+  console.log(productFound);
 
   return (
-  <div className="single-product">
-    <div className="single-product_leftside">
-      <img src={images[0].url}></img>
+    <div className="single-product">
+      <div className="single-product_leftside">
+        {/* <img src={images[0].url}></img> alt="bouquet" */}
+        <img src={productImage} alt="bouquet" />
+      </div>
+      <div className="single-product_rightside">
+        <h2 className="product-name">{name}</h2>
+        <p className="product-shopname">vendu par <i>{seller.shop_name}</i></p>
+        <p className="product-price">{price}€</p>
+        <p className="product-description">{description}</p>
+        <button
+          className="add-to-cart"
+          type="button"
+        >→ Ajouter au panier
+        </button>
+      </div>
     </div>
-    <div className="single-product_rightside">
-      <h2 className="product-name">{name}</h2>
-      <p className="product-shopname">vendu par <i>{seller.shop_name}</i></p>
-      <p className="product-price">{price}€</p>
-      <p className="product-description">{description}</p>
-      <button className="add-to-cart">→ Ajouter au panier</button>
-    </div>
-  </div>
-  )
+  );
 };
 
-  SingleProduct.propTypes = {
-    products: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-        description: PropTypes.string,
-        price: PropTypes.string,
-      }),
-    ),
-  };
+SingleProduct.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      price: PropTypes.string,
+    }),
+  ),
+};
 
-  SingleProduct.defaultProps = {
-    products: [],
-  };
+SingleProduct.defaultProps = {
+  products: [],
+};
 
 export default SingleProduct;
-
-
-
-
-
-
