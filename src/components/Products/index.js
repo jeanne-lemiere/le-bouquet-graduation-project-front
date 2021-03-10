@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 const Products = ({products, fetchProducts}) => {
   useEffect(() => {
+    window.scrollTo(0,0)
     // On demande à récupérer la donnée
     // Pour ca je dois donc déclencher une intention de récupération de données
     fetchProducts();
