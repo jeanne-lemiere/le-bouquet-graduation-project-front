@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import LoginForm from 'src/components/AuthModal/LoginForm';
 
-import { userInputChange, userLogin } from 'src/actions/userActions';
+import { loginInputChange, userLogin } from 'src/actions/loginActions';
 
 const mapState = (state) => {
   const {
     email, password, userType, loginError,
-  } = state.user;
+  } = state.login;
   return {
     email,
     password,
@@ -20,7 +20,7 @@ const mapDispatch = (dispatch) => ({
     // here I am getting infos from form inputs and turning it into a JS object
     // so then can I can easily change the values contained in the state
     const data = { [name]: value };
-    const action = userInputChange(data);
+    const action = loginInputChange(data);
     dispatch(action);
   },
   handleLogin: () => {

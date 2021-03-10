@@ -7,6 +7,7 @@ import Article from '../Article';
 import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
+import SigninForm from '../../containers/SigninForm';
 // == Import
 import './styles.scss';
 
@@ -20,6 +21,12 @@ const App = () => (
       <Route exact key="/" path="/">
         <Header />
         <Article />
+      </Route>
+      <Route exact key="/inscription/client" path="/inscription/client">
+        <SigninForm signinAs="customer" />
+      </Route>
+      <Route exact key="/inscription/client" path="/inscription/pro">
+        <SigninForm signinAs="seller" />
       </Route>
       <NotFound />
     </Switch>

@@ -3,7 +3,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_ERROR,
   USER_HANDLE_LOGOUT,
-} from 'src/actions/userActions';
+} from 'src/actions/loginActions';
 
 const initialState = {
   email: '',
