@@ -8,11 +8,11 @@
   margin-bottom: 2rem;
 
   &_leftside {
-    height: 500px;
+    height: 600px;
     margin-right: 2rem;
     overflow: hidden;
-    width: 40%;
-    min-width: 320px;
+    width: 35%;
+    min-width: 350px;
 
     & img {
       height: 100%;
@@ -71,12 +71,12 @@
     width: 100%;
     align-items: center;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 5rem;
 
     &_leftside {
       width: 85%;
       margin: 0;
-      height: 62vh;
+      height: 97vh;
     }
     &_rightside {
       padding-top: 1rem;

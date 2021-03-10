@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import NotFound from '../NotFound';
@@ -8,12 +8,7 @@ import './styles.scss';
 // Il s'agit ici de la page de détails d'un seul produit
 
 const SingleProduct = ({ products }) => {
-  useEffect(() => {
-    //cette fonction permet de remonter en haut d'une page, car sinon le scroll se situe au meme niveau que sur l'autre component
-    window.scrollTo(0,0)
-    // On demande à récupérer la donnée
-    // Pour ca je dois donc déclencher une intention de récupération de données
-  }, []);
+ 
   // On extrait l'id des paramètres de la route
   const { id } = useParams();
   // Puis on cherche l'article demandé parmi la liste des articles

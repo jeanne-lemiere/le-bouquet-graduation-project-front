@@ -16,10 +16,10 @@ import './styles.scss';
 
 // == Composant
 
+
 const App = ({fetchProducts}) => {
     useEffect(() => {
-      // On demande à récupérer la donnée
-      // Pour ca je dois donc déclencher une intention de récupération de données
+      
       fetchProducts();
     }, []);
 
