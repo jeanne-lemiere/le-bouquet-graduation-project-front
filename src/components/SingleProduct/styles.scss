@@ -5,12 +5,14 @@
   margin-top: 5rem;
   padding: 0.6rem 1rem;
   justify-content: space-between;
+  margin-bottom: 2rem;
 
   &_leftside {
     height: 500px;
     margin-right: 2rem;
     overflow: hidden;
     width: 40%;
+    min-width: 320px;
 
     & img {
       height: 100%;
@@ -20,24 +22,65 @@
   }
   &_rightside {
     flex: 1;
-    height: 400px;
-    background-color: red;
-    display: flex;
-    flex-wrap: wrap;
+    padding-top: 8rem;
+    height: auto;
+    padding-right: 17vw;
+    min-width: 320px;
+
+    & .add-to-cart {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      color: vars.$font-color;
+      font-weight: 600;
+      font-style: italic;
+    }
   }
 }
 
 .product {
   &-name {
-    background-color: aqua;
+    font-size: 1.9em;
+    font-weight: 580;
   }
   &-shopname {
-    background-color: azure;
+    font-size: 0.8em;
+    font-style: italic;
+    & i {
+      font-weight: 580;
+    }
   }
   &-price {
-    background-color: blue;
+    font-size: 1.6rem;
+    font-style: italic;
   }
   &-description {
-    background-color: chartreuse;
+    font-size: 1rem;
+    font-style: italic;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .single-product_rightside {
+    padding-right: 7vw;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .single-product {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    &_leftside {
+      width: 85%;
+      margin: 0;
+      height: 62vh;
+    }
+    &_rightside {
+      padding-top: 1rem;
+      width: 85%;
+    }
   }
 }

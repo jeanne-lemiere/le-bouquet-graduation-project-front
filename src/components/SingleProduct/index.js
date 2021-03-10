@@ -34,9 +34,10 @@ const SingleProduct = ({ products }) => {
     </div>
     <div className="single-product_rightside">
       <h2 className="product-name">{name}</h2>
-      <p className="product-shopname">Vendu par <i>{seller.shop_name}</i></p>
-      <p className="product-price">{price}</p>
+      <p className="product-shopname">vendu par <i>{seller.shop_name}</i></p>
+      <p className="product-price">{price}€</p>
       <p className="product-description">{description}</p>
+      <button className="add-to-cart">→ Ajouter au panier</button>
     </div>
   </div>
   )
