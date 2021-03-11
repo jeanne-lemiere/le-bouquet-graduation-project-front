@@ -1,8 +1,7 @@
 import {
   USER_SIGNIN_SUCCESS,
   USER_SIGNIN_ERROR,
-  USER_SIGNIN_INPUT_CHANGE,
-  HANDLE_GSC_CHECK,
+  SIGNIN_USERTYPE,
 } from 'src/actions/signinActions';
 
 // some variables below are in snake case
@@ -11,21 +10,7 @@ import {
 // If I change to camel case either I cannot control the inputs or the axios request won't work
 // I don't know what the good approch would be here
 const initialState = {
-  gscChecked: false,
-  signinInfos: {
-    gender: 'F',
-    email: '',
-    password: '',
-    passwordConfirm: '',
-    lastname: '',
-    firstname: '',
-    phone_number: '',
-    street_name: '',
-    street_number: '',
-    city: '',
-    zipcode: '',
-    userType: '',
-  },
+  userType: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -44,18 +29,10 @@ const reducer = (state = initialState, action = {}) => {
         loginError: true,
         infos: {},
       };
-    case USER_SIGNIN_INPUT_CHANGE:
+    case SIGNIN_USERTYPE:
       return {
         ...state,
-        signinInfos: {
-          ...state.signinInfos,
-          ...action.payload,
-        },
-      };
-    case HANDLE_GSC_CHECK:
-      return {
-        ...state,
-        gscChecked: !state.gscChecked,
+        userType: action.payload,
       };
     default:
       return state;

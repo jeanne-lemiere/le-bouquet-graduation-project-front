@@ -1,0 +1,90 @@
+@use 'src/styles/vars';
+
+.signin {
+  height: auto;
+  min-height: 95vh;
+  width: 80%;
+  margin: 8vh auto;
+  padding: 1em 0;
+  & h1 {
+    padding: 1em;
+    padding-top: 0;
+  }
+  &__form {
+   background-color: vars.$footer-color;
+    width: 800px;
+    margin: auto;
+    padding: 2em 1em;
+  }
+  &__checkbox {
+    padding: 1em;
+  }
+}
+.signin-form__section {
+margin-bottom: 2em;
+}
+.signin-form__radio {
+  display: flex;
+  margin-right: 0.5em;
+}
+.hidden-usertype {
+  display:none;
+}
+.signin__submit-button{
+   width: 30%;
+  height: auto;
+  margin: 1em auto;
+  display: block;
+  border: none;
+  padding: 0.5rem 0;
+  background: #0A1D7D;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+ border: solid 1px;
+  border-color: #0A1D7D;
+  &:hover {
+    background: none;
+    color: #0A1D7D;
+}
+}
+.signin__error {
+font-size: 0.85em;
+color: #a61a05;
+}
+
+.form__input--textarea {
+  height: 150px;
+  font-size: 1em;
+}
+// MEDIA QUERIES
+ @media only screen and (max-width: 1024px) {
+.signin h1 {
+  padding: 1em 0;
+ }
+}
+ @media only screen and (max-width: 812px) {
+.signin {
+  padding: 1em 0.5em;
+  &__form {
+  width: 100%;
+  }
+ }
+}
+
+  @media (min-width: 415px) and (max-width: 650px) { 
+.signin {
+  margin-top: 10vh;
+}
+} 
+
+ @media only screen and (max-width: 650px) {
+.signin__submit-button{
+   width: 60%;
+ }
+ .signin__form {
+    padding: 1em 0.5em;
+}
+ }

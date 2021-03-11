@@ -55,6 +55,10 @@ font-size: 0.85em;
 color: #a61a05;
 }
 
+.form__input--textarea {
+  height: 150px;
+  font-size: 1em;
+}
 // MEDIA QUERIES
  @media only screen and (max-width: 1024px) {
 .signin h1 {

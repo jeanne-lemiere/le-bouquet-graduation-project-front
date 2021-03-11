@@ -2,13 +2,14 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import ScrollToTop from 'src/functions/scrollToTop';
+import SigninFormCustomer from 'src/containers/SigninFormCustomer';
+import SigninFormSeller from 'src/containers/SigninFormSeller';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
 import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
-import SigninForm from '../SigninForm';
 
 // == Import
 import './styles.scss';
@@ -31,10 +32,10 @@ const App = () => {
           <Article />
         </Route>
         <Route exact key="/inscription/client" path="/inscription/client">
-          <SigninForm signinAs="customer" onSubmit={showSigninData} />
+          <SigninFormCustomer onSubmit={showSigninData} />
         </Route>
-        <Route exact key="/inscription/client" path="/inscription/pro">
-          <SigninForm signinAs="seller" onSubmit={showSigninData} />
+        <Route exact key="/inscription/pro" path="/inscription/pro">
+          <SigninFormSeller onSubmit={showSigninData} />
         </Route>
         <NotFound />
       </Switch>

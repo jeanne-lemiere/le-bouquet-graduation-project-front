@@ -1,6 +1,6 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable camelcase */
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -40,6 +40,20 @@ const HomemadeRadio = ({
   </div>
 );
 
+const HomemadeTextArea = ({
+  input, label, type, meta: { touched, error },
+}) => (
+  <div>
+    <textarea
+      {...input}
+      placeholder={label}
+      {...type}
+      className="form__input form__input--textarea"
+    />
+    {touched && (error && <span className="signin__error">{error}</span>)}
+  </div>
+);
+
 const CheckGSC = ({
   input, label, type, meta: { touched, error },
 }) => (
@@ -59,12 +73,15 @@ const CheckGSC = ({
   </div>
 );
 
-let SigninForm = ({
-  signinAs,
+let SigninFormCustomer = ({
   handleSubmit,
   submitting,
+  updateUsertype,
 }) => {
-  const roleName = signinAs === 'seller' ? 'pro' : 'client';
+  useEffect(() => {
+    updateUsertype();
+  }, []);
+
   const options = [
     { text: 'Madame', value: 'F' },
     { text: 'Monsieur', value: 'M' },
@@ -72,17 +89,11 @@ let SigninForm = ({
 
   return (
     <div className="signin">
-      <h1>Formulaire d'inscription {roleName}</h1>
+      <h1>Formulaire d'inscription client</h1>
       <form
         className="signin__form"
         onSubmit={handleSubmit}
       >
-        <input
-          className="hidden-usertype"
-          name="userType"
-          value={signinAs}
-          readOnly
-        />
         <h2>Civilité</h2>
         <div className="signin-form__section">
           <div className="signin-form__radio">
@@ -167,6 +178,7 @@ let SigninForm = ({
 
           />
         </div>
+
         <Field
           name="gsc"
           label="Conditions générales"
@@ -179,20 +191,23 @@ let SigninForm = ({
           disabled={submitting}
           aria-label="créer mon compte"
           className="signin__submit-button"
-        >Créer mon compte {roleName}
+        >Créer mon compte client
         </button>
       </form>
     </div>
   );
 };
 
-SigninForm = reduxForm({
-  form: 'signin',
+SigninFormCustomer = reduxForm({
+  form: 'signinCustomer',
   validate,
-})(SigninForm);
+})(SigninFormCustomer);
 
-SigninForm.propTypes = {
-  signinAs: PropTypes.string.isRequired,
+// Redux Form works but props are somehow undefined
+SigninFormCustomer.propTypes = {
+  // handleSubmit: PropTypes.func.isRequired,
+  // submitting: PropTypes.bool.isRequired,
+  updateUsertype: PropTypes.func.isRequired,
 };
 
-export default SigninForm;
+export default SigninFormCustomer;
