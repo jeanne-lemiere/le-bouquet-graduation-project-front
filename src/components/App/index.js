@@ -9,7 +9,7 @@ import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
-import Card from 'src/components/Card';
+import Cart from 'src/components/Cart';
 
 // == Import
 import './styles.scss';
@@ -38,7 +38,7 @@ const App = ({fetchProducts}) => {
           <SingleProduct />
         </Route>
         <Route path="/panier" exact>
-          <Card />
+          <Cart />
         </Route>
       <NotFound />
     </Switch>

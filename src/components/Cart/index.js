@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 
-const Card = () => (
+const Cart = () => (
     <div className="card">
         {/* <div className="sub-card"> */}
             <div className="card__top">
@@ -68,4 +68,4 @@ const Card = () => (
   </div>
 );
 
-export default Card;
+export default Cart;

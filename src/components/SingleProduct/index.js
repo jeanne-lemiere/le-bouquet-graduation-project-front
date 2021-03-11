@@ -26,10 +26,43 @@ const SingleProduct = ({ products }) => {
   const {
     id: productId, price, name, description, images, seller,
   } = productFound;
-  console.log(productFound);
+  // console.log(productFound);
+
+  const addToCart = event => {
+
+    const id = event.target.closest(".single-product").getAttribute("id"); // on récupère le id du produit
+
+    let cart = JSON.parse(localStorage.getItem("cart")) // on vérifie s'il y a quelque chose dans cart
+    
+    if (cart) {         // s'il y a quelque chose, on vérifie si le id de l'élément cliqué y est
+      const findProduct = cart.find(element => element.id == id);
+
+      if (findProduct) {    // il y est, on augmente la quantité
+        console.log(findProduct, "existe alors j'augmente sa quantité")
+        findProduct.quantity++
+        console.log("Il vaut maintenant",findProduct);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        const allProducts = JSON.parse(localStorage.getItem("cart"))
+        console.log("Voici tout le panier : ", allProducts)
+
+      } else { // il n'y est pas, on l'ajoute
+        const newCart = cart.push({id: id, quantity: 1})
+        localStorage.setItem("cart", JSON.stringify(cart));
+        console.log("N'a pas trouvé, alors ajouté", JSON.parse(localStorage.getItem("cart")))
+      }
+    
+    } else { // aucun panier n'existe encore, on le crée
+      const newCart = [{id: id, quantity: 1}]
+      localStorage.setItem("cart", JSON.stringify(newCart));
+
+      const allProducts = JSON.parse(localStorage.getItem("cart"))
+      console.log("Aucun panier, on en crée un : ", allProducts)
+    }
+  };
 
   return (
-    <div className="single-product">
+    <div className="single-product" id={id}>
       <div className="single-product_leftside">
         {/* <img src={images[0].url}></img> alt="bouquet" */}
         <img src={productImage} alt="bouquet" />
@@ -42,6 +75,7 @@ const SingleProduct = ({ products }) => {
         <button
           className="add-to-cart"
           type="button"
+          onClick={addToCart}
         >→ Ajouter au panier
         </button>
       </div>
