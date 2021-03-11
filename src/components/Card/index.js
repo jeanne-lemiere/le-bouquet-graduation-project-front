@@ -9,10 +9,8 @@ const Card = () => (
                 <h2 className='card__title'>Votre panier</h2>
                 <Link to='/récapitulatif' className='card__next'>Passer la commande</Link>
             </div>
-            {/* <div className="card__sub-top"> */}
                 <Link to='/nos-fleurs'>← Retourner à la boutique</Link>
-                
-            {/* </div> */}
+
             <div className="card__content">
                 <div className="card__products">
                     <div className="card__product" id="1"> {/*un produit */}
@@ -71,17 +69,3 @@ const Card = () => (
 );
 
 export default Card;
-
-
-
-
-{/* <div className="card__product__info">
-    <div className="info__top">
-        <h3 className="info__left__title">Camélias de la dame</h3>
-        <p className="info__left__description">Fleur symbolique du 1er mai, le muguet séduit par ses délicates clochettes blanches. Cette fleur de la famille des Liliacées se trouve communément dans tout l'hémisphère nord. Plusieurs variétés ont été mises au point à partir de l'espèce : 'Albostriata', 'Flore Pleno', etc.</p>
-    </div>
-    <div className="info__bottom">
-        <p><span className="info__bottom__quantity-text">Quantité :</span><span className="info__left__quantity-number"> 1</span></p>
-        <p><span className='info__bottom__price-container'>Prix</span> : <span className="info__price-content"> 23.90€</span></p>
-    </div>
-</div> */}
