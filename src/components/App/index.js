@@ -8,6 +8,7 @@ import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import SigninForm from '../../containers/SigninForm';
+import ScrollToTop from '../../functions/scrollToTop';
 // == Import
 import './styles.scss';
 
@@ -15,6 +16,7 @@ import './styles.scss';
 
 const App = () => (
   <div className="app-container">
+    <ScrollToTop />
     <NavBar />
     <AuthModal isHidden />
     <Switch>
