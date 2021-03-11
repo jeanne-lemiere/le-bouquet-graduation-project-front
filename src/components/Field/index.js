@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const HomemadeField = (props) => (
+const Field = (props) => (
   <div>
     <input
       {...props}
@@ -15,9 +15,9 @@ const HomemadeField = (props) => (
 
 );
 
-HomemadeField.propTypes = {
+Field.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
 };
-export default HomemadeField;
+export default Field;

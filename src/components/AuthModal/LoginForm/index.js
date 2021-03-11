@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HomemadeField from 'src/components/HomemadeField';
+import Field from 'src/components/Field';
 import Radio from 'src/components/Radio';
 
 import './styles.scss';
@@ -49,7 +49,7 @@ const LoginForm = ({
         ))}
       </div>
       {errorMessage}
-      <HomemadeField
+      <Field
         label="Email"
         placeholder="ADRESSE EMAIL"
         value={email}
@@ -57,7 +57,7 @@ const LoginForm = ({
         type="email"
         onChange={changeField}
       />
-      <HomemadeField
+      <Field
         label="Mot de passe"
         placeholder="MOT DE PASSE"
         value={password}

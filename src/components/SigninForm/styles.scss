@@ -50,6 +50,11 @@ margin-bottom: 2em;
     color: #0A1D7D;
 }
 }
+.signin__error {
+font-size: 0.85em;
+color: #a61a05;
+}
+
 // MEDIA QUERIES
  @media only screen and (max-width: 1024px) {
 .signin h1 {
