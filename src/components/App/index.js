@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
+import Card from '../Card';
 import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
@@ -20,6 +21,9 @@ const App = () => (
       <Route exact key="/" path="/">
         <Header />
         <Article />
+      </Route>
+      <Route exact path="/panier">
+        <Card />
       </Route>
       <NotFound />
     </Switch>
