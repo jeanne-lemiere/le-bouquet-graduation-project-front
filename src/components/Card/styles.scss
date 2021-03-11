@@ -219,6 +219,13 @@
 
   }
 
+  @media only screen and (max-width: 800px) {
+    .info__left__title {
+        margin-bottom: 1rem;
+
+    }
+  }
+
   @media only screen and (max-width: 640px) {
     .card {
         padding: 7rem 1rem 5rem 1rem;
@@ -238,11 +245,19 @@
                 height: 180px;
             }
             &__info {
-                height: 210px;
+                height: 220px;
             }
         }
         .info__left {
-            display: inline;
+            display: inline-block;
+            &__title {
+                & a {
+                    display: inline-block;
+                    padding: 0;
+                    margin: 0;
+                    margin-bottom: 1rem;
+                }
+            }
             &__description {
                 height: 5.5rem;
                 font-size: 1rem;

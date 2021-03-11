@@ -15,7 +15,7 @@ const Card = () => (
             {/* </div> */}
             <div className="card__content">
                 <div className="card__products">
-                    <div className="card__product"> {/*un produit */}
+                    <div className="card__product" id="1"> {/*un produit */}
 
                         <div className="card__product__img-container">
                             <Link to="/product/1" className="card__img-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Biedermeierstrau%C3%9F_aus_Seidenblumen_und_pr%C3%A4parierten_Rosen.JPG/1200px-Biedermeierstrau%C3%9F_aus_Seidenblumen_und_pr%C3%A4parierten_Rosen.JPG" alt='image'></img></Link>
@@ -39,7 +39,7 @@ const Card = () => (
 
                     </div>
 
-                    <div className="card__product"> {/*un produit */}
+                    <div className="card__product" id="2"> {/*un produit */}
                         <div className="card__product__img-container">
                             <Link to="/product/1" className="card__img-link"><img src="https://www.fleursmariage.com/3976-large_default/bouquet-decoratif-lausanne.jpg" alt='image'></img></Link>
                         </div>
