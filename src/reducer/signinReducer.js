@@ -2,6 +2,8 @@ import {
   USER_SIGNIN_SUCCESS,
   USER_SIGNIN_ERROR,
   SIGNIN_USERTYPE,
+  HANDLE_IMG_UPLOAD,
+  UPDATE_PICTURE_URL,
 } from 'src/actions/signinActions';
 
 // some variables below are in snake case
@@ -33,6 +35,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         userType: action.payload,
+      };
+    case HANDLE_IMG_UPLOAD:
+      return {
+        ...state,
+        pictureFile: action.payload,
+      };
+    case UPDATE_PICTURE_URL:
+      return {
+        ...state,
+        picture_url: action.payload,
       };
     default:
       return state;

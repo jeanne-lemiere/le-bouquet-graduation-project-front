@@ -1,11 +1,14 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable camelcase */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
+import { storage } from 'src/firebase';
+import { FiShare } from 'react-icons/fi';
 import validate from 'src/functions/validateSeller';
+import { handleImgUpload } from '../../actions/signinActions';
 
 // A custom Field component to be given to redux-form's built-in super component
 const HomemadeField = ({
@@ -77,6 +80,9 @@ let SigninFormSeller = ({
   handleSubmit,
   submitting,
   updateUsertype,
+  image,
+  onUploadChange,
+  updatePictureUrl,
 }) => {
   useEffect(() => {
     updateUsertype();
@@ -87,6 +93,23 @@ let SigninFormSeller = ({
     { text: 'Monsieur', value: 'M' },
   ];
 
+  // TESTING FILE UPLOAD
+  const handleUpload = () => {
+    const uploadImage = storage.ref(`sellers/${image.name}`).put(image);
+    uploadImage.on('state_changed',
+      (snapshot) => { },
+      (error) => {
+        console.log(error);
+      }, () => {
+        storage
+          .ref('sellers')
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            updatePictureUrl(url);
+          });
+      });
+  };
   return (
     <div className="signin">
       <h1>Formulaire d'inscription pro</h1>
@@ -180,6 +203,17 @@ let SigninFormSeller = ({
         </div>
 
         <h2>Ma Boutique</h2>
+        {/* <Field
+          name="profile_pic"
+          label="Ajouter une photo de profil"
+          component={UploadFile}
+          type="file"
+          handleUpload={() => {
+            console.log('coucou');
+          }}
+
+        /> */}
+
         <Field
           name="siret"
           label="SIRET"
@@ -198,6 +232,21 @@ let SigninFormSeller = ({
           component={HomemadeTextArea}
           type="textarea"
         />
+
+        <div>
+          <label
+            htmlFor="profile_pic"
+            onClick={handleUpload}
+            className="form__input--label"
+          ><input
+            name="profile_pic"
+            label="Ajouter une photo de profil"
+            type="file"
+            onChange={onUploadChange}
+            className="form__input form__input--upload"
+          /><FiShare className="upload-icon" />Ajouter une photo de profil
+          </label>
+        </div>
 
         <Field
           name="gsc"
@@ -228,6 +277,8 @@ SigninFormSeller.propTypes = {
   // handleSubmit: PropTypes.func.isRequired,
   // submitting: PropTypes.bool.isRequired,
   updateUsertype: PropTypes.func.isRequired,
+  onUploadChange: PropTypes.func.isRequired,
+  updatePictureUrl: PropTypes.func.isRequired,
 };
 
 export default SigninFormSeller;

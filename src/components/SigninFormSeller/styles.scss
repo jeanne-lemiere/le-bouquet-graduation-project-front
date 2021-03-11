@@ -10,6 +10,9 @@
     padding: 1em;
     padding-top: 0;
   }
+  & label {
+    font-size: 0.9em;
+  }
   &__form {
    background-color: vars.$footer-color;
     width: 800px;
@@ -59,6 +62,33 @@ color: #a61a05;
   height: 150px;
   font-size: 1em;
 }
+/* 
+  .form__input--upload {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+  	cursor: pointer;
+}   */
+ .form__input--upload + label {
+	cursor: pointer;
+}
+.form__input--label {
+
+  cursor: pointer;
+} 
+
+
+.form__input--upload:focus + label {
+  outline: 1px solid #a61a05;
+  outline: -webkit-focus-ring-color auto 2px;
+} 
+
+.upload-icon {
+  margin: 0 0.2em;
+}
+ 
+
 // MEDIA QUERIES
  @media only screen and (max-width: 1024px) {
 .signin h1 {
