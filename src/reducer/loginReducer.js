@@ -8,9 +8,9 @@ import {
 const initialState = {
   email: '',
   password: '',
-  userType: '',
+  userType: localStorage.getItem('role'),
   loginError: false,
-  isLogged: false,
+  isLogged: localStorage.getItem('logged'),
 };
 
 const reducer = (state = initialState, action = {}) => {
