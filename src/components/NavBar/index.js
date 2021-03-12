@@ -5,6 +5,7 @@ import Logo from 'src/assets/logo-bouquet.png';
 import { FiShoppingBag, FiMenu } from 'react-icons/fi';
 import { NavLink, Link } from 'react-router-dom';
 
+
 const NavBar = ({
   isLogged, toggleAuthModal, logOut, /* changeBackground, navBackground, */
 }) => {
@@ -12,15 +13,16 @@ const NavBar = ({
 
   const changeBackground = () => {
     if (window.scrollY >= 50) {
-      setNavBackground(true);
+      // setNavBackground(true);
     }
     else {
       setNavBackground(false);
     }
   };
   window.addEventListener('scroll', () => {
-    changeBackground(window.scrollY);
+    // changeBackground(window.scrollY);
   });
+
   /*  I tried to centralise the handling of the nav background on scroll using redux
      Somehow the value never changes in the state when the action is triggered
      You'll find my code commented in the container
@@ -36,12 +38,27 @@ const NavBar = ({
 
   const navClass = navBackground ? 'nav nav--active' : 'nav';
 
+  // Gestion du Menu NavBar responsive en burger
+  useEffect(() => {
+    // on cible le ul contenant les li
+  const navLinks = document.querySelector('.nav__links');
+
+  // on cible l'icone burger menu
+  const navIconBurger = document.querySelector('.nav__icon--burger');
+
+  // fonction pour ouvrir et fermer la navbar responsive
+  navIconBurger.addEventListener("click", function() {
+      navLinks.classList.toggle('burger-closed')
+  });
+
+});
+
   return (
     <header>
       <nav className={navClass}>
         <img className="nav__logo" src={Logo} alt="icone bouquet" />
         <div className="nav__content">
-          <ul className="nav__links">
+          <ul className="nav__links burger-closed">
             <li className="nav__link"> <NavLink exact to="/">ACCUEIL</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-fleurs">NOS FLEURS</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-producteurs">NOS PRODUCTEURS</NavLink></li>
@@ -100,12 +117,12 @@ const NavBar = ({
             to="/panier"
           ><FiShoppingBag />
           </Link>
+          
           <div
             className="nav__icon nav__icon--burger"
           ><FiMenu />
           </div>
         </div>
-
       </nav>
     </header>
   );
