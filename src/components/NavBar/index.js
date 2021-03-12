@@ -86,7 +86,7 @@ const NavBar = ({
                   // --------- Accessibility ---------
                   className="nav__link link"
                   onClick={() => {
-                    localStorage.removeItem('token');
+                    localStorage.clear();
                     logOut();
                   }}
                 >DECONNEXION

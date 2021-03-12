@@ -2,8 +2,9 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import ScrollToTop from 'src/functions/scrollToTop';
-import SigninFormCustomer from 'src/containers/SigninFormCustomer';
-import SigninFormSeller from 'src/containers/SigninFormSeller';
+import SignupFormCustomer from 'src/containers/SignupFormCustomer';
+import SignupFormSeller from 'src/containers/SignupFormSeller';
+import AccountCreated from 'src/containers/AccountCreated';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
@@ -16,32 +17,29 @@ import './styles.scss';
 
 // == Composant
 
-const App = () => {
-  const showSigninData = (values) => {
-    console.log(`Signin form submit values:\n\n${JSON.stringify(values, null, 2)}`);
-  };
-
-  return (
-    <div className="app-container">
-      <ScrollToTop />
-      <NavBar />
-      <AuthModal isHidden />
-      <Switch>
-        <Route exact key="/" path="/">
-          <Header />
-          <Article />
-        </Route>
-        <Route exact key="/inscription/client" path="/inscription/client">
-          <SigninFormCustomer onSubmit={showSigninData} />
-        </Route>
-        <Route exact key="/inscription/pro" path="/inscription/pro">
-          <SigninFormSeller onSubmit={showSigninData} />
-        </Route>
-        <NotFound />
-      </Switch>
-      <Footer />
-    </div>
-  );
-};
+const App = () => (
+  <div className="app-container">
+    <ScrollToTop />
+    <NavBar />
+    <AuthModal isHidden />
+    <Switch>
+      <Route exact key="/" path="/">
+        <Header />
+        <Article />
+      </Route>
+      <Route exact key="/inscription/client" path="/inscription/client">
+        <SignupFormCustomer />
+      </Route>
+      <Route exact key="/inscription/pro" path="/inscription/pro">
+        <SignupFormSeller />
+      </Route>
+      <Route exact key="/bienvenue" path="/bienvenue">
+        <AccountCreated />
+      </Route>
+      <NotFound />
+    </Switch>
+    <Footer />
+  </div>
+);
 // == Export
 export default App;

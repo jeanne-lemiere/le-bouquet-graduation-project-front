@@ -1,14 +1,11 @@
 /* eslint-disable import/no-mutable-exports */
 /* eslint-disable camelcase */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import { storage } from 'src/firebase';
-import { FiShare } from 'react-icons/fi';
-import validate from 'src/functions/validateSeller';
-import { handleImgUpload } from '../../actions/signinActions';
+import validate from 'src/functions/validateCustomer';
 
 // A custom Field component to be given to redux-form's built-in super component
 const HomemadeField = ({
@@ -21,7 +18,7 @@ const HomemadeField = ({
       {...type}
       className="form__input"
     />
-    {touched && (error && <span className="signin__error">{error}</span>)}
+    {touched && (error && <span className="signup__error">{error}</span>)}
   </div>
 );
 
@@ -39,28 +36,14 @@ const HomemadeRadio = ({
       htmlFor={label}
     >{label}
     </label>
-    {touched && (error && <span className="signin__error">{error}</span>)}
-  </div>
-);
-
-const HomemadeTextArea = ({
-  input, label, type, meta: { touched, error },
-}) => (
-  <div>
-    <textarea
-      {...input}
-      placeholder={label}
-      {...type}
-      className="form__input form__input--textarea"
-    />
-    {touched && (error && <div className="signin__error">{error}</div>)}
+    {touched && (error && <span className="signup__error">{error}</span>)}
   </div>
 );
 
 const CheckGSC = ({
   input, label, type, meta: { touched, error },
 }) => (
-  <div className="signin__checkbox">
+  <div className="signup__checkbox">
     <label htmlFor={label}>
       <input
         type={type}
@@ -69,21 +52,24 @@ const CheckGSC = ({
         checked={input.value}
       />
       J'ai bien lu et j'accepte les
-      <Link className="signin__link" to="/cgv"> CGV </Link>
+      <Link className="signup__link" to="/cgv"> CGV </Link>
       →
     </label>
-    {touched && (error && <div className="signin__error">{error}</div>)}
+    {touched && (error && <div className="signup__error">{error}</div>)}
   </div>
 );
 
-let SigninFormSeller = ({
+let SignupFormCustomer = ({
   handleSubmit,
   submitting,
   updateUsertype,
-  image,
-  onUploadChange,
-  updatePictureUrl,
+  signUpError,
+  signedUp,
 }) => {
+  if (signedUp === true) {
+    return <Redirect to="/bienvenue" />;
+  }
+
   useEffect(() => {
     updateUsertype();
   }, []);
@@ -93,39 +79,28 @@ let SigninFormSeller = ({
     { text: 'Monsieur', value: 'M' },
   ];
 
-  // TESTING FILE UPLOAD
-  const handleUpload = () => {
-    const uploadImage = storage.ref(`sellers/${image.name}`).put(image);
-    uploadImage.on('state_changed',
-      (snapshot) => { },
-      (error) => {
-        console.log(error);
-      }, () => {
-        storage
-          .ref('sellers')
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            updatePictureUrl(url);
-          });
-      });
-  };
+  // An error message displays when account creation did not work on server side
+  // Normally this should never appear since a front-end validation has been set up
+  // But we never know...
+  const errorMessage = signUpError ? <p className="signup__error">{signUpError}</p> : null;
+
   return (
-    <div className="signin">
-      <h1>Formulaire d'inscription pro</h1>
+    <div className="signup">
+      <h1>Formulaire d'inscription client</h1>
       <form
-        className="signin__form"
+        className="signup__form"
         onSubmit={handleSubmit}
       >
         <h2>Civilité</h2>
-        <div className="signin-form__section">
-          <div className="signin-form__radio">
+        <div className="signup-form__section">
+          <div className="signup-form__radio">
             {options.map((choice) => (
               <Field
                 label={choice.text}
                 type="radio"
                 name="gender"
                 key={choice.text}
+                value={choice.value}
                 component={HomemadeRadio}
               />
             ))}
@@ -144,7 +119,7 @@ let SigninFormSeller = ({
           />
         </div>
         <h2>Identifiants</h2>
-        <div className="signin-form__section">
+        <div className="signup-form__section">
           <Field
             name="email"
             label="ADRESSE EMAIL"
@@ -165,7 +140,7 @@ let SigninFormSeller = ({
           />
         </div>
         <h2>Adresse</h2>
-        <div className="signin-form__section">
+        <div className="signup-form__section">
           <Field
             name="street_number"
             label="N° DE RUE"
@@ -202,52 +177,6 @@ let SigninFormSeller = ({
           />
         </div>
 
-        <h2>Ma Boutique</h2>
-        {/* <Field
-          name="profile_pic"
-          label="Ajouter une photo de profil"
-          component={UploadFile}
-          type="file"
-          handleUpload={() => {
-            console.log('coucou');
-          }}
-
-        /> */}
-
-        <Field
-          name="siret"
-          label="SIRET"
-          component={HomemadeField}
-          type="text"
-        />
-        <Field
-          name="shop_name"
-          label="NOM DE LA BOUTIQUE"
-          component={HomemadeField}
-          type="text"
-        />
-        <Field
-          name="shop_presentation"
-          label="Ecrivez un petit texte pour vous présenter..."
-          component={HomemadeTextArea}
-          type="textarea"
-        />
-
-        <div>
-          <label
-            htmlFor="profile_pic"
-            onClick={handleUpload}
-            className="form__input--label"
-          ><input
-            name="profile_pic"
-            label="Ajouter une photo de profil"
-            type="file"
-            onChange={onUploadChange}
-            className="form__input form__input--upload"
-          /><FiShare className="upload-icon" />Ajouter une photo de profil
-          </label>
-        </div>
-
         <Field
           name="gsc"
           label="Conditions générales"
@@ -255,30 +184,31 @@ let SigninFormSeller = ({
           component={CheckGSC}
         />
 
+        {errorMessage}
         <button
           type="submit"
           disabled={submitting}
           aria-label="créer mon compte"
-          className="signin__submit-button"
-        >Créer mon compte pro
+          className="signup__submit-button"
+        >Créer mon compte client
         </button>
       </form>
     </div>
   );
 };
 
-SigninFormSeller = reduxForm({
-  form: 'signinSeller',
+SignupFormCustomer = reduxForm({
+  form: 'signupCustomer',
   validate,
-})(SigninFormSeller);
+})(SignupFormCustomer);
 
 // Redux Form works but props are somehow undefined
-SigninFormSeller.propTypes = {
+SignupFormCustomer.propTypes = {
   // handleSubmit: PropTypes.func.isRequired,
   // submitting: PropTypes.bool.isRequired,
   updateUsertype: PropTypes.func.isRequired,
-  onUploadChange: PropTypes.func.isRequired,
-  updatePictureUrl: PropTypes.func.isRequired,
+  signUpError: PropTypes.string.isRequired,
+  signedUp: PropTypes.bool.isRequired,
 };
 
-export default SigninFormSeller;
+export default SignupFormCustomer;

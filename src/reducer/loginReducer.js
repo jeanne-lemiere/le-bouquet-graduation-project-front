@@ -20,7 +20,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
-        isLogged: true,
+        isLogged: localStorage.getItem('logged'),
+        userType: localStorage.getItem('role'),
         loginError: false,
         ...action.payload.user,
       };

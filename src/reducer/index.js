@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
 import loginReducer from './loginReducer';
-import signinReducer from './signinReducer';
+import signupReducer from './signupReducer';
 import displayReducer from './displayReducer';
 
 // Her we combine specific reducers (user, order, product...)
@@ -13,7 +13,7 @@ import displayReducer from './displayReducer';
 
 export default combineReducers({
   login: loginReducer,
-  signin: signinReducer,
+  signup: signupReducer,
   display: displayReducer,
   form: reduxFormReducer,
 });

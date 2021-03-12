@@ -1,20 +1,26 @@
 import { connect } from 'react-redux';
-import SigninFormSeller from 'src/components/SigninFormSeller';
+import SignupFormSeller from 'src/components/SignupFormSeller';
 
-import { signinUsertype, handleImgUpload, updatePictureUrl } from 'src/actions/signinActions';
+import {
+  signupUsertype, handleImgUpload, updatePictureUrl, userSignup,
+} from 'src/actions/signupActions';
 
 const mapState = (state) => {
   const {
     pictureFile,
-  } = state.signin;
+    signUpError,
+    signedUp,
+  } = state.signup;
   return {
     image: pictureFile,
+    signUpError,
+    signedUp,
   };
 };
 
 const mapDispatch = (dispatch) => ({
   updateUsertype: () => {
-    const action = signinUsertype('seller');
+    const action = signupUsertype('seller');
     dispatch(action);
   },
   onUploadChange: (event) => {
@@ -28,6 +34,10 @@ const mapDispatch = (dispatch) => ({
     const action = updatePictureUrl(url);
     dispatch(action);
   },
+  onSubmit: () => {
+    const action = userSignup();
+    dispatch(action);
+  },
 });
 
-export default connect(mapState, mapDispatch)(SigninFormSeller);
+export default connect(mapState, mapDispatch)(SignupFormSeller);

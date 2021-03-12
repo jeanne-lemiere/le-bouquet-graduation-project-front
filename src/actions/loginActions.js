@@ -9,9 +9,8 @@ export const loginInputChange = (payload) => ({
   payload,
 });
 
-export const userLogin = (payload) => ({
+export const userLogin = () => ({
   type: USER_HANDLE_LOGIN,
-  payload,
 });
 export const userLoginSuccess = (payload) => ({
   type: USER_LOGIN_SUCCESS,

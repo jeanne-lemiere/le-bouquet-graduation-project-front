@@ -1,6 +1,6 @@
 @use 'src/styles/vars';
 
-.signin {
+.signup {
   height: auto;
   min-height: 95vh;
   width: 80%;
@@ -9,9 +9,6 @@
   & h1 {
     padding: 1em;
     padding-top: 0;
-  }
-  & label {
-    font-size: 0.9em;
   }
   &__form {
    background-color: vars.$footer-color;
@@ -23,17 +20,17 @@
     padding: 1em;
   }
 }
-.signin-form__section {
+.signup-form__section {
 margin-bottom: 2em;
 }
-.signin-form__radio {
+.signup-form__radio {
   display: flex;
   margin-right: 0.5em;
 }
 .hidden-usertype {
   display:none;
 }
-.signin__submit-button{
+.signup__submit-button{
    width: 30%;
   height: auto;
   margin: 1em auto;
@@ -53,7 +50,7 @@ margin-bottom: 2em;
     color: #0A1D7D;
 }
 }
-.signin__error {
+.signup__error {
 font-size: 0.85em;
 color: #a61a05;
 }
@@ -62,41 +59,14 @@ color: #a61a05;
   height: 150px;
   font-size: 1em;
 }
-/* 
-  .form__input--upload {
-  opacity: 0;
-  width: 0.1px;
-  height: 0.1px;
-  position: absolute;
-  	cursor: pointer;
-}   */
- .form__input--upload + label {
-	cursor: pointer;
-}
-.form__input--label {
-
-  cursor: pointer;
-} 
-
-
-.form__input--upload:focus + label {
-  outline: 1px solid #a61a05;
-  outline: -webkit-focus-ring-color auto 2px;
-} 
-
-.upload-icon {
-  margin: 0 0.2em;
-}
- 
-
 // MEDIA QUERIES
  @media only screen and (max-width: 1024px) {
-.signin h1 {
+.signup h1 {
   padding: 1em 0;
  }
 }
  @media only screen and (max-width: 812px) {
-.signin {
+.signup {
   padding: 1em 0.5em;
   &__form {
   width: 100%;
@@ -105,16 +75,16 @@ color: #a61a05;
 }
 
   @media (min-width: 415px) and (max-width: 650px) { 
-.signin {
+.signup {
   margin-top: 10vh;
 }
 } 
 
  @media only screen and (max-width: 650px) {
-.signin__submit-button{
+.signup__submit-button{
    width: 60%;
  }
- .signin__form {
+ .signup__form {
     padding: 1em 0.5em;
 }
  }
