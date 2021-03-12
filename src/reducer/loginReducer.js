@@ -3,14 +3,14 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_ERROR,
   USER_HANDLE_LOGOUT,
-} from 'src/actions/userActions';
+} from 'src/actions/loginActions';
 
 const initialState = {
   email: '',
   password: '',
-  userType: '',
+  userType: localStorage.getItem('role'),
   loginError: false,
-  isLogged: false,
+  isLogged: localStorage.getItem('logged'),
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,7 +20,8 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
-        isLogged: true,
+        isLogged: localStorage.getItem('logged'),
+        userType: localStorage.getItem('role'),
         loginError: false,
         ...action.payload.user,
       };

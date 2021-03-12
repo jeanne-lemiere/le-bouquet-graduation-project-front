@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import NavBar from 'src/components/NavBar';
-import { userLogout } from 'src/actions/userActions';
+import { userLogout } from 'src/actions/loginActions';
 import { toggleAuthModal/* , changeNavBackground  */ } from 'src/actions/displayActions';
 
 const mapState = (state) => {
   const {
     isLogged,
-  } = state.user;
+  } = state.login;
   /*  const {
     navBackground,
   } = state.display; */

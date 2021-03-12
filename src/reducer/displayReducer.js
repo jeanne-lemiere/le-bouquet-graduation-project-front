@@ -5,7 +5,7 @@ import {
 
 import {
   USER_LOGIN_SUCCESS,
-} from 'src/actions/userActions';
+} from 'src/actions/loginActions';
 
 const initialState = {
   authModal: false,

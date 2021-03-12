@@ -12,12 +12,16 @@
     position:fixed;
     background: white;
     min-width:50%;
+    min-height: 300px;
     height: 50%;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%); 
     border-radius: 5px;
     display: flex;
+     &--is-hidden {
+  display:none;
+}
   }
 
   &--is-hidden {

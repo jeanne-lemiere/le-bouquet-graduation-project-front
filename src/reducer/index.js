@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import userReducer from './userReducer';
+import { reducer as reduxFormReducer } from 'redux-form';
+import loginReducer from './loginReducer';
+import signupReducer from './signupReducer';
 import displayReducer from './displayReducer';
 import productReducer from './productReducer';
-
 
 // Her we combine specific reducers (user, order, product...)
 // and export them so we can use them as one in createStore
@@ -12,7 +13,9 @@ import productReducer from './productReducer';
 // I'll start with a simple userReducer and will separate them if needed
 
 export default combineReducers({
-  user: userReducer,
+  login: loginReducer,
+  signup: signupReducer,
   display: displayReducer,
+  form: reduxFormReducer,
   product: productReducer,
 });
