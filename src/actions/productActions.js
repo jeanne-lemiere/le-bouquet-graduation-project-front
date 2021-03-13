@@ -11,3 +11,16 @@ export const setProducts = (products) => ({
   products,
 });
 
+export const FETCH_CART_PRODUCTS = 'FETCH_CART_PRODUCTS';
+
+export const fetchCartProducts = () => ({
+  type: FETCH_CART_PRODUCTS,
+});
+
+
+export const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
+
+export const setCartProducts = (cartProducts) => ({
+  type: SET_CART_PRODUCTS,
+  cartProducts,
+});

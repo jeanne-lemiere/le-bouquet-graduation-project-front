@@ -1,10 +1,12 @@
 import {
   FETCH_PRODUCTS,
   SET_PRODUCTS,
+  SET_CART_PRODUCTS
 } from 'src/actions/productActions';
 
 const initialState = {
-  products: []
+  products: [],
+  cartProducts: []
 };
 
 export default (state = initialState, action = {}) => {
@@ -18,6 +20,11 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         products: action.products,
+      };
+    case SET_CART_PRODUCTS:
+      return {
+        ...state,
+        cartProducts: action.cartProducts,
       };
     default:
         return state;

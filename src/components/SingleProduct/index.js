@@ -29,14 +29,13 @@ const SingleProduct = ({ products }) => {
   // console.log(productFound);
 
   const addToCart = event => {
-
     const id = event.target.closest(".single-product").getAttribute("id"); // on récupère le id du produit
 
     let cart = JSON.parse(localStorage.getItem("cart")) // on vérifie s'il y a quelque chose dans cart
     
     if (cart) {         // s'il y a quelque chose, on vérifie si le id de l'élément cliqué y est
       const findProduct = cart.find(element => element.id == id);
-
+      
       if (findProduct) {    // il y est, on augmente la quantité
         console.log(findProduct, "existe alors j'augmente sa quantité")
         findProduct.quantity++

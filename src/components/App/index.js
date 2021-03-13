@@ -9,7 +9,7 @@ import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
-import Cart from 'src/components/Cart';
+import Cart from 'src/containers/Cart';
 
 // == Import
 import './styles.scss';
