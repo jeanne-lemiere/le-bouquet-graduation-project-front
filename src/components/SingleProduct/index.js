@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import NotFound from '../NotFound';
 
 import './styles.scss';
@@ -35,7 +35,7 @@ const SingleProduct = ({ products }) => {
       </div>
       <div className="single-product_rightside">
         <h2 className="product-name">{name}</h2>
-        <p className="product-shopname">vendu par <i>{seller.shop_name}</i></p>
+        <p className="product-shopname"><i>vendu par <Link to={`/nos-producteurs/${seller.id}`}>{seller.shop_name}</Link></i></p>
         <p className="product-price">{price}€</p>
         <p className="product-description">{description}</p>
         <button
