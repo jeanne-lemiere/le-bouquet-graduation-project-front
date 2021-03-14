@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import '../styles.scss';
 import { Link } from 'react-router-dom';
 
-const CartProduct = ({id, image, name, description, price, quantity}) => {
+const CartProduct = ({id, image, name, description, price, quantity, increaseQuantity, decreaseQuantity }) => {
     // const [quantity, setQuantity] = useState(0);
     // // setQuantity(foundProduct.quantity)
    
@@ -15,12 +16,14 @@ const CartProduct = ({id, image, name, description, price, quantity}) => {
     // }, [foundProduct]);
     
     const moreQuantity = () => {
-        
+        increaseQuantity(id)
+        console.log('fonction + lancée', id, quantity)
     }
     
 
     const lessQuantity = () => {
-        
+        decreaseQuantity(id)
+        console.log('fonction - lancée', id,  quantity)
     }
 
     
@@ -77,7 +80,7 @@ const CartProduct = ({id, image, name, description, price, quantity}) => {
 
     // };
 
-    // const deleteProduct = () => {
+    // const deleteProductf = () => {
     //     setQuantity(0)
     //     console.log('fonction delete ')
     //     const oldCart = JSON.parse(localStorage.getItem('cart'));
@@ -100,13 +103,14 @@ const CartProduct = ({id, image, name, description, price, quantity}) => {
             <div className="card__product__info">
                 <div className="info__left">
                     <h3 className="info__left__title"><Link to='product/1'>{name}</Link></h3>
+                    <p>{id}</p>
                     <p className="info__left__description">{description}</p>
                     <div className='see-more'></div>
                     <p className="quantity-container">
                         <span className="info__left__quantity-text">Quantité :</span>
-                         <button className="info__left__quantity-less">-</button> 
+                         <button onClick={lessQuantity} className="info__left__quantity-less">-</button> 
                         <span className="info__left__quantity-number">{quantity}</span>
-                        <button  className="info__left__quantity-more">+</button>
+                        <button onClick={moreQuantity} className="info__left__quantity-more">+</button>
                     </p>
                     <p className="price-price"><span className='info__price-container'>Prix</span> : <span className="info__price-content"> {price}€</span></p>
                 </div>
@@ -118,6 +122,25 @@ const CartProduct = ({id, image, name, description, price, quantity}) => {
                         
     )
 };
+
+
+CartProduct.propTypes = {
+    increaseQuantity: PropTypes.func,
+    decreaseQuantity: PropTypes.func,
+
+    // name: PropTypes.string.isRequired,
+};
+
+CartProduct.defaultProps = {
+    // email: "",
+    // password: "",
+    // isLogged: false,
+    // loggedMessage: 'Connecté',
+    increaseQuantity: () => {},
+    decreaseQuantity: () => {},
+
+  };
+// id, image, name, description, price, quantity, increaseQuantity, decreaseQuantity
 
 export default CartProduct;
 

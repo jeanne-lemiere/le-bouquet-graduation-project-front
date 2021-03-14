@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import CartProduct from './CartProduct';
+import CartProduct from '../../containers/CartProduct';
 
 const Cart = ({fetchCartProducts, cartProducts}) => {
     useEffect(() => {  
