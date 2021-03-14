@@ -8,7 +8,7 @@ const mapState = (state) => {
   } = state.display;
   const {
     isLogged,
-  } = state.user;
+  } = state.login;
   return {
     open: authModal,
     isLogged,

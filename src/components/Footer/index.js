@@ -7,8 +7,8 @@ const Footer = () => (
   <footer className="footer">
     <div className="footer__content">
       <div className="footer__links">
-        <Link className=" footer__links--text" href="#">Qui sommes nous?</Link>
-        <Link className="footer__links--text" href="#">Conditions générales de vente</Link>
+        <Link className=" footer__links--text" to="/qui-sommes-nous">Qui sommes nous?</Link>
+        <Link className="footer__links--text" to="/cgv">Conditions générales de vente</Link>
       </div>
       <div className="footer__links footer__links--icons">
         <Link className="footer__icon" to="https://www.instagram.com/oclock_io/?hl=fr"><FiInstagram /></Link>

@@ -1,0 +1,52 @@
+.welcome{
+  background-image: url("../../assets/account-created.jpg");
+  background-size: cover;
+  height: 100vh;
+  max-height: 100vh;
+  max-width: 100vw;
+  width: 100vw;
+ background-position: 100% 30%;
+ position: relative;
+   &__text{
+     width: 50%;
+     font-size: 1.1em;
+     position: absolute;
+     top: 20vh;
+     height: auto;
+     padding-left: 3.5em;
+      & strong {
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+  }  
+}
+
+.welcome__link {
+  font-weight: 500;
+}
+@media only screen and (max-width: 1350px) {
+ .welcome__text{
+  font-size: 1.6vw;
+  }
+}
+
+// adapting font size for readability
+ @media only screen and (max-width: 812px) {
+.welcome__text {
+font-size: 1.8vw;
+}
+}
+
+@media only screen and (max-width: 414px) {
+  .welcome {
+    flex-direction: column;
+    max-height: 100%;
+    background-position-x: 5% ;
+    background-position-y: bottom;
+  &__text{
+  font-size: 3.4vw;
+  width: 70%;
+  } 
+}
+}
+ 

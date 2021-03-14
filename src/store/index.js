@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import ajaxMiddleware from 'src/middlewares/ajaxMiddleware';
+import authMiddleware from 'src/middlewares/authMiddleware';
 import reducer from 'src/reducer';
+import fetchMiddleware from 'src/middlewares/fetchMiddleware';
 
 // eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -10,7 +11,8 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     // Don't forget middlewares will be executed in the order
     // they are declared here
-    ajaxMiddleware,
+    authMiddleware,
+    fetchMiddleware,
   ),
 );
 

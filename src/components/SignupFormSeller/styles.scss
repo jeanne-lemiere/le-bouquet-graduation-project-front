@@ -1,0 +1,115 @@
+@use 'src/styles/vars';
+
+.signup {
+  height: auto;
+  min-height: 95vh;
+  width: 80%;
+  margin: 50px auto;
+  padding: 1em 0;
+  & h1 {
+    padding: 1em;
+    padding-top: 0;
+  }
+  & label {
+    font-size: 0.9em;
+  }
+  &__form {
+   background-color: vars.$footer-color;
+    width: 800px;
+    margin: auto;
+    padding: 2em 1em;
+  }
+  &__checkbox {
+    padding: 1em;
+  }
+}
+.signup-form__section {
+margin-bottom: 2em;
+}
+.signup-form__radio {
+  display: flex;
+  margin-right: 0.5em;
+}
+.hidden-usertype {
+  display:none;
+}
+.signup__submit-button{
+   width: 30%;
+  height: auto;
+  margin: 1em auto;
+  display: block;
+  border: none;
+  padding: 0.5rem 0;
+  background: #0A1D7D;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+ border: solid 1px;
+  border-color: #0A1D7D;
+  &:hover {
+    background: none;
+    color: #0A1D7D;
+}
+}
+.signup__error {
+font-size: 0.85em;
+color: #a61a05;
+}
+
+.form__input--textarea {
+  height: 150px;
+  font-size: 1em;
+}
+/* 
+  .form__input--upload {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+  	cursor: pointer;
+}   */
+ .form__input--upload + label {
+	cursor: pointer;
+}
+.form__input--label {
+
+  cursor: pointer;
+} 
+
+
+.form__input--upload:focus + label {
+  outline: 1px solid #a61a05;
+  outline: -webkit-focus-ring-color auto 2px;
+} 
+
+.upload-icon {
+  margin: 0 0.2em;
+}
+ 
+
+// MEDIA QUERIES
+ @media only screen and (max-width: 1024px) {
+.signup h1 {
+  padding: 1em 0;
+ }
+}
+ @media only screen and (max-width: 812px) {
+.signup {
+  padding: 1em 0.5em;
+  &__form {
+  width: 100%;
+  }
+ }
+}
+
+
+ @media only screen and (max-width: 650px) {
+.signup__submit-button{
+   width: 60%;
+ }
+ .signup__form {
+    padding: 1em 0.5em;
+}
+ }

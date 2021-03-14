@@ -19,7 +19,7 @@ const NavBar = ({
   return (
     <header>
       <nav className={navClass}>
-        <img className="nav__logo" src={Logo} alt="icone bouquet" />
+        <Link className="logo-link" to="/"><img className="nav__logo" src={Logo} alt="icone bouquet" /></Link>
         <div className="nav__content">
           <ul className="nav__links">
             <li className="nav__link"> <NavLink exact to="/">ACCUEIL</NavLink></li>
@@ -66,7 +66,7 @@ const NavBar = ({
                   // --------- Accessibility ---------
                   className="nav__link link"
                   onClick={() => {
-                    localStorage.removeItem('token');
+                    localStorage.clear();
                     logOut();
                   }}
                 >DECONNEXION
@@ -92,7 +92,7 @@ const NavBar = ({
 };
 
 NavBar.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
+  // isLogged: PropTypes.bool.isRequired,
   toggleAuthModal: PropTypes.func.isRequired,
   logOut: PropTypes.func.isRequired,
   changeBackground: PropTypes.func.isRequired,

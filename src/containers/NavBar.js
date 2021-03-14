@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import NavBar from 'src/components/NavBar';
-import { userLogout } from 'src/actions/userActions';
+import { userLogout } from 'src/actions/loginActions';
 import { toggleAuthModal, changeNavBackground } from 'src/actions/displayActions';
 
 const mapState = (state) => {
   const {
     isLogged,
-  } = state.user;
+  } = state.login;
+
   const {
     navBackground,
   } = state.display;
+
   return {
     isLogged,
     navBackground,
@@ -30,7 +32,6 @@ const mapDispatch = (dispatch) => ({
     But the value never changes in the state and remains false */
   changeBackground: (screenHeight) => {
     const data = screenHeight >= 50;
-    console.log(data);
     const action = changeNavBackground(data);
     dispatch(action);
   },
