@@ -13,7 +13,7 @@
   &__list {
     display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: auto;
   margin: auto;
   }
@@ -21,6 +21,7 @@
  @media only screen and (max-width: 812px) {
 .our-sellers {
   padding: 1em 0.5em;
+  width: 98%;
  }
 }
 
