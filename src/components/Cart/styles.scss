@@ -88,7 +88,14 @@
             color: white;
         }
     }
-
+    & .disabled-link {
+        cursor: default;
+        pointer-events: none;        
+        text-decoration: none;
+        color: grey;
+        opacity: 0.6;
+        border-color: grey;
+    }
     &__products {
         margin-top: 1.5rem;
         border-top: 1px solid rgb(216, 216, 216);
@@ -132,6 +139,7 @@
                     border: none;
                     font-size: 0.9rem;
                     color: vars.$font-color;
+
                     & .delete-cross {
                         border: 1px solid vars.$font-color;
                         padding: 3px;
@@ -305,5 +313,22 @@
         & .quantity-container {
             margin-bottom: 1rem;
         }
+    }
+  }
+
+  @media only screen and (max-width: 540px) {
+        .card__product {
+            padding-bottom: 4rem;
+            padding-left: 1rem;
+        }
+        .info__left__top {
+            flex-direction: column;
+            & .info__left__title {
+                margin-bottom: 0;
+            }
+            & .info__left__remove {
+                align-self: flex-end;
+                margin-bottom: 1rem;
+            }
     }
   }

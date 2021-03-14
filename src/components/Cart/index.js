@@ -29,16 +29,13 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
             {/* <div className="sub-card"> */}
                 <div className="card__top">
                     <h2 className='card__title'>Votre panier</h2>
-                    <Link to='/récapitulatif' className='card__next'>Passer la commande</Link>
+                    <Link to='/récapitulatif'  className={ `${cartProducts.length<1 ? "card__next disabled-link" : "card__next" }`} >Passer la commande</Link>
                 </div>
                     <Link to='/nos-fleurs'>← Retourner à la boutique</Link>
 
                 <div className="card__content">
                     <div className="card__products">
-                        {/* {cartProducts} */}
                         {cartDisplay}
-                        
-                        
                     </div>
                     <div className="card__total-container">
                         <p className="card__total">Total TTC : <span>{totalPrice}€</span></p>
