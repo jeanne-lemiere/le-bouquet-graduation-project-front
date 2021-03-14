@@ -8,6 +8,10 @@ import {
   setCartProducts
 } from 'src/actions/productActions';
 
+import {
+  setLoading,
+} from 'src/actions/displayActions';
+
 import axios from 'src/api';
 
 export default (store) => (next) => (action) => {
@@ -18,7 +22,7 @@ export default (store) => (next) => (action) => {
     case FETCH_PRODUCTS:
       axios.get('/products')
         .then((result) => {
-          console.log(result.data)
+          // console.log(result.data)
           store.dispatch(setProducts(result.data));
         });
       return next(action);
@@ -38,17 +42,20 @@ export default (store) => (next) => (action) => {
         )
         .then((results) => {
           // console.log("middleware result",results)
-          for (const product of results) {
+          for (const product of results) { // now we add quantities to each result
             for (const cartProduct of cart) {
               if (parseInt(product.data.id) === parseInt(cartProduct.id)) {
                 product.data.quantity = cartProduct.quantity
                 // console.log("pareil donc : ", product.data)
-              } else {
-                // console.log(product.data.id +" différent de "+ cartProduct.id)
               }
             }
           }
           store.dispatch(setCartProducts(results));
+        }).catch((error) => {
+          console.trace(error);
+        }).finally(() => {
+          store.dispatch(setLoading(false));
+          console.log("loadging envoyé depuis middleware pour devenir false")
         });
         return next(action);
       }

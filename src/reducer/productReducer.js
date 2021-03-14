@@ -7,13 +7,24 @@ import {
   REMOVE_FROM_CARD
 } from 'src/actions/productActions';
 
+import {
+  SET_LOADING,
+} from 'src/actions/displayActions';
+
 const initialState = {
   products: [],
-  cartProducts: []
+  cartProducts: [],
+  loading: false,
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case SET_LOADING:
+      console.log("arrivé dans le reducer, avant changement loading vaut :", state.loading, "action vaut : ", action.payload)
+      return {
+        ...state,
+        loading: action.payload,
+      };
     case FETCH_PRODUCTS:
       console.log(state)
       return {

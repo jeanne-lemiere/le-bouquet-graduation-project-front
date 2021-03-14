@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import CartProduct from '../../containers/CartProduct';
+import Spinner from './Spinner';
 
-const Cart = ({fetchCartProducts, cartProducts}) => {
+const Cart = ({fetchCartProducts, cartProducts, loading, setLoading }) => {
     useEffect(() => {  
-        fetchCartProducts()
+        fetchCartProducts();
+        setLoading(true)
     }, []);
-      
+
+    if (loading) {
+        "vrai"
+        return <Spinner />
+    }
+    console.log("faux loading vaut :", loading, "et cartProduct.length : ",cartProducts.length )
+    
     let totalPrice=0;
     let cartFull;
 
@@ -23,7 +32,9 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
         cartFull = true;
     } 
 
-
+    
+    
+    
     return (
         <div className="card">
                 <div className="card__top">
@@ -51,4 +62,11 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
     )
 };
 
+Cart.propTypes = {
+    loading: PropTypes.bool,
+}
+
+CartProduct.defaultProps = {
+    loading: true,
+}
 export default Cart;
