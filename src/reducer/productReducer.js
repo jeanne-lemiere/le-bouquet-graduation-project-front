@@ -4,15 +4,14 @@ import {
 } from 'src/actions/productActions';
 
 const initialState = {
-  products: []
+  products: [],
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
-      console.log(state)
       return {
-        ...state
+        ...state,
       };
     case SET_PRODUCTS:
       return {
@@ -20,6 +19,6 @@ export default (state = initialState, action = {}) => {
         products: action.products,
       };
     default:
-        return state;
+      return state;
   }
 };

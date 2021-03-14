@@ -15,6 +15,7 @@ import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
+import OurProducers from '../../containers/OurProducers';
 
 // == Import
 import './styles.scss';
@@ -56,6 +57,9 @@ const App = ({ init, loading }) => {
           </Route>
           <Route path="/product/:id" exact>
             <SingleProduct />
+          </Route>
+          <Route path="/nos-producteurs" exact>
+            <OurProducers />
           </Route>
           <NotFound />
         </Switch>
