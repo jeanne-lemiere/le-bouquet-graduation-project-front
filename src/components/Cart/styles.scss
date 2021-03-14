@@ -14,6 +14,16 @@
         margin: 0;
     }
     
+    & .empty-cart {
+        padding: 1rem 0 1rem 1rem;
+        & a {
+            font-weight: 500;
+            text-decoration: underline;
+            &::after {
+                height: 0;
+            }
+        }
+    }
     &__top {
         display: flex;
         justify-content: space-between;
@@ -113,6 +123,25 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                &__top {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                &__remove {
+                    background: none;
+                    border: none;
+                    font-size: 0.9rem;
+                    color: vars.$font-color;
+                    & .delete-cross {
+                        border: 1px solid vars.$font-color;
+                        padding: 3px;
+                        background-color: white;
+                    }
+                    
+                   &:hover .delete-text {
+                    text-decoration: underline;
+                   }
+                }
                 &__title {
                     font-size: 1.5rem;
                     font-weight: 500;

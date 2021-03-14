@@ -40,3 +40,9 @@ export const decreaseQuantity = (id) => ({
   id,
 });
 
+export const REMOVE_FROM_CARD = 'REMOVE_FROM_CARD';
+export const removeFromCard = (id) => ({
+  type: REMOVE_FROM_CARD,
+  id,
+});
+

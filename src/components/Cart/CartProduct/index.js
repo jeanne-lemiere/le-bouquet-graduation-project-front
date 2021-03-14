@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles.scss';
 import { Link } from 'react-router-dom';
 
-const CartProduct = ({id, image, name, description, price, quantity, increaseQuantity, decreaseQuantity }) => {
+const CartProduct = ({id, image, name, description, price, quantity, increaseQuantity, decreaseQuantity, removeFromCard }) => {
     // const [quantity, setQuantity] = useState(0);
     // // setQuantity(foundProduct.quantity)
    
@@ -26,6 +26,10 @@ const CartProduct = ({id, image, name, description, price, quantity, increaseQua
         console.log('fonction - lancée', id,  quantity)
     }
 
+    const remove = () => {
+        removeFromCard(id)
+        console.log('fonction remove')
+    }
     
     // let cartProducts = JSON.parse(localStorage.getItem('cart'));    
 
@@ -102,7 +106,11 @@ const CartProduct = ({id, image, name, description, price, quantity, increaseQua
 
             <div className="card__product__info">
                 <div className="info__left">
-                    <h3 className="info__left__title"><Link to='product/1'>{name}</Link></h3>
+                    <div className='info__left__top'>
+                        <h3 className="info__left__title"><Link to={`/product/${id}`} >{name}</Link></h3>
+                        <button onClick={remove} className='info__left__remove'><span className='delete-text'>Retirer du panier</span> <span className="delete-cross">X</span></button>
+                    </div>
+                    
                     <p className="info__left__description">{description}</p>
                     <div className='see-more'></div>
                     <p className="quantity-container">
@@ -126,7 +134,7 @@ const CartProduct = ({id, image, name, description, price, quantity, increaseQua
 CartProduct.propTypes = {
     increaseQuantity: PropTypes.func,
     decreaseQuantity: PropTypes.func,
-
+    removeFromCard: PropTypes.func,
     // name: PropTypes.string.isRequired,
 };
 
@@ -137,6 +145,7 @@ CartProduct.defaultProps = {
     // loggedMessage: 'Connecté',
     increaseQuantity: () => {},
     decreaseQuantity: () => {},
+    removeFromCard: () => {},
 
   };
 // id, image, name, description, price, quantity, increaseQuantity, decreaseQuantity

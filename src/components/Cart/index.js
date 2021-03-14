@@ -12,7 +12,7 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
     let cartDisplay;
 
     if (cartProducts.length < 1) {
-        cartDisplay = <h2>Votre panier est vide, visitez la page  <Link to='/nos-fleurs'>Nos fleurs </Link> pour ajouter des articles</h2>
+        cartDisplay = <h2 className="empty-cart">Votre panier est vide, n'hésitez pas à visitez la page  <Link to='/nos-fleurs'>nos fleurs </Link> pour ajouter des articles</h2>
     }
      else {
         console.log('nouveaux ',cartProducts)
