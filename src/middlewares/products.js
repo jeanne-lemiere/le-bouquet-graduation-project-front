@@ -31,20 +31,20 @@ export default (store) => (next) => (action) => {
         for (const product of cart) {
           request = axios.get(`/product/${product.id}`)
           requests.push(request)
-          console.log("nouvelle requête :", request)
+          // console.log("nouvelle requête :", request)
         }
         Axios.all(
           requests
         )
         .then((results) => {
-          console.log("middleware result",results)
+          // console.log("middleware result",results)
           for (const product of results) {
             for (const cartProduct of cart) {
               if (parseInt(product.data.id) === parseInt(cartProduct.id)) {
                 product.data.quantity = cartProduct.quantity
-                console.log("pareil donc : ", product.data)
+                // console.log("pareil donc : ", product.data)
               } else {
-                console.log(product.data.id +" différent de "+ cartProduct.id)
+                // console.log(product.data.id +" différent de "+ cartProduct.id)
               }
             }
           }

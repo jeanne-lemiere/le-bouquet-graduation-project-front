@@ -103,7 +103,6 @@ const CartProduct = ({id, image, name, description, price, quantity, increaseQua
             <div className="card__product__info">
                 <div className="info__left">
                     <h3 className="info__left__title"><Link to='product/1'>{name}</Link></h3>
-                    <p>{id}</p>
                     <p className="info__left__description">{description}</p>
                     <div className='see-more'></div>
                     <p className="quantity-container">

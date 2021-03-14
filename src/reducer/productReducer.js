@@ -64,9 +64,14 @@ export default (state = initialState, action = {}) => {
       var newCart = theCart.find(element => parseInt(element.id) === parseInt(action.id))
       newCart.quantity--;
       localStorage.setItem("cart", JSON.stringify(theCart));
-      if (newCart.quantity==0) {
-        
+
+      if (newProducts[foundId].data.quantity <= 0) {
+        newProducts = newProducts.filter (product => parseInt(product.data.id) !== parseInt(action.id)); // we update the state
+
+        var filteredCart = theCart.filter(element => parseInt(element.quantity) !== 0); 
+        localStorage.setItem("cart", JSON.stringify(filteredCart)); // we update the localStorage
       }
+
       
       // console.log("pendant quantity cartProducts:", state.cartProducts[foundId].data.quantity)
       // console.log("finale quantity newproducts:", newProducts[foundId].data.quantity)
