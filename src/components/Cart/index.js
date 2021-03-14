@@ -9,30 +9,23 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
     }, []);
       
     let totalPrice=0;
-    let cartDisplay;
+    let cartFull;
 
     if (cartProducts.length < 1) {
-        cartDisplay = <h2 className="empty-cart">Votre panier est vide, n'hésitez pas à visiter la page <Link to='/nos-fleurs'>nos fleurs</Link> pour y ajouter des articles.</h2>
+        cartFull = false;
     }
-     else {
-
+    else {
         totalPrice=0
-        cartProducts.map((product) => {
+        cartProducts.map((product) => (
         totalPrice += parseInt(product.data.quantity)*(parseFloat(product.data.price))
-        })
-        totalPrice = totalPrice.toFixed(2)
-        cartDisplay = cartProducts.map((product) => (
-            <CartProduct key={product.data.id} id={product.data.id} name={product.data.name} image={product.data.images[0].url} price={product.data.price} description={product.data.description} quantity={product.data.quantity}/>
         ))
-        for (const element of cartProducts) {
-            
-        }
-} 
+        totalPrice = totalPrice.toFixed(2)
+        cartFull = true;
+    } 
 
 
     return (
         <div className="card">
-            {/* <div className="sub-card"> */}
                 <div className="card__top">
                     <h2 className='card__title'>Votre panier</h2>
                     <Link to='/récapitulatif'  className={ `${cartProducts.length<1 ? "card__next disabled-link" : "card__next" }`} >Passer la commande</Link>
@@ -41,14 +34,19 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
 
                 <div className="card__content">
                     <div className="card__products">
-                        {cartDisplay}
+                        {
+                            cartFull
+                            ? (cartProducts.map((product) => (
+                                <CartProduct key={product.data.id} id={product.data.id} name={product.data.name} image={product.data.images[0].url} price={product.data.price} description={product.data.description} quantity={product.data.quantity}/>
+                            )))
+                            : <h2 className="empty-cart">Votre panier est vide, n'hésitez pas à visiter la page <Link to='/nos-fleurs'>nos fleurs</Link> pour y ajouter des articles.</h2>
+                        }
                     </div>
                     <div className="card__total-container">
                         <p className="card__total">Total TTC : <span>{totalPrice}€</span></p>
                     </div>
-                    
                 </div>
-            {/* </div> */}
+
     </div>
     )
 };
