@@ -12,15 +12,21 @@ const Cart = ({fetchCartProducts, cartProducts}) => {
     let cartDisplay;
 
     if (cartProducts.length < 1) {
-        cartDisplay = <h2 className="empty-cart">Votre panier est vide, n'hésitez pas à visitez la page  <Link to='/nos-fleurs'>nos fleurs </Link> pour ajouter des articles</h2>
+        cartDisplay = <h2 className="empty-cart">Votre panier est vide, n'hésitez pas à visiter la page <Link to='/nos-fleurs'>nos fleurs</Link> pour y ajouter des articles.</h2>
     }
      else {
-        console.log('nouveaux ',cartProducts)
-        cartProducts.map((product) => (
-        totalPrice = totalPrice + parseFloat(product.data.price)))
+
+        totalPrice=0
+        cartProducts.map((product) => {
+        totalPrice += parseInt(product.data.quantity)*(parseFloat(product.data.price))
+        })
+        totalPrice = totalPrice.toFixed(2)
         cartDisplay = cartProducts.map((product) => (
             <CartProduct key={product.data.id} id={product.data.id} name={product.data.name} image={product.data.images[0].url} price={product.data.price} description={product.data.description} quantity={product.data.quantity}/>
         ))
+        for (const element of cartProducts) {
+            
+        }
 } 
 
 

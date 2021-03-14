@@ -2,7 +2,7 @@
 
 .card {
     padding: 7rem 8rem 5rem 8rem;
-
+    min-height: 92vh;
     background-color: rgb(216, 216, 216);
 
     // & .sub-card {
@@ -16,6 +16,7 @@
     
     & .empty-cart {
         padding: 1rem 0 1rem 1rem;
+        margin-bottom: 1rem;
         & a {
             font-weight: 500;
             text-decoration: underline;
