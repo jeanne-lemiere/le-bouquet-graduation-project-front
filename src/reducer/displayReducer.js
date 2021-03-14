@@ -27,7 +27,7 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_NAV_BACKGROUND:
       return {
         ...state,
-        ...action.payload,
+        navBackground: action.payload,
       };
     default:
       return state;

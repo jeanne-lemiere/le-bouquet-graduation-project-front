@@ -5,6 +5,7 @@ export const toggleAuthModal = () => ({
   type: TOGGLE_AUTH_MODAL,
 });
 
-export const changeNavBackground = () => ({
+export const changeNavBackground = (payload) => ({
   type: CHANGE_NAV_BACKGROUND,
+  payload,
 });
