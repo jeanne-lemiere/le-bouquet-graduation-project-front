@@ -4,7 +4,6 @@ import React from 'react';
 // import DOMPurify from 'dompurify';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import productImage from 'src/assets/product-image.jpg';
 
 import './styles.scss';
 // import Erreur404 from '../Erreur404';
@@ -19,7 +18,7 @@ const ProductCard = ({
   <article className="product-card">
     <Link to={`/product/${id}`}>
       {/* <div className="product-image-container"> */}
-      <img className="product-card-img" src={productImage} alt={name} />
+      <img className="product-card-img" src={imgLink} alt={name} />
       {/* </div> */}
       <div className="product-card-caption">
         <h2 className="product-card-title">{name}</h2>

@@ -1,6 +1,7 @@
 import {
   TOGGLE_AUTH_MODAL,
   CHANGE_NAV_BACKGROUND,
+  SET_LOADING,
 } from 'src/actions/displayActions';
 
 import {
@@ -10,6 +11,7 @@ import {
 const initialState = {
   authModal: false,
   navBackground: false,
+  loading: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -28,6 +30,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload,
       };
     default:
       return state;

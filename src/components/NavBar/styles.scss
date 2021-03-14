@@ -58,6 +58,9 @@ opacity: 0.9;
   }
 }
 
+.logo-link {
+  max-width: 100px;
+}
 .active {
   font-weight: 500;
    &::after {

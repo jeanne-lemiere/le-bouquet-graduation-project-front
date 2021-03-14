@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import productImage from 'src/assets/product-image.jpg';
 import NotFound from '../NotFound';
 
 import './styles.scss';
@@ -32,7 +31,7 @@ const SingleProduct = ({ products }) => {
     <div className="single-product">
       <div className="single-product_leftside">
         {/* <img src={images[0].url}></img> alt="bouquet" */}
-        <img src={productImage} alt="bouquet" />
+        <img src={images[0].url} alt="bouquet" />
       </div>
       <div className="single-product_rightside">
         <h2 className="product-name">{name}</h2>

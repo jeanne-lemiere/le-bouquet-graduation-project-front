@@ -1,12 +1,12 @@
 
 .not-found{
-  background-image: url("../../assets/not-found.jpg");
+  background-image: url("../../assets/not-found.png");
   background-size: cover;
   height: 100vh;
   max-height: 100vh;
   max-width: 100vw;
   width: 100vw;
- background-position: 100% 30%;
+ background-position: 10% 50%;
  position: relative;
    &__text{
      width: 38%;
@@ -30,9 +30,9 @@
  
 //specific image positioning for ipad pro and small pc screens
  @media only screen and (max-width: 1024px) {
-   .not-found {
-     background-position: 50% 30%;
-   }
+     .not-found {
+     background-position: 30% 50%;
+   } 
  .not-found__text{
   font-size: 1.6vw;
   }
@@ -40,6 +40,9 @@
 
 // adapting font size for readability
  @media only screen and (max-width: 812px) {
+    .not-found {
+     background-position: 50% 50%;
+   } 
 .not-found__text {
 font-size: 1.8vw;
 }
@@ -53,14 +56,14 @@ max-height: 31vh;
   .not-found {
     flex-direction: column;
     max-height: 100%;
-    background-position-x: 5% ;
+    background-position: -7% 50% ;
   &__text{
   font-size: 3.4vw;
   margin-top: none;
-  width: 70%;
+  width: 65%;
   position: static;
   padding: 1em;
-  padding-top: 58vh;
+  padding-top: 70vh;
   }  
 }
 .text-container {
