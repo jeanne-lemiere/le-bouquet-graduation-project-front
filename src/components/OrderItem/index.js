@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const OrderItem = ({ item }) => (
-  <li>
-    <span>{item.reference}</span>
-    <span> {item.total_amount}</span>
-    <span> {item.status}</span>
-    <span> {item.date}</span>
-  </li>
+  <tr>
+    <td>{item.reference}</td>
+    <td> {item.total_amount}</td>
+    <td> {item.status}</td>
+    <td> {item.date}</td>
+  </tr>
 );
 
 OrderItem.propTypes = {

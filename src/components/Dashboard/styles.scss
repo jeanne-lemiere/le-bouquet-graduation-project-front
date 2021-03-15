@@ -1,28 +1,48 @@
+.dashboard-container {
+  width: 90%; 
+  max-width: 90%;
+  min-height: 95vh;
+  height: auto;
+  margin: 50px auto;
+ 
+   padding: 1em 0;
+   h1 {
+    padding: 1em;
+    padding-top: 0;
+  }
+}
 .dashboard {
+ background-color: #fff3eb;
+position: relative;
+ min-height: 70vh;
+&__settings {
+position: absolute;
+top: 0.5em;
+right: 0.5em;
+color: #0A1D7D;
+width: 25px;
+& svg {
+  height: 100%;
   width: 100%;
-  height: 80vh;
-  background-color: #eeeeee;
-  position: relative;
-  &__stock{
+}
+}
+&__stock{
   display:flex;
   justify-content: space-between;
   width: 100%;
-  background-color: #bbbbbb;
+  background-color: #FFD3C2;
   margin: 0.5em 0;
   padding: 0.3em;
   & h2 {
     font-weight: 400;
   }
-}
-&__settings{
-position: absolute;
-top: 0.5em;
-right: 0.5em;
-color: #0A1D7D;
-}
+} 
 }
 
-
+.stock__links {
+  display: flex;
+  flex-direction: column;
+}
 .stock__link {
   text-decoration: none;
   background: none;
@@ -38,4 +58,9 @@ color: #0A1D7D;
   &:hover {
     opacity: 0.6;
   }
+  &:after {
+    height: 0;
+  }
 }
+
+

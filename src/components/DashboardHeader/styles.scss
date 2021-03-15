@@ -1,7 +1,7 @@
 .dashboard__header {
   height: 30%;
   display: flex;
-  background-color: #bbbb;
+  background-color: #FFDFD0;
 }
 
 .header__profile {
@@ -11,7 +11,7 @@ font-size: 0.8em;
 }
 
 .profile__background {
-  background-color: #dddd;
+  background-color:#fff3eb;
   width: 100%;
   height: 100%;
 }
@@ -40,21 +40,28 @@ font-size: 0.8em;
 }
 
 .profile__picture {
-  height: 4em;
+  height: 6em;
+  width: 6em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0.8em 0.6em 0 0.6em;
 }
 
 .profile__presentation {
   padding: 0.5em;
+  display: none;
 }
 
 .header__message {
   width:100%;
  font-weight: 400;
  padding: 2.2em; 
+ position: relative;
  & strong {
    font-size: 1.5em;
   }
 }
+
 
 @media only screen and (max-width: 768px){
 
@@ -72,5 +79,13 @@ font-size: 0.8em;
  & strong {
    font-size: 1.3em;
   }
+}
+}
+
+
+
+@media only screen and (max-width: 1024px){
+.profile__picture {
+  margin: 0.8em 0.4em 0 0.4em;
 }
 }

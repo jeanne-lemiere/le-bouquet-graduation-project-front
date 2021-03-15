@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiSettings, FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiSettings, FiPlus } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import DashboardHeader from '../DashboardHeader';
@@ -12,7 +12,10 @@ const Dashboard = ({ userType, orderHistory, currentOrders }) => {
   const pageTitle = userType === 'seller' ? <h1>Mon espace Pro</h1> : <h1>Mon espace</h1>;
   const stock = userType === 'seller' ? (
     <div className="dashboard__stock"><h2>Stock</h2>
-      <a className="stock__link" href="/stock"><FiArrowRight /> Gérer le stock</a>
+      <div className="stock__links">
+        <a className="stock__link" href="/stock"><FiArrowRight /> Gérer le stock</a>
+        <a className="stock__link" href="/nouveau-produit"><FiArrowRight /> Ajouter un produit</a>
+      </div>
     </div>
   ) : null;
 
@@ -27,9 +30,9 @@ const Dashboard = ({ userType, orderHistory, currentOrders }) => {
   };
 
   return (
-    <main>{ pageTitle }
+    <main className="dashboard-container">{ pageTitle }
       <div className="dashboard">
-        <FiSettings className="dashboard__settings" />
+        <div className="dashboard__settings"><FiSettings /></div>
         <DashboardHeader
           profile={profile}
           currentOrderAmount={currentOrders.length}

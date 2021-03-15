@@ -18,32 +18,38 @@ const DropdownMenu = ({
   )) : items.map((item) => (
     <ProductItem key={item.id} item={item} />
   ));
-  // are there items to show ? if not show nothing
-  const itemsToShow = items === [] ? null : itemList;
+
   const itemInfos = itemType === 'order' ? (
-    <div>
-      <span>N° de commande</span>
-      <span>Montant total (TTC)</span>
-      <span>Statut</span>
-      <span>Date</span>
-    </div>
+    <tr>
+      <th>N° de commande</th>
+      <th>Montant total (TTC)</th>
+      <th>Statut</th>
+      <th>Date</th>
+    </tr>
   )
     : (
-      <div>
-        <span>Référence</span>
-        <span>Nom</span>
-        <span>Prix</span>
-        <span>Quantité disponible</span>
-      </div>
+      <tr>
+        <th>Référence</th>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Quantité disponible</th>
+      </tr>
     );
 
   // when the menu is open the arrow points down and the content is displayed
   // when open === false the content is hidden
   const arrow = open ? <FiArrowDown /> : <FiArrowRight />;
   const menuContent = open ? (
-    <ul className="menu__list">
-      <li className="menu__infos">{itemInfos}</li>{itemsToShow}
-    </ul>
+    <div className="menu__list">
+      <table>
+        <thead className="menu__infos"> {itemInfos}
+        </thead>
+        <tbody>{ // are there items to show ? if not show nothing
+ items !== [] && itemList
+}
+        </tbody>
+      </table>
+    </div>
   ) : null;
 
   return (

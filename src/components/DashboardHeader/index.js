@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import { FiSettings } from 'react-icons/fi';
 
 const DashboardHeader = ({ profile, currentOrderAmount, userType }) => {
   // if the connected user is a seller we want to display their profile picture

@@ -1,0 +1,29 @@
+@use 'src/styles/vars';
+
+.spinner {
+ height: 100vh;
+  max-height: 100vh;
+  max-width: 100vw;
+  width: 100vw;
+ position: relative;
+   background-color: #ffebdd;
+}
+.spinner__image {
+  width: 100px;
+  height: 100px;
+  animation: rotation 1.7s infinite linear;
+  display: block;
+ position: absolute;
+ left: calc(50% - 50px);
+ top: calc(50% - 50px);
+  background-color: #ffebdd;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

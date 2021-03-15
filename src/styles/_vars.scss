@@ -2,12 +2,17 @@
 
 // Google Fonts
 
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700);
+
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,100;1,300;1,400;1,500;1,700);
 
 // Font Variables
-$global-font: 'Roboto', sans-serif;
-$global-font-weight: 300;
+$global-font: "Roboto", sans-serif;
 
 //Colors
-$font-color:#0A1D7D;
-$footer-color: #FFEBDD
+$font-color: #0a1d7d;
+$footer-color: #ffebdd;
+/* #D4EDE8 #D4EDD9  #E2F3E6*/
+
+//Sizes
+$gutter: 1.5rem;

@@ -15,19 +15,19 @@ const ProductItem = ({ item, open }) => {
     </div>
   )
     : (
-      <li>
-        <div className="stock__product">
-          <span>{item.reference}</span>
-          <span> {item.name}</span>
-          <span> {item.price}</span>
-          <span> {item.stock}</span>
-        </div>
+      <div>
+        <tr className="stock__product">
+          <td>{item.reference}</td>
+          <td> {item.name}</td>
+          <td> {item.price}</td>
+          <td> {item.stock}</td>
+        </tr>
         <button
           type="button"
           className="stock__unfold-button"
         >{arrow} Voir le détail
         </button>
-      </li>
+      </div>
     );
   return (product);
 };

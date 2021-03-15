@@ -1,0 +1,47 @@
+tr:nth-of-type(odd) { 
+  background:#fff9f5; 
+}
+td { 
+  padding: 6px; 
+  border-bottom: 1px solid #FFD3C2; 
+  text-align: left; 
+}
+
+@media 
+only screen and (max-width: 370px) {
+
+	/* Force table to not be like tables anymore */
+	td, tr { 
+		display: block; 
+	}
+	
+	tr { border: 1px solid #FFD3C2; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #FFD3C2; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+ 	/* td:nth-of-type(1):before { content: "Référence"; }
+	td:nth-of-type(2):before { content: "Nom"; }
+	td:nth-of-type(3):before { content: "Prix"; }
+	td:nth-of-type(4):before { content: "Quantité disponible"; }
+ */
+}
