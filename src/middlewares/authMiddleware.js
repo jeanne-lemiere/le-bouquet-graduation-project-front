@@ -28,6 +28,7 @@ export default (store) => (next) => async (action) => {
           },
         });
         const actionToDispatch = userLoginSuccess(response.data);
+        localStorage.setItem('profile', JSON.stringify(response.data.user));
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('logged', response.data.logged);
         localStorage.setItem('role', response.data.role);

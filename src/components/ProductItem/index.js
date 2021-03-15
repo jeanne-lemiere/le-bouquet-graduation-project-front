@@ -35,7 +35,7 @@ const ProductItem = ({ item, open }) => {
 ProductItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    reference: PropTypes.number.isRequired,
+    reference: PropTypes.string.isRequired,
     total_amount: PropTypes.number,
     status: PropTypes.string,
     date: PropTypes.string,

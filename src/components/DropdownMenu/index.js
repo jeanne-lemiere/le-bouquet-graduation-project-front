@@ -39,22 +39,12 @@ const DropdownMenu = ({
   // when the menu is open the arrow points down and the content is displayed
   // when open === false the content is hidden
   const arrow = open ? <FiArrowDown /> : <FiArrowRight />;
-  const menuContent = open ? (
-    <div className="menu__list">
-      <table>
-        <thead className="menu__infos">{itemInfos}</thead>
-        <tbody>{ // are there items to show ? if not show nothing
- items !== [] && itemList
-}
-        </tbody>
-      </table>
-    </div>
-  ) : null;
+  const menuClass = open ? 'menu__list menu__list--open' : 'menu__list';
 
   return (
-    <section>
+    <section className="menu">
       <header
-        className="menu-header"
+        className="menu__header"
       >
         <h2 className="header__title">{title}</h2>
         <button
@@ -66,7 +56,15 @@ const DropdownMenu = ({
         >{arrow} {unfoldMessage}
         </button>
       </header>
-      {menuContent}
+      <div className={menuClass}>
+        <table>
+          <thead className="menu__infos">{itemInfos}</thead>
+          <tbody>{ // are there items to show ? if not show nothing
+            items !== [] && itemList
+          }
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };
@@ -77,8 +75,8 @@ DropdownMenu.propTypes = {
   open: PropTypes.bool.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    reference: PropTypes.number.isRequired,
-    total_amount: PropTypes.number.isRequired,
+    reference: PropTypes.string.isRequired,
+    total_amount: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
   })).isRequired,

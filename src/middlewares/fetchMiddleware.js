@@ -5,7 +5,15 @@ import {
   setProducts,
 } from 'src/actions/productActions';
 
-import { FETCH_PRODUCERS, setProducers } from 'src/actions/sellerActions';
+import {
+  FETCH_PRODUCERS,
+  setProducers,
+} from 'src/actions/sellerActions';
+
+import {
+  FETCH_ORDERS,
+  fetchOrdersSuccess,
+} from 'src/actions/orderActions';
 
 import {
   setLoading,
@@ -42,6 +50,22 @@ export default (store) => (next) => async (action) => {
           method: 'GET',
         });
         const actionToDispatch = setProducers(response.data);
+        store.dispatch(actionToDispatch);
+      }
+      catch (error) {
+        console.trace(error);
+      }
+      break;
+    }
+    case FETCH_ORDERS: {
+      const { userType, profile } = store.getState().login;
+      try {
+        const response = await axios({
+          url: `${BASE_URL}/${userType}/${profile.id}/orders`,
+          method: 'GET',
+        });
+        console.log('orders', response.data);
+        const actionToDispatch = fetchOrdersSuccess(response.data);
         store.dispatch(actionToDispatch);
       }
       catch (error) {

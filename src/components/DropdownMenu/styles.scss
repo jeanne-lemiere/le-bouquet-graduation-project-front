@@ -1,4 +1,8 @@
-.menu-header {
+/* .menu {
+  position: relative;
+}
+ */
+.menu__header {
   display:flex;
   justify-content: space-between;
   width: 100%;
@@ -6,6 +10,29 @@
   margin-top: 0.5em;
   padding: 0.3em;
 }
+
+.menu__list {
+  display: none;
+  animation: unfold 250ms ease;
+ transform-origin: top center;
+
+ @keyframes unfold {
+    0% {
+       transform: scaleY(0);
+        opacity: 0.2;
+    }
+   
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+}
+.menu__list--open {
+  display: block;
+  height: auto;
+};
 
 .header__title {
 font-weight: 400;
@@ -21,7 +48,6 @@ font-weight: 400;
   font-weight: 400;
   cursor: pointer;
   text-align: center;
-  //margin:none;
   
   &:hover {
     opacity: 0.85;
@@ -42,20 +68,14 @@ font-weight: 400;
   text-align: left; 
 }
 
-/* 
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
+
 @media 
 only screen and (max-width: 370px) {
 
-	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr { 
 		display: block; 
 	}
 	
-	/* Hide table headers (but not display: none;, for accessibility) */
 	thead tr { 
 		position: absolute;
 		top: -9999px;
@@ -65,7 +85,6 @@ only screen and (max-width: 370px) {
 	tr { border: 1px solid #FFD3C2; }
 	
 	td { 
-		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #FFD3C2; 
 		position: relative;
@@ -73,9 +92,7 @@ only screen and (max-width: 370px) {
 	}
 	
 	td:before { 
-		/* Now like a table header */
 		position: absolute;
-		/* Top/left values mimic padding */
 		top: 6px;
 		left: 6px;
 		width: 45%; 
@@ -83,9 +100,7 @@ only screen and (max-width: 370px) {
 		white-space: nowrap;
 	}
 	
-	/*
-	Label the data
-	*/
+
 	td:nth-of-type(1):before { content: "First Name"; }
 	td:nth-of-type(2):before { content: "Last Name"; }
 	td:nth-of-type(3):before { content: "Job Title"; }

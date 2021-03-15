@@ -11,6 +11,7 @@ const initialState = {
   userType: localStorage.getItem('role'),
   loginError: false,
   isLogged: localStorage.getItem('logged'),
+  profile: JSON.parse(localStorage.getItem('profile')),
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -18,12 +19,6 @@ const reducer = (state = initialState, action = {}) => {
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
-        email: '',
-        password: '',
-        isLogged: localStorage.getItem('logged'),
-        userType: localStorage.getItem('role'),
-        loginError: false,
-        ...action.payload.user,
       };
 
     case USER_LOGIN_ERROR:
@@ -31,7 +26,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isLogged: false,
         loginError: true,
-        infos: {},
       };
     case USER_HANDLE_LOGOUT:
       return {
@@ -39,7 +33,6 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         isLogged: false,
-        infos: {},
       };
     case USER_LOGIN_INPUT_CHANGE:
       return {

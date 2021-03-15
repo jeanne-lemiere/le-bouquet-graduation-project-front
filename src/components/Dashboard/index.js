@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiArrowRight, FiSettings } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import DashboardHeader from '../DashboardHeader';
 import DropdownMenu from '../DropdownMenu';
-import profile from '../../data/seller-profile';
 
 const Dashboard = ({
   userType,
@@ -14,10 +13,14 @@ const Dashboard = ({
   toggleHistory,
   currentOpen,
   historyOpen,
+  profile,
+  fetchOrders,
 }) => {
   // if the connected user is a seller we want to give them
   // a link to access their product stock
   const pageTitle = userType === 'seller' ? <h1>Mon espace pro</h1> : <h1>Mon espace client</h1>;
+
+  useEffect(fetchOrders, []);
 
   return (
     <main className="dashboard-container">{ pageTitle }
@@ -62,19 +65,30 @@ const Dashboard = ({
 Dashboard.propTypes = {
   userType: PropTypes.string.isRequired,
   currentOrders: PropTypes.arrayOf(PropTypes.shape({
-    reference: PropTypes.number.isRequired,
-    total_amount: PropTypes.number.isRequired,
+    reference: PropTypes.string.isRequired,
+    total_amount: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
   })).isRequired,
   orderHistory: PropTypes.arrayOf(PropTypes.shape({
-    reference: PropTypes.number.isRequired,
-    total_amount: PropTypes.number.isRequired,
+    reference: PropTypes.string.isRequired,
+    total_amount: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
   })).isRequired,
   toggleCurrentOrders: PropTypes.func.isRequired,
   toggleHistory: PropTypes.func.isRequired,
   currentOpen: PropTypes.bool.isRequired,
   historyOpen: PropTypes.bool.isRequired,
+  profile: PropTypes.shape({
+    picture_url: PropTypes.string.isRequired,
+    shop_name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone_number: PropTypes.string.isRequired,
+    street_number: PropTypes.number.isRequired,
+    street_name: PropTypes.string.isRequired,
+    zipcode: PropTypes.number.isRequired,
+    city: PropTypes.string.isRequired,
+  }).isRequired,
+  fetchOrders: PropTypes.func.isRequired,
 };
 
 export default Dashboard;

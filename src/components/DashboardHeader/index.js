@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { FiSettings } from 'react-icons/fi';
 
 const DashboardHeader = ({ profile, currentOrderAmount, userType }) => {
   // if the connected user is a seller we want to display their profile picture
@@ -41,7 +40,7 @@ const DashboardHeader = ({ profile, currentOrderAmount, userType }) => {
         </div>
       </div>
       <div className="header__message">
-        <strong>Bonjour {profile.first_name},</strong>
+        <strong>Bonjour {profile.firstname},</strong>
         <p>Vous avez actuellement {currentOrderAmount} commandes en cours.</p>
       </div>
     </header>
@@ -55,8 +54,8 @@ const DashboardHeader = ({ profile, currentOrderAmount, userType }) => {
 DashboardHeader.propTypes = {
   profile: PropTypes.shape({
     gender: PropTypes.string,
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
     email: PropTypes.string,
     phone_number: PropTypes.string,
     street_name: PropTypes.string,
