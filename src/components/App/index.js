@@ -19,7 +19,7 @@ import OurProducers from '../../containers/OurProducers';
 
 // == Import
 import './styles.scss';
-import Dashboard from '../Dashboard';
+import Dashboard from '../../containers/Dashboard';
 
 // == Fake data for testing
 import currentOrders from '../../data/current-orders';

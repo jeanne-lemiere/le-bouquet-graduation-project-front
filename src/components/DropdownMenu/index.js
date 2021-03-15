@@ -42,8 +42,7 @@ const DropdownMenu = ({
   const menuContent = open ? (
     <div className="menu__list">
       <table>
-        <thead className="menu__infos"> {itemInfos}
-        </thead>
+        <thead className="menu__infos">{itemInfos}</thead>
         <tbody>{ // are there items to show ? if not show nothing
  items !== [] && itemList
 }

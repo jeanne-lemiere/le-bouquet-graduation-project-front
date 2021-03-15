@@ -1,33 +1,23 @@
-import React, { useState } from 'react';
-import { FiArrowRight, FiSettings, FiPlus } from 'react-icons/fi';
+import React from 'react';
+import { FiArrowRight, FiSettings } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import DashboardHeader from '../DashboardHeader';
 import DropdownMenu from '../DropdownMenu';
 import profile from '../../data/seller-profile';
 
-const Dashboard = ({ userType, orderHistory, currentOrders }) => {
+const Dashboard = ({
+  userType,
+  currentOrders,
+  orderHistory,
+  toggleCurrentOrders,
+  toggleHistory,
+  currentOpen,
+  historyOpen,
+}) => {
   // if the connected user is a seller we want to give them
   // a link to access their product stock
-  const pageTitle = userType === 'seller' ? <h1>Mon espace Pro</h1> : <h1>Mon espace</h1>;
-  const stock = userType === 'seller' ? (
-    <div className="dashboard__stock"><h2>Stock</h2>
-      <div className="stock__links">
-        <a className="stock__link" href="/stock"><FiArrowRight /> Gérer le stock</a>
-        <a className="stock__link" href="/nouveau-produit"><FiArrowRight /> Ajouter un produit</a>
-      </div>
-    </div>
-  ) : null;
-
-  // adding a simple toggle function for dropdown menus css animation testing
-  const [currentOpen, setCurrentOpen] = useState(false);
-  const [historyOpen, setHistoryOpen] = useState(false);
-  const toggleCurrentOrders = () => {
-    setCurrentOpen(!currentOpen);
-  };
-  const toggleHistory = () => {
-    setHistoryOpen(!historyOpen);
-  };
+  const pageTitle = userType === 'seller' ? <h1>Mon espace pro</h1> : <h1>Mon espace client</h1>;
 
   return (
     <main className="dashboard-container">{ pageTitle }
@@ -54,7 +44,15 @@ const Dashboard = ({ userType, orderHistory, currentOrders }) => {
           toggle={toggleHistory}
           itemType="order"
         />
-        {stock}
+        {userType === 'seller'
+    && (
+    <div className="dashboard__stock"><h2>Stock</h2>
+      <div className="stock__links">
+        <a className="stock__link" href="/stock"><FiArrowRight /> Gérer le stock</a>
+        <a className="stock__link" href="/nouveau-produit"><FiArrowRight /> Ajouter un produit</a>
+      </div>
+    </div>
+    )}
       </div>
     </main>
 
@@ -73,6 +71,10 @@ Dashboard.propTypes = {
     total_amount: PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
   })).isRequired,
+  toggleCurrentOrders: PropTypes.func.isRequired,
+  toggleHistory: PropTypes.func.isRequired,
+  currentOpen: PropTypes.bool.isRequired,
+  historyOpen: PropTypes.bool.isRequired,
 };
 
 export default Dashboard;
