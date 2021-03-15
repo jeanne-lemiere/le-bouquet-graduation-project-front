@@ -8,6 +8,7 @@ const mapState = (state) => {
     currentOrdersOpen, historyOpen,
   } = state.display;
   const {
+    isLogged,
     userType,
     profile,
   } = state.login;
@@ -25,6 +26,7 @@ const mapState = (state) => {
     historyOpen,
     currentOrders,
     orderHistory,
+    isLogged,
   };
 };
 

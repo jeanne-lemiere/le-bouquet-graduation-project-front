@@ -19,6 +19,9 @@ const reducer = (state = initialState, action = {}) => {
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
+        userType: localStorage.getItem('role'),
+        isLogged: localStorage.getItem('logged'),
+        profile: JSON.parse(localStorage.getItem('profile')),
       };
 
     case USER_LOGIN_ERROR:

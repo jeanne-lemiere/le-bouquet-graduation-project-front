@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { FiArrowRight, FiSettings } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import { Redirect, Link } from 'react-router-dom';
 import DashboardHeader from '../DashboardHeader';
 import DropdownMenu from '../DropdownMenu';
 
@@ -15,6 +16,7 @@ const Dashboard = ({
   historyOpen,
   profile,
   fetchOrders,
+  isLogged,
 }) => {
   // if the connected user is a seller we want to give them
   // a link to access their product stock
@@ -22,6 +24,9 @@ const Dashboard = ({
 
   useEffect(fetchOrders, []);
 
+  if (isLogged === false) {
+    return <Redirect to="/" />;
+  }
   return (
     <main className="dashboard-container">{ pageTitle }
       <div className="dashboard">
@@ -51,8 +56,8 @@ const Dashboard = ({
     && (
     <div className="dashboard__stock"><h2>Stock</h2>
       <div className="stock__links">
-        <a className="stock__link" href="/stock"><FiArrowRight /> Gérer le stock</a>
-        <a className="stock__link" href="/nouveau-produit"><FiArrowRight /> Ajouter un produit</a>
+        <Link className="stock__link" to="/stock"><FiArrowRight /> Gérer le stock</Link>
+        <Link className="stock__link" to="/nouveau-produit"><FiArrowRight /> Ajouter un produit</Link>
       </div>
     </div>
     )}
@@ -89,6 +94,7 @@ Dashboard.propTypes = {
     city: PropTypes.string.isRequired,
   }).isRequired,
   fetchOrders: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 export default Dashboard;
