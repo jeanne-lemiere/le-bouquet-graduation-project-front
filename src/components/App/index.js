@@ -19,8 +19,11 @@ import OurProducers from '../../containers/OurProducers';
 
 // == Import
 import './styles.scss';
+import Dashboard from '../../containers/Dashboard';
 
-// == Composant
+// == Fake data for testing
+import currentOrders from '../../data/current-orders';
+import orderHistory from '../../data/order-history';
 
 const App = ({ init, loading }) => {
   useEffect(() => {
@@ -60,6 +63,13 @@ const App = ({ init, loading }) => {
           </Route>
           <Route path="/nos-producteurs" exact>
             <OurProducers />
+          </Route>
+          <Route path="/mon-espace" exact>
+            <Dashboard
+              userType="seller"
+              currentOrders={currentOrders}
+              orderHistory={orderHistory}
+            />
           </Route>
           <NotFound />
         </Switch>

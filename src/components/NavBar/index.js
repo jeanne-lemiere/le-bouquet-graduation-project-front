@@ -6,7 +6,7 @@ import { FiShoppingBag, FiMenu } from 'react-icons/fi';
 import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = ({
-  isLogged, toggleAuthModal, logOut, changeBackground, navBackground,
+  isLogged, toggleAuthModal, logOut, changeBackground, navBackground, userType,
 }) => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -15,7 +15,7 @@ const NavBar = ({
   });
 
   const navClass = navBackground ? 'nav nav--active' : 'nav';
-
+  const joinUs = isLogged && userType === 'seller' ? null : <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>;
   return (
     <header>
       <nav className={navClass}>
@@ -25,7 +25,7 @@ const NavBar = ({
             <li className="nav__link"> <NavLink exact to="/">ACCUEIL</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-fleurs">NOS FLEURS</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-producteurs">NOS PRODUCTEURS</NavLink></li>
-            <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>
+            {joinUs}
             {isLogged ? (
               <li className="nav__link"><NavLink exact to="/mon-espace">MON ESPACE</NavLink></li>)
               : (
@@ -97,5 +97,6 @@ NavBar.propTypes = {
   logOut: PropTypes.func.isRequired,
   changeBackground: PropTypes.func.isRequired,
   navBackground: PropTypes.bool.isRequired,
+  userType: PropTypes.string.isRequired,
 };
 export default NavBar;
