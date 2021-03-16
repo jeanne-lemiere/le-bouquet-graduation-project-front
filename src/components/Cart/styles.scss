@@ -2,8 +2,7 @@
 
 .card {
     padding: 7rem 8rem 5rem 8rem;
-    min-height: 92vh;
-    background-color: rgb(216, 216, 216);
+    min-height: 92vh;;
 
     // & .sub-card {
     //     width: 80%;
@@ -13,7 +12,9 @@
     & p {
         margin: 0;
     }
-    
+    &__order-button {
+      transition: 0ms;
+    }
     & .empty-cart {
         padding: 1rem 0 1rem 1rem;
         margin-bottom: 1rem;
@@ -66,10 +67,6 @@
             font-weight: 500;
         }
     }
-    &__title {
-        font-size: 3rem;
-        
-    }
     &__img-link::after {
         height: 0;
     }
@@ -79,7 +76,9 @@
         background-color: white;
         border: 1px solid vars.$font-color;
         padding: 1rem 3rem;
-        transition: 0.2s;
+        transition: 0ms;
+        height: 3em;
+        margin-top: 0.3em;
         &::after {
             height: 0;
         }
@@ -99,7 +98,7 @@
     }
     &__products {
         margin-top: 1.5rem;
-        border-top: 1px solid rgb(216, 216, 216);
+        border-top: 1px solid grey;
         background-color: white;
     }
     &__product {
