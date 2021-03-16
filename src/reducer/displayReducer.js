@@ -2,6 +2,8 @@ import {
   TOGGLE_AUTH_MODAL,
   CHANGE_NAV_BACKGROUND,
   SET_LOADING,
+  TOGGLE_CURRENT_ORDERS,
+  TOGGLE_ORDER_HISTORY,
 } from 'src/actions/displayActions';
 
 import {
@@ -12,6 +14,8 @@ const initialState = {
   authModal: false,
   navBackground: false,
   loading: false,
+  historyOpen: false,
+  currentOrdersOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,6 +39,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: action.payload,
+      };
+    case TOGGLE_CURRENT_ORDERS:
+      return {
+        ...state,
+        currentOrdersOpen: !state.currentOrdersOpen,
+      };
+    case TOGGLE_ORDER_HISTORY:
+      return {
+        ...state,
+        historyOpen: !state.historyOpen,
       };
     default:
       return state;

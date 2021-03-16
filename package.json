@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
     "firebase": "^8.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",

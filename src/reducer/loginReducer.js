@@ -46,8 +46,7 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         isLogged: JSON.parse(localStorage.getItem('logged')),
         userType: localStorage.getItem('role'),
-        loginError: false,
-        ...action.payload.user,
+        profile: JSON.parse(localStorage.getItem('profile')),
       };
 
     case USER_LOGIN_ERROR:
@@ -55,7 +54,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isLogged: false,
         loginError: true,
-        infos: {},
       };
     case USER_HANDLE_LOGOUT:
       return {
@@ -63,7 +61,6 @@ const reducer = (state = initialState, action = {}) => {
         email: '',
         password: '',
         isLogged: false,
-        infos: {},
       };
     case USER_LOGIN_INPUT_CHANGE:
       return {

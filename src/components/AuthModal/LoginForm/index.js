@@ -80,8 +80,12 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.string,
   loginError: PropTypes.bool.isRequired,
+};
+
+LoginForm.defaultProps = {
+  selected: 'customer',
 };
 
 export default LoginForm;
