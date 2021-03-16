@@ -44,6 +44,7 @@ opacity: 0.9;
   &__icon {
    display: block;
    margin: auto 1em;
+   position: relative;
    &::after {
         height: 0;
       }
@@ -58,6 +59,20 @@ opacity: 0.9;
   }
 }
 
+.cart__amount {
+  border-radius: 50%;
+  background-color: vars.$font-color;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  height: 17px;
+  width: 17px;
+  text-align: center;
+  line-height: 18px;
+  position: absolute;
+  bottom: -17px;
+  right: -8px;
+}
 .logo-link {
   max-width: 100px;
 }

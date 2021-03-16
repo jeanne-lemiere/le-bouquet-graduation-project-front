@@ -9,7 +9,7 @@ import './styles.scss';
 
 // Il s'agit ici de la page de détails d'un seul produit
 
-const SingleProduct = ({ products }) => {
+const SingleProduct = ({ products, increaseCartAmount }) => {
   // On extrait l'id des paramètres de la route
   const { id } = useParams();
   // Puis on cherche l'article demandé parmi la liste des articles
@@ -55,10 +55,12 @@ const SingleProduct = ({ products }) => {
     else { // aucun panier n'existe encore, on le crée
       const newCart = [{ id, quantity: 1 }];
       localStorage.setItem('cart', JSON.stringify(newCart));
+      localStorage.setItem('cartAmount', JSON.stringify(1));
 
       const allProducts = JSON.parse(localStorage.getItem('cart'));
       console.log('Aucun panier, on en crée un : ', allProducts);
     }
+    increaseCartAmount();
 
     toast("C'est noté!", {
       position: 'bottom-center',
@@ -115,6 +117,7 @@ SingleProduct.propTypes = {
       price: PropTypes.string,
     }),
   ),
+  increaseCartAmount: PropTypes.func.isRequired,
 };
 
 SingleProduct.defaultProps = {

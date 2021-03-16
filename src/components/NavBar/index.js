@@ -79,6 +79,7 @@ const NavBar = ({
             className="nav__icon"
             to="/panier"
           ><FiShoppingBag />
+            <p className="cart__amount">{cartAmount}</p>
           </Link>
           <div
             className="nav__icon nav__icon--burger"
@@ -98,5 +99,6 @@ NavBar.propTypes = {
   changeBackground: PropTypes.func.isRequired,
   navBackground: PropTypes.bool.isRequired,
   userType: PropTypes.string.isRequired,
+  cartAmount: PropTypes.number.isRequired,
 };
 export default NavBar;

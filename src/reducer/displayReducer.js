@@ -4,11 +4,20 @@ import {
   SET_LOADING,
   TOGGLE_CURRENT_ORDERS,
   TOGGLE_ORDER_HISTORY,
+  INCREASE_CART_AMOUNT,
+  DECREASE_CART_AMOUNT,
 } from 'src/actions/displayActions';
 
 import {
   USER_LOGIN_SUCCESS,
 } from 'src/actions/loginActions';
+
+const ifNullReturnZero = (data) => {
+  if (data === null) {
+    return 0;
+  }
+  return data;
+};
 
 const initialState = {
   authModal: false,
@@ -16,6 +25,7 @@ const initialState = {
   loading: false,
   historyOpen: false,
   currentOrdersOpen: false,
+  cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -49,6 +59,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         historyOpen: !state.historyOpen,
+      };
+    case INCREASE_CART_AMOUNT:
+      return {
+        ...state,
+        cartAmount: state.cartAmount + 1,
+      };
+    case DECREASE_CART_AMOUNT:
+      return {
+        ...state,
+        cartAmount: state.cartAmount - 1,
       };
     default:
       return state;
