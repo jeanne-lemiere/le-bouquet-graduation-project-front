@@ -125,3 +125,19 @@
     }
   }
 }
+
+.Toastify__toast {
+  background-color: vars.$footer-color;
+  color: vars.$font-color;
+ font-style: italic;
+ justify-content: center;
+  box-shadow: none;
+  border: solid 1px vars.$font-color;
+}
+.Toastify__progress-bar {
+  background: vars.$font-color;
+
+}
+.Toastify__close-button {
+  display: none;
+}

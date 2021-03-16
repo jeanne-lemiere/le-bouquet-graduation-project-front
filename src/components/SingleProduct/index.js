@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NotFound from '../NotFound';
 
 import './styles.scss';
@@ -57,6 +59,16 @@ const SingleProduct = ({ products }) => {
       const allProducts = JSON.parse(localStorage.getItem('cart'));
       console.log('Aucun panier, on en crée un : ', allProducts);
     }
+
+    toast("C'est noté!", {
+      position: 'bottom-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -77,7 +89,20 @@ const SingleProduct = ({ products }) => {
         >→ Ajouter au panier
         </button>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className="toaster"
+      />
     </div>
+
   );
 };
 

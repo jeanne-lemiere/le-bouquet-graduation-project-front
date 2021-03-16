@@ -6,7 +6,7 @@ import { FiShoppingBag, FiMenu } from 'react-icons/fi';
 import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = ({
-  isLogged, toggleAuthModal, logOut, changeBackground, navBackground, userType,
+  isLogged, toggleAuthModal, logOut, changeBackground, navBackground, userType, cartAmount,
 }) => {
   useEffect(() => {
     window.addEventListener('scroll', () => {

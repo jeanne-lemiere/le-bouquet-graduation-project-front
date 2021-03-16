@@ -12,11 +12,15 @@ const mapState = (state) => {
   const {
     navBackground,
   } = state.display;
+  const {
+    cartProducts,
+  } = state.product;
 
   return {
     isLogged,
     navBackground,
     userType,
+    cartAmount: cartProducts.length,
   };
 };
 
