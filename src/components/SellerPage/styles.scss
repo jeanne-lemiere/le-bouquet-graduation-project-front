@@ -1,28 +1,69 @@
 @use 'src/styles/vars';
 
-.seller-page {
-    min-height: 92vh;
+.seller{
+  &-page {
+    min-height: 50vh;
     padding: 7rem 8rem 5rem 8rem;
     & .seller-info {
         background-color: rgb(206, 237, 255);
         width: 100%;
         padding: 1rem;
         text-align: center;
+        border: 1px solid vars.$font-color;
     }
 
     &__products {
+   
+   
         margin-top: 1rem;
         border: 1px solid rgb(194, 194, 194);
         padding: 1rem;
     }
+  } 
+
 }
 
+.seller-info{
+  
+  &__pres{
+  display: flex;
+  
+  padding: 10px;
 
+  &__picture{
+    max-width: 20%;
+    max-height: 20%;
+  }
+  
+  &__adress{
+    
+    margin: 9% 3% 0% 1%;
+    padding: 0% 0% 0% 2%;
+    text-align: left;
+  }
 
+  &__description{
+    max-width: 60%;
+    text-align: left;
+    padding: 2%;
+   
+    
+  }
+}}
 
+.adress{
+  &__title{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  &__info{
 
-
+  }
+}
 .products {
+  
+
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -30,9 +71,92 @@
   padding: 0.5em;
 }
 
+@media only screen and (max-width: 850px) {
+
+  .seller-info{
+  
+    &__pres{
+    display: flex;
+      flex-direction: column;
+  
+    padding: 10px;
+    
+  
+    &__picture{
+      
+      margin: 0% auto;
+     
+      max-width: 40%;
+      max-height: 40%;
+     
+    }
+    
+    &__adress{
+     
+      margin: 0% auto;
+     
+      text-align: center;
+    }
+  
+    &__description{
+      
+      margin: 0% auto;
+      max-width: 60%;
+      text-align: center;
+      
+    }
+  }}
+
+}
+
 @media only screen and (max-width: 660px) {
+  .seller{
+    &-page {
+      min-height: 50vh;
+      padding: 7rem 0rem 5rem 0rem;
+ 
+  
+  }
+  
+  .seller-info{
+  
+    &__pres{
+    display: flex;
+      
+  
+    padding: 10px;
+    
+  
+    &__picture{
+      
+      margin: 0% auto;
+     
+      max-width: 50%;
+      max-height: 50%;
+     
+    }
+    
+    &__adress{
+     
+      margin: 0% auto;
+     
+      text-align: center;
+    }
+  
+    &__description{
+      
+      margin: 0% auto;
+      max-width: 60%;
+      text-align: center;
+      
+    }
+  }}
+
+}
   .products {
     max-width: 100vw;
     margin: 50px 0;
   }
 }
+
+

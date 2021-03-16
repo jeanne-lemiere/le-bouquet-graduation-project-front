@@ -55,6 +55,7 @@ export default (store) => (next) => async (action) => {
         .then((response) => {
           console.log("ici one seller middleware", response.data)
           store.dispatch(setOneSeller(response.data));
+
         })
         .catch((error) => {
           console.trace(error);

@@ -15,7 +15,7 @@ const ProductCard = ({
   id,
   price,
 }) => (
-  <article className="product-card">
+  <li className="product-card">
     <Link to={`/product/${id}`}>
       {/* <div className="product-image-container"> */}
       <img className="product-card-img" src={imgLink} alt={name} />
@@ -25,7 +25,7 @@ const ProductCard = ({
         <p className="product-card-price">{price}€</p>
       </div>
     </Link>
-  </article>
+  </li>
 
 );
 
