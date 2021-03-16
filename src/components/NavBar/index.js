@@ -92,7 +92,7 @@ const NavBar = ({
 };
 
 NavBar.propTypes = {
-  // isLogged: PropTypes.bool.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   toggleAuthModal: PropTypes.func.isRequired,
   logOut: PropTypes.func.isRequired,
   changeBackground: PropTypes.func.isRequired,
