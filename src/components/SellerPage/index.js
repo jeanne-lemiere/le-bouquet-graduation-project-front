@@ -46,7 +46,8 @@ const SellerPage = ({ fetchOneSeller, zipcode, phone_number, shop_presentation, 
                   <p className = "adress__info">
                     {products[0].zipcode} {products[0].city}
                   </p>
-
+                  <p className = "adress__info">
+                    {products[0].phone_number} {products[0].email}</p>
                 </div>
                 <div className="seller-info__pres__description">
                    <p>{products[0].shop_presentation} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis, massa nec cursus feugiat, elit ex eleifend orci, viverra dapibus lorem massa at erat. Morbi volutpat nec diam quis hendrerit. Cras dictum suscipit tortor, vel blandit massa rutrum ac. In at erat luctus, euismod massa vel, hendrerit nisi. Aliquam erat volutpat. Mauris iaculis, felis quis commodo eleifend, leo massa viverra mi, sit amet semper arcu purus at lectus. Mauris ex metus, cursus sit amet lacinia interdum, dapibus eu est. Nam fringilla consectetur ipsum, vitae dignissim augue congue eu. Nunc feugiat, dolor at commodo efficitur, mauris odio euismod ex, non fermentum dui risus vel ligula. Donec feugiat viverra quam, ut hendrerit arcu rutrum sodales. In non quam lacus. Vestibulum eget dui ante.

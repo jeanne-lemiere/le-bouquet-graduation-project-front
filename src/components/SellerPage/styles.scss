@@ -1,5 +1,6 @@
 @use 'src/styles/vars';
 
+
 .seller{
   &-page {
     min-height: 50vh;
@@ -33,12 +34,13 @@
   &__picture{
     max-width: 20%;
     max-height: 20%;
+    object-fit: cover;
   }
   
   &__adress{
     
-    margin: 9% 3% 0% 1%;
-    padding: 0% 0% 0% 2%;
+    margin: 0% 3% 0% 1%;
+    padding: 3% 0% 0% 2%;
     text-align: left;
   }
 
@@ -70,6 +72,45 @@
   margin-top: 70px;
   padding: 0.5em;
 }
+
+@media only screen and (max-width: 1150px) {
+
+  .seller-info{
+  
+    &__pres{
+    display: flex;
+      flex-direction: column;
+  
+    padding: 10px;
+    
+  
+    &__picture{
+      
+      margin: 0% auto;
+     
+      max-width: 40%;
+      max-height: 40%;
+     
+    }
+    
+    &__adress{
+     
+      margin: 0% auto;
+     
+      text-align: center;
+    }
+  
+    &__description{
+      
+      margin: 0% auto;
+      max-width: 60%;
+      text-align: center;
+      
+    }
+  }}
+
+}
+
 
 @media only screen and (max-width: 850px) {
 
