@@ -3,20 +3,14 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import CartProduct from '../../containers/CartProduct';
-import Spinner from './Spinner';
 
 const Cart = ({
   fetchCartProducts, cartProducts, loading, setLoading,
 }) => {
   useEffect(() => {
     fetchCartProducts();
-    setLoading(true);
   }, []);
 
-  if (loading) {
-    'vrai';
-    return <Spinner />;
-  }
   console.log('faux loading vaut :', loading, 'et cartProduct.length : ', cartProducts.length);
 
   let totalPrice = 0;

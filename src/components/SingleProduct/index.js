@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
-import productImage from 'src/assets/product-image.jpg';
+import { useParams, Link } from 'react-router-dom';
 import NotFound from '../NotFound';
 
 import './styles.scss';
@@ -28,35 +27,35 @@ const SingleProduct = ({ products }) => {
   } = productFound;
   // console.log(productFound);
 
-  const addToCart = event => {
-    const id = event.target.closest(".single-product").getAttribute("id"); // on récupère le id du produit
+  const addToCart = (event) => {
+    const id = event.target.closest('.single-product').getAttribute('id'); // on récupère le id du produit
 
-    let cart = JSON.parse(localStorage.getItem("cart")) // on vérifie s'il y a quelque chose dans cart
-    
-    if (cart) {         // s'il y a quelque chose, on vérifie si le id de l'élément cliqué y est
-      const findProduct = cart.find(element => element.id == id);
-      
-      if (findProduct) {    // il y est, on augmente la quantité
-        console.log(findProduct, "existe alors j'augmente sa quantité")
-        findProduct.quantity++
-        console.log("Il vaut maintenant",findProduct);
-        localStorage.setItem("cart", JSON.stringify(cart));
+    const cart = JSON.parse(localStorage.getItem('cart')); // on vérifie s'il y a quelque chose dans cart
 
-        const allProducts = JSON.parse(localStorage.getItem("cart"))
-        console.log("Voici tout le panier : ", allProducts)
+    if (cart) { // s'il y a quelque chose, on vérifie si le id de l'élément cliqué y est
+      const findProduct = cart.find((element) => element.id == id);
 
-      } else { // il n'y est pas, on l'ajoute
-        const newCart = cart.push({id: id, quantity: 1})
-        localStorage.setItem("cart", JSON.stringify(cart));
-        console.log("N'a pas trouvé, alors ajouté", JSON.parse(localStorage.getItem("cart")))
+      if (findProduct) { // il y est, on augmente la quantité
+        console.log(findProduct, "existe alors j'augmente sa quantité");
+        findProduct.quantity++;
+        console.log('Il vaut maintenant', findProduct);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        const allProducts = JSON.parse(localStorage.getItem('cart'));
+        console.log('Voici tout le panier : ', allProducts);
       }
-    
-    } else { // aucun panier n'existe encore, on le crée
-      const newCart = [{id: id, quantity: 1}]
-      localStorage.setItem("cart", JSON.stringify(newCart));
+      else { // il n'y est pas, on l'ajoute
+        const newCart = cart.push({ id, quantity: 1 });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log("N'a pas trouvé, alors ajouté", JSON.parse(localStorage.getItem('cart')));
+      }
+    }
+    else { // aucun panier n'existe encore, on le crée
+      const newCart = [{ id, quantity: 1 }];
+      localStorage.setItem('cart', JSON.stringify(newCart));
 
-      const allProducts = JSON.parse(localStorage.getItem("cart"))
-      console.log("Aucun panier, on en crée un : ", allProducts)
+      const allProducts = JSON.parse(localStorage.getItem('cart'));
+      console.log('Aucun panier, on en crée un : ', allProducts);
     }
   };
 
@@ -64,7 +63,7 @@ const SingleProduct = ({ products }) => {
     <div className="single-product" id={id}>
       <div className="single-product_leftside">
         {/* <img src={images[0].url}></img> alt="bouquet" */}
-        <img src={productImage} alt="bouquet" />
+        <img src={images[0].url} alt="bouquet" />
       </div>
       <div className="single-product_rightside">
         <h2 className="product-name">{name}</h2>

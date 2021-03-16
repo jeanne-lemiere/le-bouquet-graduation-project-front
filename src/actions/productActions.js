@@ -17,7 +17,6 @@ export const fetchCartProducts = () => ({
   type: FETCH_CART_PRODUCTS,
 });
 
-
 export const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
 
 export const setCartProducts = (cartProducts) => ({
@@ -25,14 +24,11 @@ export const setCartProducts = (cartProducts) => ({
   cartProducts,
 });
 
-
-
 export const INCREASE_QUANTITY = 'INCREASE_QUANTITY';
 export const increaseQuantity = (id) => ({
   type: INCREASE_QUANTITY,
   id,
 });
-
 
 export const DECREASE_QUANTITY = 'DECREASE_QUANTITY';
 export const decreaseQuantity = (id) => ({
@@ -45,4 +41,3 @@ export const removeFromCard = (id) => ({
   type: REMOVE_FROM_CARD,
   id,
 });
-

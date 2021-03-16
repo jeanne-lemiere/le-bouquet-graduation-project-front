@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
 import NavBar from 'src/components/NavBar';
-import { userLogout } from 'src/actions/userActions';
-import { toggleAuthModal/* , changeNavBackground  */ } from 'src/actions/displayActions';
+import { userLogout } from 'src/actions/loginActions';
+import { toggleAuthModal, changeNavBackground } from 'src/actions/displayActions';
 
 const mapState = (state) => {
   const {
     isLogged,
-  } = state.user;
-  /*  const {
+    userType,
+  } = state.login;
+
+  const {
     navBackground,
-  } = state.display; */
+  } = state.display;
+
   return {
     isLogged,
-  //  navBackground,
+    navBackground,
+    userType,
   };
 };
 
@@ -27,13 +31,12 @@ const mapDispatch = (dispatch) => ({
   },
   /* The console.log works and gives me a dynamic boolean depending on scrollY
     The action is trigged as I can see in the DevTools
-    But the value never changes in the state and remains false
-   changeBackground: (screenHeight) => {
-    const data = { navBackground: screenHeight >= 50 };
-    console.log(data);
+    But the value never changes in the state and remains false */
+  changeBackground: (screenHeight) => {
+    const data = screenHeight >= 50;
     const action = changeNavBackground(data);
     dispatch(action);
-  }, */
+  },
 });
 
 export default connect(mapState, mapDispatch)(NavBar);
