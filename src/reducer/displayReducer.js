@@ -14,6 +14,7 @@ import {
 
 const ifNullReturnZero = (data) => {
   if (data === null) {
+    localStorage.setItem('cartAmount', JSON.stringify(0));
     return 0;
   }
   return data;
@@ -63,12 +64,12 @@ const reducer = (state = initialState, action = {}) => {
     case INCREASE_CART_AMOUNT:
       return {
         ...state,
-        cartAmount: state.cartAmount + 1,
+        cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
       };
     case DECREASE_CART_AMOUNT:
       return {
         ...state,
-        cartAmount: state.cartAmount - 1,
+        cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
       };
     default:
       return state;

@@ -8,22 +8,38 @@ const CartProduct = ({
 }) => {
   const moreQuantity = () => {
     increaseQuantity(id);
-    increaseCartAmount();
     // console.log('fonction + lancée', id, quantity)
+
+    // --- DISPLAY ---
+    // I first update the value in localStorage
+    const newAmount = JSON.parse(localStorage.getItem('cartAmount')) + 1;
+    localStorage.setItem('cartAmount', JSON.stringify(newAmount));
+    // then trigger an action for the state to update
+    // depending on the new value in localStorage
+    increaseCartAmount();
+    // --------------
   };
 
   const lessQuantity = () => {
     decreaseQuantity(id);
-    decreaseCartAmount();
     // console.log('fonction - lancée', id,  quantity)
+
+    // --- DISPLAY ---
+    const newAmount = JSON.parse(localStorage.getItem('cartAmount')) - 1;
+    localStorage.setItem('cartAmount', JSON.stringify(newAmount));
+    decreaseCartAmount();
+    // ---------------
   };
 
   const remove = () => {
     removeFromCard(id);
-    for (let i = 0; i < quantity; i++) {
-      decreaseCartAmount();
-    }
     // console.log('fonction remove')
+
+    // --- DISPLAY ---
+    const newAmount = JSON.parse(localStorage.getItem('cartAmount')) - quantity;
+    localStorage.setItem('cartAmount', JSON.stringify(newAmount));
+    decreaseCartAmount();
+    // ---------------
   };
 
   return (

@@ -55,11 +55,12 @@ const SingleProduct = ({ products, increaseCartAmount }) => {
     else { // aucun panier n'existe encore, on le crée
       const newCart = [{ id, quantity: 1 }];
       localStorage.setItem('cart', JSON.stringify(newCart));
-      localStorage.setItem('cartAmount', JSON.stringify(1));
 
       const allProducts = JSON.parse(localStorage.getItem('cart'));
       console.log('Aucun panier, on en crée un : ', allProducts);
     }
+    const newAmount = JSON.parse(localStorage.getItem('cartAmount')) + 1;
+    localStorage.setItem('cartAmount', JSON.stringify(newAmount));
     increaseCartAmount();
 
     toast("C'est noté!", {
