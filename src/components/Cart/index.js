@@ -11,7 +11,7 @@ const Cart = ({
     fetchCartProducts();
   }, []);
 
-  console.log('faux loading vaut :', loading, 'et cartProduct.length : ', cartProducts.length);
+  // console.log('faux loading vaut :', loading, 'et cartProduct.length : ', cartProducts.length);
 
   let totalPrice = 0;
   let cartFull;

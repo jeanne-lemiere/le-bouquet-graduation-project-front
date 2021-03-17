@@ -20,7 +20,7 @@ const initialState = {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_LOADING:
-      console.log('arrivé dans le reducer, avant changement loading vaut :', state.loading, 'action vaut : ', action.payload);
+    //  console.log('arrivé dans le reducer, avant changement loading vaut :', state.loading, 'action vaut : ', action.payload);
       return {
         ...state,
         loading: action.payload,

@@ -38,18 +38,18 @@ const SingleProduct = ({ products, increaseCartAmount }) => {
       const findProduct = cart.find((element) => element.id == id);
 
       if (findProduct) { // il y est, on augmente la quantité
-        console.log(findProduct, "existe alors j'augmente sa quantité");
+      //  console.log(findProduct, "existe alors j'augmente sa quantité");
         findProduct.quantity++;
-        console.log('Il vaut maintenant', findProduct);
+        // console.log('Il vaut maintenant', findProduct);
         localStorage.setItem('cart', JSON.stringify(cart));
 
         const allProducts = JSON.parse(localStorage.getItem('cart'));
-        console.log('Voici tout le panier : ', allProducts);
+      //  console.log('Voici tout le panier : ', allProducts);
       }
       else { // il n'y est pas, on l'ajoute
         const newCart = cart.push({ id, quantity: 1 });
         localStorage.setItem('cart', JSON.stringify(cart));
-        console.log("N'a pas trouvé, alors ajouté", JSON.parse(localStorage.getItem('cart')));
+      //  console.log("N'a pas trouvé, alors ajouté", JSON.parse(localStorage.getItem('cart')));
       }
     }
     else { // aucun panier n'existe encore, on le crée
@@ -57,7 +57,7 @@ const SingleProduct = ({ products, increaseCartAmount }) => {
       localStorage.setItem('cart', JSON.stringify(newCart));
 
       const allProducts = JSON.parse(localStorage.getItem('cart'));
-      console.log('Aucun panier, on en crée un : ', allProducts);
+    //  console.log('Aucun panier, on en crée un : ', allProducts);
     }
     const newAmount = JSON.parse(localStorage.getItem('cartAmount')) + 1;
     localStorage.setItem('cartAmount', JSON.stringify(newAmount));
