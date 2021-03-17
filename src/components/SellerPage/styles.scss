@@ -124,6 +124,17 @@ b {
       
     }
   }}
+  .adress{
+    &__title{
+      text-align: center;
+      font-size: 30px;
+      font-weight: 400;
+      margin: 5% auto;
+    }
+    &__info{
+  
+    }
+  }
 
 }
 
@@ -165,9 +176,19 @@ b {
       
     }
   }}
-
+  
+  .adress{
+    &__title{
+      text-align: center;
+      font-size: 30px;
+      font-weight: 400;
+      margin: 15% auto;
+    }
+    &__info{
+  
+    }
+  }
 }
-
 
 @media only screen and (max-width: 660px) {
   .seller{
