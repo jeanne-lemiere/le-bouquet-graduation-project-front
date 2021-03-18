@@ -8,6 +8,7 @@ import SignupFormSeller from 'src/containers/SignupFormSeller';
 import AccountCreated from 'src/containers/AccountCreated';
 import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
+import SellerPage from 'src/containers/SellerPage';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
@@ -16,7 +17,6 @@ import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
-import SellerPage from 'src/containers/SellerPage';
 
 // == Import
 import './styles.scss';
