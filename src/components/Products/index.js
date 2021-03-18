@@ -37,30 +37,46 @@ const Products = ({ products }) => {
   }
   return (
     <>
-      <form className="input-form">
-        <input className="input-form__search" type="text" placeholder="Rechercher..." onChange={(event) => setSearch(event.target.value)}></input>
+      <form className="input-form" onSubmit={(event) => {event.preventDefault()}}>
+
+        <div className="input-form__search">
+          <input type="text" placeholder="Rechercher..." onChange={(event) => setSearch(event.target.value)}></input>
+        </div> 
         <div className="input-form__categories">
-          <input type="radio" id="0" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="0">Toutes</label>
-          <input type="radio" id="1" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="1">Mariage</label>
-          <input type="radio" id="2" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="2">Funérailles</label>
-          <input type="radio" id="3" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="3">Naissance</label>
-          <input type="radio" id="4" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="4">Déclaration d'amour</label>
-          <input type="radio" id="5" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="5">Anniversaire</label>
-          <input type="radio" id="6" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
-          <label htmlFor="6">Félicitations</label>
-      </div>
+          <h3>Occasions:</h3>
+            <div>
+              <input type="radio" id="0" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
+              <label htmlFor="0">Toutes</label>
+            </div>
+            <div>
+              <input type="radio" id="1" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
+              <label htmlFor="1">Mariage</label>
+            </div>
+            <div>
+              <input type="radio" id="2" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
+              <label htmlFor="2">Funérailles</label>
+            </div>
+            <div>
+              <input type="radio" id="3" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
+              <label htmlFor="3">Naissance</label>
+            </div>
+            <div>
+              <input type="radio" id="4" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
+              <label htmlFor="4">Déclaration d'amour</label>
+            </div>
+            <div>
+              <input type="radio" id="5" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
+              <label htmlFor="5">Anniversaire</label>
+            </div>
+
+        </div>
       </form>
-      <div className="products">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product.id} id={product.id} name={product.name} imgLink={product.images[0].url} price={product.price} />
-        ))}
-      </div>
+
+        <div className="products-list">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} id={product.id} name={product.name} imgLink={product.images[0].url} price={product.price} />
+          ))}
+        </div>
     </>
   );
 };
