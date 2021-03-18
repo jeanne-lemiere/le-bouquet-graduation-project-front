@@ -4,6 +4,8 @@ import { increaseCartAmount } from 'src/actions/displayActions';
 
 const mapState = (state) => ({
   products: state.product.products,
+  isLogged: state.login.isLogged,
+  userType: state.login.userType,
 });
 
 const mapDispatch = (dispatch) => ({

@@ -16,6 +16,8 @@ const NavBar = ({
 
   const navClass = navBackground ? 'nav nav--active' : 'nav';
   const joinUs = isLogged && userType === 'seller' ? null : <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>;
+  const cartClass = isLogged && userType === 'seller' ? 'nav__icon nav__icon--disabled' : 'nav__icon';
+  const cartAmountClass = isLogged && userType === 'seller' ? 'cart__amount cart__amount--disabled' : 'cart__amount';
   return (
     <header>
       <nav className={navClass}>
@@ -76,10 +78,10 @@ const NavBar = ({
               : null }
           </ul>
           <Link
-            className="nav__icon"
+            className={cartClass}
             to="/panier"
           ><FiShoppingBag />
-            <p className="cart__amount">{cartAmount}</p>
+            <p className={cartAmountClass}>{cartAmount}</p>
           </Link>
           <div
             className="nav__icon nav__icon--burger"

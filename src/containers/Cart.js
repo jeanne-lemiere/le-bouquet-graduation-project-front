@@ -5,6 +5,8 @@ import { fetchCartProducts, increaseQuantity, decreaseQuantity } from '../action
 const mapState = (state) => ({
   cartProducts: state.product.cartProducts,
   loading: state.product.loading,
+  isLogged: state.login.isLogged,
+  userType: state.login.userType,
 });
 
 const mapDispatchToProps = (dispatch) => ({

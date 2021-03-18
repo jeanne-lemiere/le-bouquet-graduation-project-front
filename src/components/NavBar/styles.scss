@@ -73,6 +73,15 @@ opacity: 0.9;
   bottom: -17px;
   right: -8px;
 }
+.nav__icon--disabled {
+  pointer-events: none;
+}
+
+.cart__amount--disabled {
+  pointer-events: none;
+  color: vars.$font-color;
+}
+
 .logo-link {
   max-width: 100px;
 }

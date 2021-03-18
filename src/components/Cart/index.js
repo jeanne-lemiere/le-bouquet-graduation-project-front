@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import CartProduct from '../../containers/CartProduct';
 
 const Cart = ({
-  fetchCartProducts, cartProducts, loading, setLoading,
+  fetchCartProducts, cartProducts, loading, setLoading, isLogged, userType,
 }) => {
+  if (isLogged && userType === 'seller') {
+    return <Redirect to="/" />;
+  }
+
   useEffect(() => {
     fetchCartProducts();
   }, []);
-
-  // console.log('faux loading vaut :', loading, 'et cartProduct.length : ', cartProducts.length);
 
   let totalPrice = 0;
   let cartFull;

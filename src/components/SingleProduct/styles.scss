@@ -60,6 +60,10 @@
   }
 }
 
+.add-to-cart--disabled {
+display: none;
+}
+
 .product {
   &-name {
     font-size: 1.9em;
@@ -113,7 +117,7 @@
     padding: 0.5em 0;
 
     &_leftside {
-      width: 350px;
+      max-width: 100vw;
       margin: 0 auto;
       height: auto;
     }

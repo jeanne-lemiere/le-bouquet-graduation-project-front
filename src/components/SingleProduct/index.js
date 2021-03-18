@@ -9,7 +9,9 @@ import './styles.scss';
 
 // Il s'agit ici de la page de détails d'un seul produit
 
-const SingleProduct = ({ products, increaseCartAmount }) => {
+const SingleProduct = ({
+  products, increaseCartAmount, isLogged, userType,
+}) => {
   // On extrait l'id des paramètres de la route
   const { id } = useParams();
   // Puis on cherche l'article demandé parmi la liste des articles
@@ -73,6 +75,7 @@ const SingleProduct = ({ products, increaseCartAmount }) => {
       progress: undefined,
     });
   };
+  const addToCartClass = isLogged && userType === 'seller' ? 'add-to-cart add-to-cart--disabled' : 'add-to-cart';
 
   return (
     <div className="single-product" id={id}>
@@ -86,7 +89,7 @@ const SingleProduct = ({ products, increaseCartAmount }) => {
         <p className="product-price">{price}€</p>
         <p className="product-description">{description}</p>
         <button
-          className="add-to-cart"
+          className={addToCartClass}
           type="button"
           onClick={addToCart}
         >→ Ajouter au panier
@@ -119,6 +122,8 @@ SingleProduct.propTypes = {
     }),
   ),
   increaseCartAmount: PropTypes.func.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+  userType: PropTypes.string.isRequired,
 };
 
 SingleProduct.defaultProps = {
