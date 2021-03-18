@@ -17,7 +17,7 @@ const HomemadeField = ({
     <input
       {...input}
       placeholder={label}
-      {...type}
+      type={type}
       className="form__input"
     />
     {touched && (error && <span className="signup__error">{error}</span>)}
@@ -145,19 +145,19 @@ let SignupFormSeller = ({
             name="email"
             label="ADRESSE EMAIL"
             component={HomemadeField}
-            type="text"
+            type="email"
           />
           <Field
             name="password"
             label="MOT DE PASSE"
             component={HomemadeField}
-            type="text"
+            type="password"
           />
           <Field
             name="passwordConfirm"
             label="CONFIRMER LE MOT DE PASSE"
             component={HomemadeField}
-            type="text"
+            type="password"
           />
         </div>
         <h2>Adresse</h2>
@@ -193,7 +193,7 @@ let SignupFormSeller = ({
             name="phone_number"
             label="N° DE TELEPHONE"
             component={HomemadeField}
-            type="text"
+            type="tel"
 
           />
         </div>
