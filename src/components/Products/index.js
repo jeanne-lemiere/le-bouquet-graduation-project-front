@@ -43,7 +43,8 @@ const Products = ({ products }) => {
           <input type="text" placeholder="Rechercher..." onChange={(event) => setSearch(event.target.value)}></input>
         </div> 
         <div className="input-form__categories">
-          <h3>Occasions:</h3>
+            <h3>Occasions:</h3>
+          
             <div>
               <input type="radio" id="0" name="catégorie" onChange={(event) => setCategoryName(event.target.id)}></input>
               <label htmlFor="0">Toutes</label>

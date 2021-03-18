@@ -33,9 +33,8 @@
     align-items: baseline;
     padding: 1rem 0;
     padding-left: 3.4rem;
-    background-color: ghostwhite;
-    // border-top: 1px solid rgb(188, 188, 207);
     box-shadow: inset 0em 1px 3px rgba(0, 0, 0, 0.2);
+    background-color: #fff3eb;
 
     & h3 {
       font-size: 1.3em;
@@ -51,7 +50,6 @@
         display: none;
         &:checked + label {
           color: vars.$font-color;
-          // background-color: vars.$font-color;
           border: 1px solid vars.$font-color;
         }
       }
@@ -76,5 +74,40 @@
   .products-list {
     max-width: 100vw;
     margin: 30px 0 50px 0;
+  }
+}
+
+@media only screen and (max-width: 970px) {
+  .input-form__categories {
+    padding: 1rem 0;
+    padding-left: 3.4rem;
+
+    & h3 {
+      font-size: 1em;
+      margin-right: 1rem;
+    }
+    & div {
+      & label {
+        padding: 0.3rem 0.3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 796px) {
+  .input-form__categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+
+    & div {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .input-form__search input {
+    width: 80%;
   }
 }
