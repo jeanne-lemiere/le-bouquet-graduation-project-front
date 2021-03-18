@@ -101,17 +101,17 @@ min-height: 18px;
    }
 }
 
-  @media (min-width: 415px) and (max-width: 650px) { 
+/*   @media (min-width: 415px) and (max-width: 650px) { 
 .nav {
   height: 10vh;
 }
 .nav__link {
      font-size: 0.55rem;
    }
-} 
+}  */
 
 // specific lay out for smartphones (portrait)
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 700px) {
   // nav links disappear
   .nav__links {
     display: none;

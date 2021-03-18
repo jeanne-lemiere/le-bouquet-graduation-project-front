@@ -58,14 +58,7 @@ padding: 0 1rem;
 }
 
 .footer__icon {
+  margin-left: 1em;
   width: 0.8rem;
 }
-}
-
-
-// specific lay out for smartphones
-@media only screen and (max-width: 414px) {
-  .footer__links a {
-    font-size: 0.5rem;
-  }
 }

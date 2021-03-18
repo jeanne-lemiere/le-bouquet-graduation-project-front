@@ -12,6 +12,7 @@
     margin-top: 1rem;
     text-align: left;
     margin-left: 3.4rem;
+    
 
     & input {
       height: 40px;
@@ -22,8 +23,9 @@
       border: 1px solid vars.$font-color;
 
       &::placeholder {
-        font-size: 0.9rem;
+        font-size: 1em;
         font-style: italic;
+        font-family: 'Roboto', sans-serif;
       }
     }
   }
@@ -31,10 +33,9 @@
   &__categories {
     display: flex;
     align-items: baseline;
-    padding: 1rem 0;
-    padding-left: 3.4rem;
-    box-shadow: inset 0em 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 1.3rem 0 1rem 3.4rem;
     background-color: #fff3eb;
+    box-shadow: 0 6px 5px -5px rgb(202, 179, 179);
 
     & h3 {
       font-size: 1.3em;
