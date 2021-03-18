@@ -2,6 +2,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
+
+// == Import
+import './styles.scss';
 import ScrollToTop from 'src/functions/scrollToTop';
 import SignupFormCustomer from 'src/containers/SignupFormCustomer';
 import SignupFormSeller from 'src/containers/SignupFormSeller';
@@ -18,14 +21,7 @@ import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
-
-// == Import
-import './styles.scss';
 import Dashboard from '../../containers/Dashboard';
-
-// == Fake data for testing
-import currentOrders from '../../data/current-orders';
-import orderHistory from '../../data/order-history';
 
 const App = ({ init, loading }) => {
   useEffect(() => {
