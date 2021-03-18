@@ -3,10 +3,11 @@ export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS';
 export const USER_SIGNUP_ERROR = 'USER_SIGNUP_ERROR';
 export const SIGNUP_USERTYPE = 'SIGNUP_USERTYPE';
 export const HANDLE_IMG_UPLOAD = 'HANDLE_IMG_UPLOAD';
-export const UPDATE_PICTURE_URL = 'UPDATE_PICTURE_URL';
+export const HANDLE_FIREBASE_UPLOAD = 'HANDLE_FIREBASE_UPLOAD';
 
-export const userSignup = () => ({
+export const userSignup = (payload) => ({
   type: USER_HANDLE_SIGNUP,
+  payload,
 });
 export const userSignupSuccess = (payload) => ({
   type: USER_SIGNUP_SUCCESS,
@@ -24,7 +25,7 @@ export const handleImgUpload = (payload) => ({
   type: HANDLE_IMG_UPLOAD,
   payload,
 });
-export const updatePictureUrl = (payload) => ({
-  type: UPDATE_PICTURE_URL,
+export const handleFirebaseUpload = (payload) => ({
+  type: HANDLE_FIREBASE_UPLOAD,
   payload,
 });

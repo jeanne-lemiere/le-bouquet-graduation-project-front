@@ -3,7 +3,6 @@ import {
   USER_SIGNUP_ERROR,
   SIGNUP_USERTYPE,
   HANDLE_IMG_UPLOAD,
-  UPDATE_PICTURE_URL,
 } from 'src/actions/signupActions';
 
 const initialState = {
@@ -32,11 +31,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         pictureFile: action.payload,
-      };
-    case UPDATE_PICTURE_URL:
-      return {
-        ...state,
-        picture_url: action.payload,
       };
     default:
       return state;

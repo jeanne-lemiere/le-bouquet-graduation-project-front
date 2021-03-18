@@ -6,15 +6,19 @@ import { toggleAuthModal, changeNavBackground } from 'src/actions/displayActions
 const mapState = (state) => {
   const {
     isLogged,
+    userType,
   } = state.login;
 
   const {
     navBackground,
+    cartAmount,
   } = state.display;
 
   return {
     isLogged,
     navBackground,
+    userType,
+    cartAmount,
   };
 };
 

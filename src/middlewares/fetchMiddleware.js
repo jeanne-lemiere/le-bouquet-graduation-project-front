@@ -3,10 +3,19 @@
 import {
   FETCH_PRODUCTS,
   setProducts,
-  
+
 } from 'src/actions/productActions';
 
-import { FETCH_PRODUCERS, setProducers, FETCH_ONE_SELLER, setOneSeller, } from 'src/actions/sellerActions';
+import {
+  FETCH_PRODUCERS,
+  setProducers,
+  FETCH_ONE_SELLER, setOneSeller,
+} from 'src/actions/sellerActions';
+
+import {
+  FETCH_ORDERS,
+  fetchOrdersSuccess,
+} from 'src/actions/orderActions';
 
 import {
   setLoading,
@@ -32,7 +41,7 @@ export default (store) => (next) => async (action) => {
         .finally(() => {
           setTimeout(() => {
             store.dispatch(setLoading(false));
-          }, 600);
+          }, 400);
         });
       break;
     }
@@ -53,9 +62,8 @@ export default (store) => (next) => async (action) => {
     case FETCH_ONE_SELLER: {
       axios.get(`${BASE_URL}/seller/${action.id}/products`)
         .then((response) => {
-          console.log("ici one seller middleware", response.data)
+          console.log('ici one seller middleware', response.data);
           store.dispatch(setOneSeller(response.data));
-
         })
         .catch((error) => {
           console.trace(error);
@@ -67,10 +75,23 @@ export default (store) => (next) => async (action) => {
         });
       break;
     }
+    case FETCH_ORDERS: {
+      const { userType, profile } = store.getState().login;
+      try {
+        const response = await axios({
+          url: `${BASE_URL}/${userType}/${profile.id}/orders`,
+          method: 'GET',
+        });
+        console.log('orders', response.data);
+        const actionToDispatch = fetchOrdersSuccess(response.data);
+        store.dispatch(actionToDispatch);
+      }
+      catch (error) {
+        console.trace(error);
+      }
+      break;
+    }
     default:
       return next(action);
   }
-  
 };
-
-

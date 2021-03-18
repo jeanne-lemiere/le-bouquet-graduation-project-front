@@ -9,6 +9,7 @@ import AccountCreated from 'src/containers/AccountCreated';
 import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
 import SellerPage from 'src/containers/SellerPage';
+import Cart from 'src/containers/Cart';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
@@ -20,8 +21,11 @@ import OurProducers from '../../containers/OurProducers';
 
 // == Import
 import './styles.scss';
+import Dashboard from '../../containers/Dashboard';
 
-// == Composant
+// == Fake data for testing
+import currentOrders from '../../data/current-orders';
+import orderHistory from '../../data/order-history';
 
 const App = ({ init, loading }) => {
   useEffect(() => {
@@ -64,6 +68,12 @@ const App = ({ init, loading }) => {
           </Route>
           <Route path="/nos-producteurs/:sellerId" exact>
             <SellerPage />
+          </Route>
+          <Route path="/mon-espace" exact>
+            <Dashboard />
+          </Route>
+          <Route path="/panier" exact>
+            <Cart />
           </Route>
           <NotFound />
         </Switch>

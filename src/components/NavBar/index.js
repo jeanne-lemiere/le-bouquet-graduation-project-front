@@ -6,7 +6,7 @@ import { FiShoppingBag, FiMenu } from 'react-icons/fi';
 import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = ({
-  isLogged, toggleAuthModal, logOut, changeBackground, navBackground,
+  isLogged, toggleAuthModal, logOut, changeBackground, navBackground, userType, cartAmount,
 }) => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -15,7 +15,9 @@ const NavBar = ({
   });
 
   const navClass = navBackground ? 'nav nav--active' : 'nav';
-
+  const joinUs = isLogged && userType === 'seller' ? null : <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>;
+  const cartClass = isLogged && userType === 'seller' ? 'nav__icon nav__icon--disabled' : 'nav__icon';
+  const cartAmountClass = isLogged && userType === 'seller' ? 'cart__amount cart__amount--disabled' : 'cart__amount';
   return (
     <header>
       <nav className={navClass}>
@@ -25,7 +27,7 @@ const NavBar = ({
             <li className="nav__link"> <NavLink exact to="/">ACCUEIL</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-fleurs">NOS FLEURS</NavLink></li>
             <li className="nav__link"> <NavLink exact to="/nos-producteurs">NOS PRODUCTEURS</NavLink></li>
-            <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>
+            {joinUs}
             {isLogged ? (
               <li className="nav__link"><NavLink exact to="/mon-espace">MON ESPACE</NavLink></li>)
               : (
@@ -76,9 +78,10 @@ const NavBar = ({
               : null }
           </ul>
           <Link
-            className="nav__icon"
+            className={cartClass}
             to="/panier"
           ><FiShoppingBag />
+            <p className={cartAmountClass}>{cartAmount}</p>
           </Link>
           <div
             className="nav__icon nav__icon--burger"
@@ -92,10 +95,12 @@ const NavBar = ({
 };
 
 NavBar.propTypes = {
-  // isLogged: PropTypes.bool.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   toggleAuthModal: PropTypes.func.isRequired,
   logOut: PropTypes.func.isRequired,
   changeBackground: PropTypes.func.isRequired,
   navBackground: PropTypes.bool.isRequired,
+  userType: PropTypes.string.isRequired,
+  cartAmount: PropTypes.number.isRequired,
 };
 export default NavBar;
