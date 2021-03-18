@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
-import productImage from 'src/assets/product-image.jpg';
+import { useParams, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NotFound from '../NotFound';
 
 import './styles.scss';
 
 // Il s'agit ici de la page de détails d'un seul produit
 
-const SingleProduct = ({ products }) => {
+const SingleProduct = ({ products, increaseCartAmount }) => {
   // On extrait l'id des paramètres de la route
   const { id } = useParams();
   // Puis on cherche l'article demandé parmi la liste des articles
@@ -26,13 +27,58 @@ const SingleProduct = ({ products }) => {
   const {
     id: productId, price, name, description, images, seller,
   } = productFound;
-  console.log(productFound);
+  // console.log(productFound);
+
+  const addToCart = (event) => {
+    const id = event.target.closest('.single-product').getAttribute('id'); // on récupère le id du produit
+
+    const cart = JSON.parse(localStorage.getItem('cart')); // on vérifie s'il y a quelque chose dans cart
+
+    if (cart) { // s'il y a quelque chose, on vérifie si le id de l'élément cliqué y est
+      const findProduct = cart.find((element) => element.id == id);
+
+      if (findProduct) { // il y est, on augmente la quantité
+      //  console.log(findProduct, "existe alors j'augmente sa quantité");
+        findProduct.quantity++;
+        // console.log('Il vaut maintenant', findProduct);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        const allProducts = JSON.parse(localStorage.getItem('cart'));
+      //  console.log('Voici tout le panier : ', allProducts);
+      }
+      else { // il n'y est pas, on l'ajoute
+        const newCart = cart.push({ id, quantity: 1 });
+        localStorage.setItem('cart', JSON.stringify(cart));
+      //  console.log("N'a pas trouvé, alors ajouté", JSON.parse(localStorage.getItem('cart')));
+      }
+    }
+    else { // aucun panier n'existe encore, on le crée
+      const newCart = [{ id, quantity: 1 }];
+      localStorage.setItem('cart', JSON.stringify(newCart));
+
+      const allProducts = JSON.parse(localStorage.getItem('cart'));
+    //  console.log('Aucun panier, on en crée un : ', allProducts);
+    }
+    const newAmount = JSON.parse(localStorage.getItem('cartAmount')) + 1;
+    localStorage.setItem('cartAmount', JSON.stringify(newAmount));
+    increaseCartAmount();
+
+    toast("C'est noté!", {
+      position: 'bottom-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   return (
-    <div className="single-product">
+    <div className="single-product" id={id}>
       <div className="single-product_leftside">
         {/* <img src={images[0].url}></img> alt="bouquet" */}
-        <img src={productImage} alt="bouquet" />
+        <img src={images[0].url} alt="bouquet" />
       </div>
       <div className="single-product_rightside">
         <h2 className="product-name">{name}</h2>
@@ -42,10 +88,24 @@ const SingleProduct = ({ products }) => {
         <button
           className="add-to-cart"
           type="button"
+          onClick={addToCart}
         >→ Ajouter au panier
         </button>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className="toaster"
+      />
     </div>
+
   );
 };
 
@@ -58,6 +118,7 @@ SingleProduct.propTypes = {
       price: PropTypes.string,
     }),
   ),
+  increaseCartAmount: PropTypes.func.isRequired,
 };
 
 SingleProduct.defaultProps = {

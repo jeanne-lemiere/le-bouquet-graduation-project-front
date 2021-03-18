@@ -4,7 +4,7 @@
   height: auto;
   min-height: 95vh;
   width: 80%;
-  margin: 8vh auto;
+  margin: 50px auto;
   padding: 1em 0;
   & h1 {
     padding: 1em;
@@ -14,7 +14,7 @@
     font-size: 0.9em;
   }
   &__form {
-   background-color: vars.$footer-color;
+   background-color: #fff3eb;
     width: 800px;
     margin: auto;
     padding: 2em 1em;
@@ -91,7 +91,7 @@ display: block;
   height: 2em;
   min-height: 40px;
   border: 1px solid vars.$font-color;
-  background: vars.$footer-color;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,11 +125,6 @@ display: block;
  }
 }
 
-  @media (min-width: 415px) and (max-width: 650px) { 
-.signup {
-  margin-top: 10vh;
-}
-} 
 
  @media only screen and (max-width: 650px) {
 .signup__submit-button{
