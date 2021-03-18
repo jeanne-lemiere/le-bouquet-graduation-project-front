@@ -22,7 +22,7 @@ const ProductCard = ({
         <p className="product-card-price">{price}€</p>
       </div>
     </Link>
-  </li>
+  </article>
 
 );
 
