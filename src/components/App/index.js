@@ -2,12 +2,17 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
+
+// == Import
+import './styles.scss';
 import ScrollToTop from 'src/functions/scrollToTop';
 import SignupFormCustomer from 'src/containers/SignupFormCustomer';
 import SignupFormSeller from 'src/containers/SignupFormSeller';
 import AccountCreated from 'src/containers/AccountCreated';
 import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
+import SellerPage from 'src/containers/SellerPage';
+import Cart from 'src/containers/Cart';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
@@ -16,11 +21,7 @@ import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
-
-// == Import
-import './styles.scss';
-
-// == Composant
+import Dashboard from '../../containers/Dashboard';
 
 const App = ({ init, loading }) => {
   useEffect(() => {
@@ -60,6 +61,15 @@ const App = ({ init, loading }) => {
           </Route>
           <Route path="/nos-producteurs" exact>
             <OurProducers />
+          </Route>
+          <Route path="/nos-producteurs/:sellerId" exact>
+            <SellerPage />
+          </Route>
+          <Route path="/mon-espace" exact>
+            <Dashboard />
+          </Route>
+          <Route path="/panier" exact>
+            <Cart />
           </Route>
           <NotFound />
         </Switch>

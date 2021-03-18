@@ -1,0 +1,15 @@
+export default {
+  gender: 'Madame',
+  first_name: 'Julie',
+  last_name: 'Pichon',
+  email: 'julie@fleurs.com',
+  phone_number: '06 12 45 86 39',
+  street_name: 'chaussée des Hibiscus',
+  street_number: 38,
+  zipcode: 69100,
+  city: 'Villeurbanne',
+  picture_url: 'https://images.pexels.com/photos/5063477/pexels-photo-5063477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  siret: 12345678912345,
+  shop_name: 'Les Jardins de Julie',
+  shop_presentation: 'Horticultrice passionnée, je confectionne de beaux bouquets frais pour toutes les occasions, n’hésitez pas à me contacter par mail pour un devis sur mesure !',
+};

@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import SignupFormSeller from 'src/components/SignupFormSeller';
-
 import {
-  signupUsertype, handleImgUpload, updatePictureUrl, userSignup,
+  signupUsertype, handleImgUpload, handleFirebaseUpload,
 } from 'src/actions/signupActions';
 
 const mapState = (state) => {
@@ -30,12 +29,8 @@ const mapDispatch = (dispatch) => ({
       dispatch(action);
     }
   },
-  updatePictureUrl: (url) => {
-    const action = updatePictureUrl(url);
-    dispatch(action);
-  },
   onSubmit: () => {
-    const action = userSignup();
+    const action = handleFirebaseUpload();
     dispatch(action);
   },
 });
