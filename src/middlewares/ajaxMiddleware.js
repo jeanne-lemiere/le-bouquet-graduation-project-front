@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
   USER_HANDLE_LOGIN,
   userLoginSuccess,
@@ -45,15 +46,7 @@ export default (store) => (next) => async (action) => {
       } = store.getState().signup;
 
       if (userType === 'seller') {
-        let {
-          picture_url,
-        } = store.getState().signup;
-
-        // Setting a default avatar, since adding a profile picture is not mandatory
-        if (!picture_url) {
-          const defaultAvatar = 'https://firebasestorage.googleapis.com/v0/b/c-estlebouquet.appspot.com/o/sellers%2Fdefault-avatar.jpg?alt=media&token=f3ad35ec-1f35-4b17-97c8-b892bb737e9f';
-          picture_url = defaultAvatar;
-        }
+        const picture_url = action.payload;
 
         const {
           gender,
@@ -91,7 +84,6 @@ export default (store) => (next) => async (action) => {
           shop_presentation,
           picture_url,
         };
-        console.log('data à envoyer seller:', signupData);
 
         try {
           const response = await axios({
@@ -101,14 +93,12 @@ export default (store) => (next) => async (action) => {
               ...signupData,
             },
           });
-          console.log('response create account', response.data);
           const signedUp = true;
 
           const actionToDispatch = userSignupSuccess(signedUp);
           store.dispatch(actionToDispatch);
         }
         catch (error) {
-          console.log('error account creation: ', error);
           const result = {
             signedUp: false,
             signUpError: "Hum, quelque chose n'a pas fonctionné...",
@@ -151,13 +141,11 @@ export default (store) => (next) => async (action) => {
             },
           });
 
-          console.log('response create account', response.data);
           const signedUp = true;
           const actionToDispatch = userSignupSuccess(signedUp);
           store.dispatch(actionToDispatch);
         }
         catch (error) {
-          console.log('error account creation: ', error);
           const result = {
             signedUp: false,
             signUpError: "Hum, quelque chose n'a pas fonctionné...",

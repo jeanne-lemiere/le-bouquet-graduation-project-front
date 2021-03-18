@@ -5,7 +5,7 @@ import './styles.scss';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import { storage } from 'src/firebase';
+
 import { FiShare } from 'react-icons/fi';
 import validate from 'src/functions/validateSeller';
 
@@ -98,23 +98,8 @@ let SignupFormSeller = ({
     { text: 'Monsieur', value: 'M' },
   ];
 
-  // TESTING FILE UPLOAD
-  const handleUpload = () => {
-    const uploadImage = storage.ref(`sellers/${image.name}`).put(image);
-    uploadImage.on('state_changed',
-      (snapshot) => { },
-      (error) => {
-        console.log(error);
-      }, () => {
-        storage
-          .ref('sellers')
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            updatePictureUrl(url);
-          });
-      });
-  };
+  const uploadLabel = image ? `${image.name} ${(image.size / 1000).toFixed(2)}KB` : 'Ajouter une photo de profil';
+
   // An error message displays when account creation did not work on server side
   // Normally this should never appear since a front-end validation has been set up
   // But we never know...
@@ -236,7 +221,6 @@ let SignupFormSeller = ({
         <div>
           <label
             htmlFor="profile_pic"
-            onClick={handleUpload}
             className="form__input--label"
           ><input
             name="profile_pic"
@@ -244,7 +228,7 @@ let SignupFormSeller = ({
             type="file"
             onChange={onUploadChange}
             className="form__input form__input--upload"
-          /><FiShare className="upload-icon" />Ajouter une photo de profil
+          /><FiShare className="upload-icon" />{uploadLabel}
           </label>
         </div>
 
