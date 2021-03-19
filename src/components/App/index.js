@@ -13,6 +13,7 @@ import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
 import SellerPage from 'src/containers/SellerPage';
 import Cart from 'src/containers/Cart';
+import OrderPass from 'src/containers/OrderPass';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
@@ -70,6 +71,9 @@ const App = ({ init, loading }) => {
           </Route>
           <Route path="/panier" exact>
             <Cart />
+          </Route>
+          <Route path="/récapitulatif" exact>
+            <OrderPass />
           </Route>
           <NotFound />
         </Switch>
