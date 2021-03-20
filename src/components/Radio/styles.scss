@@ -1,5 +1,6 @@
 .radio {
   display: flex;
+  align-items: baseline; // to align input and label vertically
 }
 
 .radio__label {
