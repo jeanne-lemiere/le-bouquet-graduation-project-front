@@ -5,6 +5,7 @@ import {
   INCREASE_QUANTITY,
   DECREASE_QUANTITY,
   REMOVE_FROM_CARD,
+  CLEAR_CART,
 } from 'src/actions/productActions';
 
 import {
@@ -101,8 +102,15 @@ export default (state = initialState, action = {}) => {
         ...state,
         cartProducts: newProducts,
       };
+      case CLEAR_CART:
+        return {
+          ...state,
+          cartProducts: [],
+        };
 
     default:
       return state;
   }
 };
+
+
