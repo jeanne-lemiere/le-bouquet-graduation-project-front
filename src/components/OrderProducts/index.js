@@ -22,7 +22,7 @@ const OrderProducts = ({fetchOrderProducts, orderProducts}) => {
     return (
         <div className="order-content">
             {
-            Object.entries(orderProducts).length === 0 && <p>Chargement</p>
+            Object.entries(orderProducts).length === 0 && <h2>Chargement</h2>
             }
             
             {Object.entries(orderProducts).length > 0 && ( 

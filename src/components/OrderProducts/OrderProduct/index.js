@@ -14,19 +14,12 @@ const OrderProduct = ({product}) => (
                 <p>Prix payé: {product.order_has_product.price_per_unit}€</p>
             </div>
         </div>
-    {/* <h1><Link to={`product/${product.id}`}>{product.name}</Link></h1> */}
-    {/* <p>Quantité : {product.order_has_products.quantity}</p> */}
+    
   </div>
 );
 
 OrderProduct.propTypes = {
     product: PropTypes.object,
-//   zipcode: PropTypes.string.isRequired,
-//   street_number: PropTypes.string.isRequired,
-//   shop_name: PropTypes.string.isRequired,
-//   street_name: PropTypes.string.isRequired,
-//   email: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
 };
 
 OrderProduct.defaultProps = {
