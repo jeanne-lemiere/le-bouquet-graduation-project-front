@@ -1,0 +1,34 @@
+@use 'src/styles/vars';
+
+// ONE PRODUCT 
+
+.order-product {
+    min-height: 50px;
+    border-bottom: 1px solid vars.$font-color;
+    width: 400px;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+
+    &__details {
+        display: flex;
+        align-items: flex-end;
+        font-weight: 400;
+        padding-left: 1rem;
+
+    }
+
+    
+
+    &__image {
+        width: 130px;
+        height: 200px;
+        margin-right: 1rem;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 1.2rem;
+
+    }
+}

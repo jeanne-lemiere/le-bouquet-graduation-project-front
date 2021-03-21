@@ -23,6 +23,8 @@ import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
 import Dashboard from '../../containers/Dashboard';
+import OrderProducts from 'src/containers/OrderProducts/';
+
 
 const App = ({ init, loading }) => {
   useEffect(() => {
@@ -68,6 +70,9 @@ const App = ({ init, loading }) => {
           </Route>
           <Route path="/mon-espace" exact>
             <Dashboard />
+          </Route>
+          <Route path="/order/:orderId" exact>
+            <OrderProducts />
           </Route>
           <Route path="/panier" exact>
             <Cart />

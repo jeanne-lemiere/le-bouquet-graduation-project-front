@@ -4,6 +4,8 @@ export const PASS_ORDER = 'PASS_ORDER';
 export const SET_ORDER_ITEM = 'SET_ORDER_ITEM';
 export const SET_ORDER_ERROR = 'SET_ORDER_ERROR';
 export const ORDER_TO_EMPTY = 'ORDER_TO_EMPTY';
+export const FETCH_ORDER_PRODUCTS = 'FETCH_ORDER_PRODUCTS';
+
 
 export const fetchOrders = () => ({
   type: FETCH_ORDERS,
@@ -31,4 +33,10 @@ export const setOrderError = (error) => ({
 
 export const orderToEmpty = () => ({
   type: ORDER_TO_EMPTY,
+});
+
+
+export const fetchOrderProducts = (orderId) => ({
+  type: FETCH_ORDER_PRODUCTS,
+  orderId,
 });

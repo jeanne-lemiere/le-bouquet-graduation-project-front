@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.order-content {
+    min-height: 92vh;
+    padding: 7rem 8rem 5rem 8rem;
+}
+
+.order-destinataire {
+    border: 1px solid lightgray;
+    padding: 2rem 0 2rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.order-products {
+    border: 1px solid lightgray;
+    padding: 2rem 0 2rem 2rem;
+
+    & h2 {
+        font-weight: 600;
+        border-bottom: 1px solid vars.$font-color;
+        margin-bottom: 2.5rem;
+    }
+}

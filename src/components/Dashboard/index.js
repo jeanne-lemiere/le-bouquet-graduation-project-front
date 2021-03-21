@@ -88,9 +88,9 @@ Dashboard.propTypes = {
     shop_name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone_number: PropTypes.string.isRequired,
-    street_number: PropTypes.number.isRequired,
+    street_number: PropTypes.string.isRequired, // street number is a string
     street_name: PropTypes.string.isRequired,
-    zipcode: PropTypes.number.isRequired,
+    zipcode: PropTypes.string.isRequired, // zipcode is a string
     city: PropTypes.string.isRequired,
   }).isRequired,
   fetchOrders: PropTypes.func.isRequired,

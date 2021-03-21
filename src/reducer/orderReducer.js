@@ -3,12 +3,14 @@ import {
   SET_ORDER_ITEM,
   SET_ORDER_ERROR,
   ORDER_TO_EMPTY,
+  FETCH_ORDER_PRODUCTS
 } from 'src/actions/orderActions';
 
 export const initialState = {
   orders: [],
   orderedItem: {},
   orderError: '',
+  orderProducts: {},
 };
 
 export default (state = initialState, action = {}) => {
@@ -36,6 +38,12 @@ export default (state = initialState, action = {}) => {
         ...state,
         orderError: '',
         orderedItem: {},
+      };
+    case FETCH_ORDER_PRODUCTS:
+      const foundOrder = state.orders.find((order) => parseInt(order.id) === parseInt(action.orderId));
+      return {
+        ...state,
+        orderProducts: foundOrder
       };
     default:
       return state;

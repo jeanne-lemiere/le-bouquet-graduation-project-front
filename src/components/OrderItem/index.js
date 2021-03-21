@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import dayjs from 'dayjs';
+import {Link} from 'react-router-dom';
 
 const OrderItem = ({ item }) => (
   <tr>
-    <td>{item.reference}</td>
+    <td><Link to={`/order/${item.id}`}>{item.reference}</Link></td>
     <td> {item.total_amount}</td>
     <td> {item.status}</td>
     <td> {dayjs(item.createdAt).format('DD / MM / YYYY')}</td>
