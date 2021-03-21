@@ -17,6 +17,7 @@ import NotFound from '../NotFound';
 import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
+import AboutUs from '../AboutUs';
 
 // == Import
 import './styles.scss';
@@ -75,11 +76,15 @@ const App = ({ init, loading }) => {
           <Route path="/panier" exact>
             <Cart />
           </Route>
+          <Route path="/qui-sommes-nous" exact>
+            <AboutUs />
+          </Route>
           <NotFound />
         </Switch>
         )
       }
       <Footer />
+      
     </div>
   );
 };

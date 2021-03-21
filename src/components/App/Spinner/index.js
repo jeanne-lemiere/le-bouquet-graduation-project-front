@@ -4,6 +4,6 @@ import spinnerImage from 'src/assets/spinner.png';
 
 export default () => (
   <div className="spinner">
-    <img src={spinnerImage} alt="chargement" className="spinner__image" />
+    <img src={spinnerImage} alt="" className="spinner__image" />
   </div>
 );
