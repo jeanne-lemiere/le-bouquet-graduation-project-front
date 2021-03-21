@@ -2,11 +2,15 @@
   position: relative;
 }
  */
+
+.menu__infos th {
+  text-align: left;
+}
 .menu__header {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   width: 100%;
-  background-color: #FFD3C2;
+  background-color: #ffd3c2;
   margin-top: 0.5em;
   padding: 0.3em;
 }
@@ -14,101 +18,123 @@
 .menu__list {
   display: none;
   animation: unfold 250ms ease;
- transform-origin: top center;
+  transform-origin: top center;
 
- @keyframes unfold {
+  @keyframes unfold {
     0% {
-       transform: scaleY(0);
-        opacity: 0.2;
+      transform: scaleY(0);
+      opacity: 0.2;
     }
-   
-    100% {
-        transform: scaleY(1);
-        opacity: 1;
-    }
-}
 
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
 }
 .menu__list--open {
   display: block;
   height: auto;
-};
+}
 
 .header__title {
-font-weight: 400;
+  font-weight: 400;
 }
 
 .header__unfold-button {
   text-decoration: none;
   background: none;
   border: none;
-  color: #0A1D7D;
-  font-family: 'Roboto', sans-serif;
+  color: #0a1d7d;
+  font-family: "Roboto", sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   cursor: pointer;
   text-align: center;
-  
+
   &:hover {
     opacity: 0.85;
   }
 }
 
-table { 
-  width: 100%; 
-  border-collapse: collapse; 
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
-tr:nth-of-type(odd) { 
-  background: #fff3eb; 
+tr:nth-of-type(odd) {
+  background: #fff3eb;
 }
-th { 
-  background: #FFDFD0; 
-font-weight: 400; 
-  padding: 6px; 
-  text-align: left; 
+th {
+  background: #ffdfd0;
+  font-weight: 400;
+  padding: 6px;
+  text-align: left;
 }
 
+@media only screen and (max-width: 370px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
 
-@media 
-only screen and (max-width: 370px) {
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #FFD3C2; }
-	
-	td { 
-		border: none;
-		border-bottom: 1px solid #FFD3C2; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 
-		position: absolute;
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
+  tr {
+    border: 1px solid #ffd3c2;
+  }
 
-	td:nth-of-type(1):before { content: "First Name"; }
-	td:nth-of-type(2):before { content: "Last Name"; }
-	td:nth-of-type(3):before { content: "Job Title"; }
-	td:nth-of-type(4):before { content: "Favorite Color"; }
-	td:nth-of-type(5):before { content: "Wars of Trek?"; }
-	td:nth-of-type(6):before { content: "Secret Alias"; }
-	td:nth-of-type(7):before { content: "Date of Birth"; }
-	td:nth-of-type(8):before { content: "Dream Vacation City"; }
-	td:nth-of-type(9):before { content: "GPA"; }
-	td:nth-of-type(10):before { content: "Arbitrary Data"; }
+  td {
+    border: none;
+    border-bottom: 1px solid #ffd3c2;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  td:nth-of-type(1):before {
+    content: "First Name";
+  }
+  td:nth-of-type(2):before {
+    content: "Last Name";
+  }
+  td:nth-of-type(3):before {
+    content: "Job Title";
+  }
+  td:nth-of-type(4):before {
+    content: "Favorite Color";
+  }
+  td:nth-of-type(5):before {
+    content: "Wars of Trek?";
+  }
+  td:nth-of-type(6):before {
+    content: "Secret Alias";
+  }
+  td:nth-of-type(7):before {
+    content: "Date of Birth";
+  }
+  td:nth-of-type(8):before {
+    content: "Dream Vacation City";
+  }
+  td:nth-of-type(9):before {
+    content: "GPA";
+  }
+  td:nth-of-type(10):before {
+    content: "Arbitrary Data";
+  }
 }

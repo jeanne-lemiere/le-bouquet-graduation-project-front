@@ -4,6 +4,7 @@ import {
   SET_LOADING,
   TOGGLE_CURRENT_ORDERS,
   TOGGLE_ORDER_HISTORY,
+  TOGGLE_PRODUCTS,
   INCREASE_CART_AMOUNT,
   DECREASE_CART_AMOUNT,
 } from 'src/actions/displayActions';
@@ -26,6 +27,7 @@ const initialState = {
   loading: false,
   historyOpen: false,
   currentOrdersOpen: false,
+  productsOpen: false,
   cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
 };
 
@@ -56,6 +58,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         currentOrdersOpen: !state.currentOrdersOpen,
       };
+    case TOGGLE_PRODUCTS:
+    return {
+      ...state,
+      productsOpen: !state.productsOpen,
+    };
     case TOGGLE_ORDER_HISTORY:
       return {
         ...state,
