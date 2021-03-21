@@ -15,10 +15,8 @@ const ProductCard = ({
   price,
 }) => (
   <article className="product-card">
-    <Link to={`/product/${id}`}>
-      {/* <div className="product-image-container"> */}
+    <Link to={`/product/${id}`} className="product-card__link">
       <img className="product-card-img" src={imgLink} alt={name} />
-      {/* </div> */}
       <div className="product-card-caption">
         <h2 className="product-card-title">{name}</h2>
         <p className="product-card-price">{price}€</p>

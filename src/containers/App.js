@@ -15,7 +15,7 @@ const mapState = (state) => {
 };
 const mapDispatchToProps = (dispatch) => ({
   init: () => {
-    dispatch(setLoading(true));
+    // dispatch(setLoading(true));
     dispatch(fetchProducts());
     dispatch(fetchProducers());
   },

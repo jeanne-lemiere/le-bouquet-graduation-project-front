@@ -1,16 +1,117 @@
 @use 'src/styles/vars';
 
-.products {
+.input-form {
+  margin-top: 50px;
+  text-align: left;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 140px;
+
+  &__search {
+    margin-top: 1rem;
+    text-align: left;
+    margin-left: 3.4rem;
+    
+
+    & input {
+      height: 40px;
+      width: 25rem;
+      padding: 1rem;
+      font-size: 1rem;
+      color: vars.$font-color;
+      border: 1px solid vars.$font-color;
+
+      &::placeholder {
+        font-size: 1em;
+        font-style: italic;
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+  }
+
+  &__categories {
+    display: flex;
+    align-items: baseline;
+    padding: 1.3rem 0 1rem 3.4rem;
+    background-color: #fff3eb;
+    box-shadow: 0 6px 5px -5px rgb(202, 179, 179);
+
+    & h3 {
+      font-size: 1.3em;
+      margin-right: 2rem;
+    }
+
+    & div {
+      margin-bottom: 0.5rem;
+      margin-left: 1rem;
+
+      & input {
+        cursor: pointer;
+        display: none;
+        &:checked + label {
+          color: vars.$font-color;
+          border: 1px solid vars.$font-color;
+        }
+      }
+
+      & label {
+        padding: 0.3rem 1rem;
+        border: 1px solid transparent;
+      }
+    }
+  }
+}
+
+.products-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 70px;
+  margin: 15px 0;
   padding: 0.5em;
 }
 
 @media only screen and (max-width: 660px) {
-  .products {
+  .products-list {
     max-width: 100vw;
-    margin: 50px 0;
+    margin: 30px 0 50px 0;
   }
+}
+
+@media only screen and (max-width: 970px) {
+  .input-form__categories {
+    padding: 1rem 0;
+    padding-left: 3.4rem;
+
+    & h3 {
+      font-size: 1em;
+      margin-right: 1rem;
+    }
+    & div {
+      & label {
+        padding: 0.3rem 0.3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 796px) {
+  .input-form__categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+
+    & div {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .input-form__search input {
+    width: 80%;
+  }
+  .products-list {
+  padding: 2em;
+}
 }

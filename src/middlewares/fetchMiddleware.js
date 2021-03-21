@@ -3,11 +3,13 @@
 import {
   FETCH_PRODUCTS,
   setProducts,
+
 } from 'src/actions/productActions';
 
 import {
   FETCH_PRODUCERS,
   setProducers,
+  FETCH_ONE_SELLER, setOneSeller,
 } from 'src/actions/sellerActions';
 
 import {
@@ -55,6 +57,22 @@ export default (store) => (next) => async (action) => {
       catch (error) {
         console.trace(error);
       }
+      break;
+    }
+    case FETCH_ONE_SELLER: {
+      axios.get(`${BASE_URL}/seller/${action.id}/products`)
+        .then((response) => {
+          console.log('ici one seller middleware', response.data);
+          store.dispatch(setOneSeller(response.data));
+        })
+        .catch((error) => {
+          console.trace(error);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            store.dispatch(setLoading(false));
+          }, 600);
+        });
       break;
     }
     case FETCH_ORDERS: {

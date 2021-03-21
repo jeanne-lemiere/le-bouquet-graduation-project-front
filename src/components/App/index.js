@@ -2,19 +2,23 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
+
+// == Import
+import './styles.scss';
 import ScrollToTop from 'src/functions/scrollToTop';
 import SignupFormCustomer from 'src/containers/SignupFormCustomer';
 import SignupFormSeller from 'src/containers/SignupFormSeller';
 import AccountCreated from 'src/containers/AccountCreated';
 import SingleProduct from 'src/containers/SingleProduct';
 import Products from 'src/containers/Products';
+import SellerPage from 'src/containers/SellerPage';
 import Cart from 'src/containers/Cart';
+import OrderPass from 'src/containers/OrderPass';
 import Header from '../Header';
 import Footer from '../Footer';
 import Article from '../Article';
 import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
-import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
 import AboutUs from '../AboutUs';
@@ -22,10 +26,6 @@ import AboutUs from '../AboutUs';
 // == Import
 import './styles.scss';
 import Dashboard from '../../containers/Dashboard';
-
-// == Fake data for testing
-import currentOrders from '../../data/current-orders';
-import orderHistory from '../../data/order-history';
 
 const App = ({ init, loading }) => {
   useEffect(() => {
@@ -36,7 +36,6 @@ const App = ({ init, loading }) => {
     <div className="app-container">
       <ScrollToTop />
       <NavBar />
-      <AuthModal />
       {
         (loading) && <Spinner />
       }
@@ -66,12 +65,11 @@ const App = ({ init, loading }) => {
           <Route path="/nos-producteurs" exact>
             <OurProducers />
           </Route>
+          <Route path="/nos-producteurs/:sellerId" exact>
+            <SellerPage />
+          </Route>
           <Route path="/mon-espace" exact>
-            <Dashboard
-              userType="seller"
-              currentOrders={currentOrders}
-              orderHistory={orderHistory}
-            />
+            <Dashboard />
           </Route>
           <Route path="/panier" exact>
             <Cart />
@@ -79,12 +77,15 @@ const App = ({ init, loading }) => {
           <Route path="/qui-sommes-nous" exact>
             <AboutUs />
           </Route>
+          <Route path="/récapitulatif" exact>
+            <OrderPass />
+          </Route>
           <NotFound />
         </Switch>
         )
       }
       <Footer />
-      
+
     </div>
   );
 };
