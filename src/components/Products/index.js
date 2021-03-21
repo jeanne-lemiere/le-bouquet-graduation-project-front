@@ -22,7 +22,7 @@ const Products = ({ products }) => {
     // si il n'y a pas de category on affiche seulement les resultats donnés par la recherche
     else {
       setFilteredProducts(
-        products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase())),
+        products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()) || product.description.toLowerCase().includes(search.toLowerCase())),
       );
     }
   }, [search, products, categoryName]);
