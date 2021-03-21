@@ -28,7 +28,7 @@ const OrderProducts = ({fetchOrderProducts, orderProducts}) => {
             {Object.entries(orderProducts).length > 0 && ( 
                 <> 
                     <h1>Détails d'une commande</h1>
-                    <h2>Référence de la commande: {orderProducts.reference}</h2>
+                    <h3>Référence de la commande: {orderProducts.reference}</h3>
                     <div className="order-destinataire">
                         <h2>Destinataire</h2>
                         <p>Nom: {`${orderProducts.customer.firstname} ${orderProducts.customer.lastname}`}</p>
