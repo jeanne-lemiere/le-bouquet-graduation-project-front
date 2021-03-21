@@ -19,7 +19,6 @@ import Footer from '../Footer';
 import Article from '../Article';
 import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
-import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
 import Dashboard from '../../containers/Dashboard';
@@ -33,7 +32,6 @@ const App = ({ init, loading }) => {
     <div className="app-container">
       <ScrollToTop />
       <NavBar />
-      <AuthModal />
       {
         (loading) && <Spinner />
       }

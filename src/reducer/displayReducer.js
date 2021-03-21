@@ -6,14 +6,16 @@ import {
   TOGGLE_ORDER_HISTORY,
   INCREASE_CART_AMOUNT,
   DECREASE_CART_AMOUNT,
+  TOGGLE_BURGER,
+  CLOSE_BURGER,
 } from 'src/actions/displayActions';
 
 import {
   USER_LOGIN_SUCCESS,
 } from 'src/actions/loginActions';
 
-const ifNullReturnZero = (data) => {
-  if (data === null) {
+const ifNullOrNegativeReturnZero = (data) => {
+  if (data === null || data < 0) {
     localStorage.setItem('cartAmount', JSON.stringify(0));
     return 0;
   }
@@ -24,9 +26,10 @@ const initialState = {
   authModal: false,
   navBackground: false,
   loading: false,
+  burgerOpen: false,
   historyOpen: false,
   currentOrdersOpen: false,
-  cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
+  cartAmount: ifNullOrNegativeReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -64,12 +67,22 @@ const reducer = (state = initialState, action = {}) => {
     case INCREASE_CART_AMOUNT:
       return {
         ...state,
-        cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
+        cartAmount: ifNullOrNegativeReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
       };
     case DECREASE_CART_AMOUNT:
       return {
         ...state,
-        cartAmount: ifNullReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
+        cartAmount: ifNullOrNegativeReturnZero(JSON.parse(localStorage.getItem('cartAmount'))),
+      };
+    case TOGGLE_BURGER:
+      return {
+        ...state,
+        burgerOpen: !state.burgerOpen,
+      };
+    case CLOSE_BURGER:
+      return {
+        ...state,
+        burgerOpen: false,
       };
     default:
       return state;
