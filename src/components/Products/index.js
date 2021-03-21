@@ -31,7 +31,7 @@ const Products = ({ products }) => {
     return <p>chargement</p>;
   }
   return (
-    <>
+    <div className="products-page">
       <form
         className="input-form"
         onSubmit={(event) => {
@@ -78,7 +78,7 @@ const Products = ({ products }) => {
           <ProductCard key={product.id} id={product.id} name={product.name} imgLink={product.images[0].url} price={product.price} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

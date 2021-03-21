@@ -1,5 +1,9 @@
 @use 'src/styles/vars';
 
+.products-page {
+  min-height: calc(92vh-50px);
+}
+
 .input-form {
   margin-top: 50px;
   text-align: left;
