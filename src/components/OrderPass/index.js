@@ -4,11 +4,10 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 // import Spinner from './Spinner';
 
-const OrderPass = ({ /* loading, setLoading, */ passOrder, userId, item, orderError, userType, decreaseCartAmount,
+const OrderPass = ({ /* loading, setLoading, */ passOrder, userId, item, orderError, userType, decreaseCartAmount, clearCart
 }) => {
   useEffect(() => {
-    console.log('ici component OrderPass ', userId);
-    console.log('type :', userType);
+    
     if (userType == 'customer') {
       passOrder(userId);
       // --- DISPLAY ---
@@ -18,14 +17,16 @@ const OrderPass = ({ /* loading, setLoading, */ passOrder, userId, item, orderEr
       // then trigger an action for the state to update
       // depending on the new value in localStorage
       decreaseCartAmount();
+      clearCart()
     // --------------
     }
   }, []);
 
   let error = false;
   console.log('item: ', item);
-  console.log('longueur de item: ', item.length);
+
   console.log('orderError : ', orderError);
+
   if (orderError || item.length === 0) {
     error = true;
     console.log('if longueur de item: ', item.length);
@@ -69,7 +70,7 @@ OrderPass.propTypes = {
       // createdAt: PropTypes.string.isRequired,
     }),
   ]),
-
+  clearCart: PropTypes.func.isRequired
   // cartProducts: PropTypes.func.isRequired,
   // setLoading: PropTypes.func.isRequired,
   // loading: PropTypes.bool,

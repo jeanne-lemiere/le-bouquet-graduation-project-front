@@ -25,24 +25,8 @@ td {
   border-bottom: 1px solid #ccc;
 }
 
-@media only screen and (max-width: 370px) {
-  /* Force table to not be like tables anymore */
-  td,
-  tr {
-    display: block;
-  }
-
-  tr {
-    border: 1px solid #ffd3c2;
-  }
-
-  td {
-    /* Behave  like a "row" */
-    border: none;
-    border-bottom: 1px solid #ffd3c2;
-    position: relative;
-    padding-left: 50%;
-  }
+@media 
+only screen and (max-width: 460px) {
 
   td:before {
     /* Now like a table header */

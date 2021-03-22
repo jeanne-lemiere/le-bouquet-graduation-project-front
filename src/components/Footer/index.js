@@ -11,8 +11,8 @@ const Footer = () => (
         <Link className="footer__links--text" to="/cgv">Conditions générales de vente</Link>
       </div>
       <div className="footer__links footer__links--icons">
-        <a className="footer__icon" href="https://www.instagram.com/oclock_io/?hl=fr"><FiInstagram /></a>
-        <a className="footer__icon" href="https://fr-fr.facebook.com/Oclock.io/"><FiFacebook /></a>
+        <a className="footer__icon" label="instagram" href="https://www.instagram.com/oclock_io/?hl=fr"><FiInstagram /></a>
+        <a className="footer__icon" label="facebook" href="https://fr-fr.facebook.com/Oclock.io/"><FiFacebook /></a>
       </div>
     </div>
   </footer>

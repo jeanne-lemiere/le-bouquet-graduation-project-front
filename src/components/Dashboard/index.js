@@ -20,15 +20,15 @@ const Dashboard = ({
   fetchOrders,
   isLogged,
   fetchOneSeller,
-  products
+  products,
 }) => {
   // if the connected user is a seller we want to give them
   // a link to access their product stock
   const pageTitle = userType === 'seller' ? <h1>Mon espace pro</h1> : <h1>Mon espace client</h1>;
 
   useEffect(() => {
-    fetchOrders(); 
-    fetchOneSeller(profile.id)
+    fetchOrders();
+    fetchOneSeller(profile.id);
   }, []);
 
   if (isLogged === false) {
@@ -59,18 +59,17 @@ const Dashboard = ({
           toggle={toggleHistory}
           itemType="order"
         />
-         {userType === 'seller'
+        {userType === 'seller'
     && (
       <DropdownMenu
-      title="Mes products"
-      unfoldMessage="Voir mes produits"
-      open={productsOpen}
-      items={products}
-      toggle={toggleProducts}
-      itemType="product"
-    />
-    )
-    }
+        title="Mes produits"
+        unfoldMessage="Voir mes produits"
+        open={productsOpen}
+        items={products}
+        toggle={toggleProducts}
+        itemType="product"
+      />
+    )}
         {userType === 'seller'
     && (
     <div className="dashboard__stock"><h2>Stock</h2>
@@ -79,8 +78,7 @@ const Dashboard = ({
         <Link className="stock__link" to="/nouveau-produit"><FiArrowRight /> Ajouter un produit</Link>
       </div>
     </div>
-    )
-    }
+    )}
       </div>
     </main>
 

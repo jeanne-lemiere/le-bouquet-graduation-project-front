@@ -6,6 +6,7 @@ const Radio = (props) => (
   <div className="radio">
     <input
       {...props}
+      id={props.value} // for input to be checked even when label is clicked 
       type="radio"
       className="radio__button"
       onChange={(evt) => {

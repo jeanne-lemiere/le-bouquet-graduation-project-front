@@ -1,64 +1,54 @@
 @use 'src/styles/vars';
 
-
 .footer {
   margin-top: 5%;
   height: 8vh;
   background-color: vars.$footer-color;
   position: absolute;
   bottom: 0;
-width: 100%;
-display: flex;
-padding: 0 1rem;
-&__content {
   width: 100%;
   display: flex;
-}
-&__icon {
-  &::after {
-        height: 0;
-      }
-  & svg {
-    width: 1rem;
-  height: 100%;
-  margin: 0 0.5rem;
+  padding: 0 1rem;
+  &__content {
+    width: 100%;
+    display: flex;
   }
-}  
-    &__links{
-      display: flex;
-      justify-content: flex-start;
-      color: vars.$font-color;
-      font-size: 0.8rem;
-      align-items: center;
-      font-weight: 400;
-      height: 8vh;
-      width: 100%;
-       &--text {
-        padding-right: 1rem;
-      } 
-      &--icons {
-        justify-content: flex-end;
-      }
+  &__icon {
+    &::after {
+      height: 0;
     }
+    & svg {
+      width: 1rem;
+      height: 100%;
+      margin: 0 0.5rem;
+    }
+  }
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+    color: vars.$font-color;
+    font-size: 0.8rem;
+    align-items: center;
+    font-weight: 400;
+    height: 8vh;
+    width: 100%;
+    &--text {
+      padding-right: 1rem;
+    }
+    &--icons {
+      justify-content: flex-end;
+    }
+  }
 }
 
-  
- @media only screen and (max-width: 1024px) {
-
-.footer__links a {
-  font-size: 0.7rem;
-}
-}
- 
- // specific picture width for tablets and phones (landscape)
- @media only screen and (max-width: 812px) {
- 
-.footer__links a {
-  font-size: 0.6rem;
+@media only screen and (max-width: 1024px) {
+  .footer__links a {
+    font-size: 0.7rem;
+  }
 }
 
 .footer__icon {
   margin-left: 1em;
   width: 0.8rem;
 }
-}
+

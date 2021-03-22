@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './styles.scss';
-import sellerPicture from 'src/assets/zoe-schaeffer.jpg';
 
 const Card = ({
   zipcode, phone_number, shop_name, street_name, street_number, city, email, picture_url, id,

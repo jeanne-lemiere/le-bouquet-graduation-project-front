@@ -7,11 +7,17 @@ const mapState = (state) => {
   const {
     email, password, userType, loginError,
   } = state.login;
+
+  const {
+    authModal,
+  } = state.display;
+
   return {
     email,
     password,
     selected: userType,
     loginError,
+    open: authModal,
   };
 };
 

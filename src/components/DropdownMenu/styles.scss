@@ -71,7 +71,7 @@ th {
   text-align: left;
 }
 
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 460px) {
   table,
   thead,
   tbody,
@@ -90,6 +90,7 @@ th {
   tr {
     border: 1px solid #ffd3c2;
   }
+
 
   td {
     border: none;
