@@ -19,9 +19,12 @@ import Footer from '../Footer';
 import Article from '../Article';
 import NavBar from '../../containers/NavBar';
 import NotFound from '../NotFound';
-import AuthModal from '../../containers/AuthModal';
 import Spinner from './Spinner';
 import OurProducers from '../../containers/OurProducers';
+import AboutUs from '../AboutUs';
+
+// == Import
+import './styles.scss';
 import Dashboard from '../../containers/Dashboard';
 
 const App = ({ init, loading }) => {
@@ -33,7 +36,6 @@ const App = ({ init, loading }) => {
     <div className="app-container">
       <ScrollToTop />
       <NavBar />
-      <AuthModal />
       {
         (loading) && <Spinner />
       }
@@ -72,6 +74,9 @@ const App = ({ init, loading }) => {
           <Route path="/panier" exact>
             <Cart />
           </Route>
+          <Route path="/qui-sommes-nous" exact>
+            <AboutUs />
+          </Route>
           <Route path="/récapitulatif" exact>
             <OrderPass />
           </Route>
@@ -80,6 +85,7 @@ const App = ({ init, loading }) => {
         )
       }
       <Footer />
+
     </div>
   );
 };

@@ -1,0 +1,73 @@
+@use 'src/styles/vars';
+
+.about-us {
+  min-height: 92vh;
+  padding-top: 10rem;
+  width: 100vw;
+
+  &__cards {
+    display: flex;
+    padding: 0 8rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    min-width: 193px;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 0 0.6rem;
+    & img {
+      height: 150px;
+    }
+    &-name {
+      text-align: center;
+      font-size: 1.1em;
+    }
+    &-role {
+      text-align: center;
+      font-size: 0.8em;
+    }
+    &-links {
+      display: flex;
+      justify-content: center;
+      & img {
+        height: 30px;
+        margin-left: 0.4rem;
+      }
+      & a::after {
+        height: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .about-us {
+    &__cards {
+      flex-wrap: wrap;
+    }
+    &__card {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 892px) {
+  .about-us {
+    &__cards {
+      padding: 0 3rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .about-us {
+    &__cards {
+      padding: 0 2rem;
+      justify-content: center;
+    }
+  }
+}
