@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import Dashboard from 'src/components/Dashboard';
-import { toggleCurrentOrders, toggleHistory } from 'src/actions/displayActions';
+import { toggleCurrentOrders, toggleHistory, toggleProducts } from 'src/actions/displayActions';
+import { fetchOneSeller } from '../actions/sellerActions';
 import { fetchOrders } from 'src/actions/orderActions';
 
 const mapState = (state) => {
+  const products = state.producer.oneSellerProducts;
   const {
-    currentOrdersOpen, historyOpen,
+    currentOrdersOpen, historyOpen, productsOpen
   } = state.display;
   const {
     isLogged,
@@ -23,14 +25,18 @@ const mapState = (state) => {
     userType,
     profile,
     currentOpen: currentOrdersOpen,
+    productsOpen,
     historyOpen,
     currentOrders,
     orderHistory,
     isLogged,
+    products
   };
 };
 
 const mapDispatch = (dispatch) => ({
+  fetchOneSeller: (id) => dispatch(fetchOneSeller(id)),
+
   toggleCurrentOrders: () => {
     const action = toggleCurrentOrders();
     dispatch(action);
@@ -43,6 +49,12 @@ const mapDispatch = (dispatch) => ({
     const action = fetchOrders();
     dispatch(action);
   },
+  toggleProducts: () => {
+    const action = toggleProducts();
+    dispatch(action);
+  },
 });
 
 export default connect(mapState, mapDispatch)(Dashboard);
+
+

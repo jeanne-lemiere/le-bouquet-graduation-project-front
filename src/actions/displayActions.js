@@ -5,6 +5,9 @@ export const TOGGLE_CURRENT_ORDERS = 'TOGGLE_CURRENT_ORDERS';
 export const TOGGLE_ORDER_HISTORY = 'TOGGLE_ORDER_HISTORY';
 export const INCREASE_CART_AMOUNT = 'INCREASE_CART_AMOUNT';
 export const DECREASE_CART_AMOUNT = 'DECREASE_CART_AMOUNT';
+export const TOGGLE_PRODUCTS = 'TOGGLE_PRODUCTS';
+export const TOGGLE_BURGER = 'TOGGLE_BURGER';
+export const CLOSE_BURGER = 'CLOSE_BURGER';
 
 export const toggleAuthModal = () => ({
   type: TOGGLE_AUTH_MODAL,
@@ -33,4 +36,16 @@ export const increaseCartAmount = () => ({
 
 export const decreaseCartAmount = () => ({
   type: DECREASE_CART_AMOUNT,
+});
+
+export const toggleProducts = () => ({
+  type: TOGGLE_PRODUCTS,
+});
+
+export const toggleBurger = () => ({
+  type: TOGGLE_BURGER,
+});
+
+export const closeBurger = () => ({
+  type: CLOSE_BURGER,
 });

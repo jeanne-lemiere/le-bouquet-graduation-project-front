@@ -12,17 +12,24 @@ const Dashboard = ({
   orderHistory,
   toggleCurrentOrders,
   toggleHistory,
+  toggleProducts,
   currentOpen,
   historyOpen,
+  productsOpen,
   profile,
   fetchOrders,
   isLogged,
+  fetchOneSeller,
+  products,
 }) => {
   // if the connected user is a seller we want to give them
   // a link to access their product stock
   const pageTitle = userType === 'seller' ? <h1>Mon espace pro</h1> : <h1>Mon espace client</h1>;
 
-  useEffect(fetchOrders, []);
+  useEffect(() => {
+    fetchOrders();
+    fetchOneSeller(profile.id);
+  }, []);
 
   if (isLogged === false) {
     return <Redirect to="/" />;
@@ -52,6 +59,17 @@ const Dashboard = ({
           toggle={toggleHistory}
           itemType="order"
         />
+        {userType === 'seller'
+    && (
+      <DropdownMenu
+        title="Mes produits"
+        unfoldMessage="Voir mes produits"
+        open={productsOpen}
+        items={products}
+        toggle={toggleProducts}
+        itemType="product"
+      />
+    )}
         {userType === 'seller'
     && (
     <div className="dashboard__stock"><h2>Stock</h2>
@@ -88,9 +106,9 @@ Dashboard.propTypes = {
     shop_name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     phone_number: PropTypes.string.isRequired,
-    street_number: PropTypes.string.isRequired, // street number is a string
+    street_number: PropTypes.string.isRequired,
     street_name: PropTypes.string.isRequired,
-    zipcode: PropTypes.string.isRequired, // zipcode is a string
+    zipcode: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
   }).isRequired,
   fetchOrders: PropTypes.func.isRequired,

@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import ArticlePic from 'src/assets/zoe-schaeffer.jpg';
+import ArticlePic from 'src/assets/productrice-homepage.png';
 import { Link } from 'react-router-dom';
 
 const Article = () => (

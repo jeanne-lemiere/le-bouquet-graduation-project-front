@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import dayjs from 'dayjs';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const OrderItem = ({ item }) => (
   <tr>

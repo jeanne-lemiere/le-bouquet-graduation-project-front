@@ -11,13 +11,24 @@ import ProductItem from '../ProductItem';
 const DropdownMenu = ({
   title, unfoldMessage, open, items, toggle, itemType,
 }) => {
+
+  let products;
+  if (itemType === 'product') {
+    if (items.length > 0) {
+      // items[1] because there are two objects inside, we want only products array
+      products = items[1].map((item) => {
+        return (
+         <ProductItem key={item.id} item={item} />
+      )
+       })
+    }
+  }
   // what kind of item do we want to display?
   // here is the list of items which will be contained in the dropdown menu
   const itemList = itemType === 'order' ? items.map((item) => (
     <OrderItem key={item.id} item={item} />
-  )) : items.map((item) => (
-    <ProductItem key={item.id} item={item} />
-  ));
+  )) : products
+  ;
 
   const itemInfos = itemType === 'order' ? (
     <tr>
@@ -33,6 +44,7 @@ const DropdownMenu = ({
         <th>Nom</th>
         <th>Prix</th>
         <th>Quantité disponible</th>
+        <th>Détails</th>
       </tr>
     );
 
@@ -74,13 +86,21 @@ DropdownMenu.propTypes = {
   unfoldMessage: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    reference: PropTypes.string.isRequired,
-    total_amount: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    reference: PropTypes.string,
+    total_amount: PropTypes.string,
+    status: PropTypes.string,
+    date: PropTypes.string,
   })).isRequired,
   toggle: PropTypes.func.isRequired,
   itemType: PropTypes.string.isRequired,
+};
+
+DropdownMenu.defaultProps = {
+  id: 1,
+  reference: 1,
+  total_amount: "",
+  status: "",
+  date: "",
 };
 export default DropdownMenu;

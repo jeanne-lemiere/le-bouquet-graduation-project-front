@@ -4,6 +4,7 @@ import './styles.scss';
 import { FiArrowDown, FiArrowRight } from 'react-icons/fi';
 
 const ProductItem = ({ item, open }) => {
+  // console.log("product item lancé")
   const arrow = open ? <FiArrowDown /> : <FiArrowRight />;
   const product = open ? (
     <div className="stock__product stock__product--full">
@@ -15,19 +16,19 @@ const ProductItem = ({ item, open }) => {
     </div>
   )
     : (
-      <div>
         <tr className="stock__product">
           <td>{item.reference}</td>
           <td> {item.name}</td>
           <td> {item.price}</td>
           <td> {item.stock}</td>
+          <td> 
+            <button
+              type="button"
+              className="stock__unfold-button">
+              {arrow} Voir le détail
+            </button>
+          </td>
         </tr>
-        <button
-          type="button"
-          className="stock__unfold-button"
-        >{arrow} Voir le détail
-        </button>
-      </div>
     );
   return (product);
 };
@@ -36,13 +37,13 @@ ProductItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.number.isRequired,
     reference: PropTypes.string.isRequired,
-    total_amount: PropTypes.number,
+    total_amount: PropTypes.string,
     status: PropTypes.string,
     date: PropTypes.string,
     name: PropTypes.string,
     description: PropTypes.string,
     stock: PropTypes.number,
-    price: PropTypes.number,
+    price: PropTypes.string,
   }).isRequired,
   open: PropTypes.bool,
 };

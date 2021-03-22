@@ -12,6 +12,7 @@ const LoginForm = ({
   handleLogin,
   selected,
   loginError,
+  open,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -24,11 +25,11 @@ const LoginForm = ({
   ];
 
   const errorMessage = loginError ? <p className="login__error">Vos identifiants sont incorrects. </p> : null;
-
+  const formClass = open ? 'login-form' : 'login-form login-form--is-hidden';
   return (
     <form
       autoComplete="off"
-      className="login-form"
+      className={formClass}
       onSubmit={handleSubmit}
     >
       <div className="login-form__radio">
@@ -82,6 +83,7 @@ LoginForm.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   selected: PropTypes.string,
   loginError: PropTypes.bool.isRequired,
+  open: PropTypes.bool.isRequired,
 };
 
 LoginForm.defaultProps = {
