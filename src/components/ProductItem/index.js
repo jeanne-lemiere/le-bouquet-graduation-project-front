@@ -4,7 +4,6 @@ import './styles.scss';
 import { FiArrowDown, FiArrowRight } from 'react-icons/fi';
 
 const ProductItem = ({ item, open }) => {
-  // console.log("product item lancé")
   const arrow = open ? <FiArrowDown /> : <FiArrowRight />;
   const product = open ? (
     <div className="stock__product stock__product--full">

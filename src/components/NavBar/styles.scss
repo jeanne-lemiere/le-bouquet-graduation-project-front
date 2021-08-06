@@ -1,24 +1,22 @@
 @use 'src/styles/vars';
 
 .nav {
-  height: 50px;
+  height: 60px;
   max-width: 100vw;
-  border-bottom: solid 1px vars.$font-color;
+  //border-bottom: solid 1px vars.$font-color;
   position: fixed;
   top: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 1em;
+  padding: 0 20px;
   z-index: 1;
   transition: background-color 0.5s ease;
-  background-color: rgba(255, 255, 255, 0.9);
-
-
+  background-color: transparent;
   &__logo {
     width: auto;
-    height: 110%;
-    margin: auto 0;
+    height: 47px;
+    max-width: 100px;
   }
   &--active {
     background-color: white;
@@ -32,7 +30,7 @@
     align-items: center;
     width: 90%;
     justify-content: flex-end;
-    margin: 1em 1em 0 1em;
+    margin: 1em 1em 0.2em 1em;
     & div {
       margin-bottom: 1.22em;
     }
@@ -58,6 +56,12 @@
       display: none;
     }
   }
+}
+ .logo-link {
+  margin: auto 0;
+  &::after {
+      height: 0;
+    }
 }
 
 .cart__amount {
@@ -85,6 +89,7 @@
 
 .logo-link {
   max-width: 100px;
+  padding: 0;
 }
 .active {
   font-weight: 500;
@@ -137,9 +142,6 @@
     margin-top: 1.3em;
     width: 92%;
   }
-  .nav__logo {
-    height: 90%;
-  }
 }
 
 // adapting font size for readability
@@ -153,17 +155,11 @@
   }
 }
 
-/*   @media (min-width: 415px) and (max-width: 650px) { 
-.nav {
-  height: 10vh;
-}
-.nav__link {
-     font-size: 0.55rem;
-   }
-}  */
-
 // specific lay out for smartphones (portrait)
 @media only screen and (max-width: 700px) {
+   .nav {
+    padding: 0 0.8em;
+  } 
   // nav links disappear
   .nav__links {
     display: none;
@@ -171,6 +167,7 @@
   // and are replaced by a burger menu
   .nav__icon--burger {
     display: block;
+    margin-right: 0.4em;
   }
   .nav__icon svg {
     min-width: 25px;

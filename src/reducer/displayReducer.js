@@ -1,6 +1,6 @@
 import {
   TOGGLE_AUTH_MODAL,
-  CHANGE_NAV_BACKGROUND,
+  SET_SCROLL_HEIGHT,
   SET_LOADING,
   TOGGLE_CURRENT_ORDERS,
   TOGGLE_ORDER_HISTORY,
@@ -25,7 +25,7 @@ const ifNullOrNegativeReturnZero = (data) => {
 
 const initialState = {
   authModal: false,
-  navBackground: false,
+  scrollHeight: 0,
   loading: false,
   burgerOpen: false,
   historyOpen: false,
@@ -45,10 +45,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         authModal: !state.authModal,
       };
-    case CHANGE_NAV_BACKGROUND:
+    case SET_SCROLL_HEIGHT:
       return {
         ...state,
-        navBackground: action.payload,
+        scrollHeight: action.payload,
       };
     case SET_LOADING:
       return {

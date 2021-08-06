@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AuthModal from 'src/components/AuthModal';
-import { toggleAuthModal } from 'src/actions/displayActions';
+import { toggleAuthModal, toggleBurger } from 'src/actions/displayActions';
 
 const mapState = (state) => {
   const {
@@ -16,8 +16,12 @@ const mapState = (state) => {
 };
 
 const mapDispatch = (dispatch) => ({
-  toggle: () => {
+  toggleModal: () => {
     const action = toggleAuthModal();
+    dispatch(action);
+  },
+  toggleBurger: () => {
+    const action = toggleBurger();
     dispatch(action);
   },
 });

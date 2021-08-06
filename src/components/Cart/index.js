@@ -13,7 +13,6 @@ const Cart = ({
 
   useEffect(() => {
     fetchCartProducts();
-    console.log("cartProducts: ",cartProducts)
   }, []);
 
   let totalPrice = 0;

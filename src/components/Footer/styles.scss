@@ -1,54 +1,73 @@
 @use 'src/styles/vars';
 
 .footer {
-  margin-top: 5%;
-  height: 8vh;
+  height: 70px;
   background-color: vars.$footer-color;
   position: absolute;
   bottom: 0;
   width: 100%;
   display: flex;
-  padding: 0 1rem;
+  padding: 0 25px;
   &__content {
     width: 100%;
     display: flex;
   }
-  &__icon {
-    &::after {
-      height: 0;
-    }
-    & svg {
-      width: 1rem;
-      height: 100%;
-      margin: 0 0.5rem;
-    }
-  }
-  &__links {
-    display: flex;
-    justify-content: flex-start;
-    color: vars.$font-color;
-    font-size: 0.8rem;
-    align-items: center;
-    font-weight: 400;
-    height: 8vh;
-    width: 100%;
-    &--text {
-      padding-right: 1rem;
-    }
-    &--icons {
-      justify-content: flex-end;
-    }
+  &__text-links {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+}
+&__social {
+width: auto;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+
+}
+}
+
+.text-links__team,
+.text-links__terms {
+padding: 0;
+font-size: 0.8rem;
+font-weight: 400;
+margin-right: 1em;
+ &::after {
+    height: 0;
+  } 
+}
+
+.social__instagram,
+.social__facebook {
+   margin-left: 1em;
+ padding: 0;
+  &::after {
+    height: 0;
+  } 
+  & svg {
+    width: 1rem;
+    height: 100%;
   }
 }
 
-@media only screen and (max-width: 1024px) {
-  .footer__links a {
-    font-size: 0.7rem;
-  }
+ @media only screen and (max-width: 1350px) {
+  .text-links__team,
+.text-links__terms {
+font-size: 1.4vw;
+}
 }
 
-.footer__icon {
-  margin-left: 1em;
-  width: 0.8rem;
+ @media only screen and (max-width: 812px) {
+.text-links__team,
+.text-links__terms {
+font-size: 1.8vw;
+}
 }
 
+@media only screen and (max-width: 414px) {
+.text-links__team,
+.text-links__terms {
+font-size: 3.4vw;
+}
+}

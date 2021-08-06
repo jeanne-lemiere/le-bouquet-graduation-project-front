@@ -62,7 +62,6 @@ export default (store) => (next) => async (action) => {
     case FETCH_ONE_SELLER: {
       axios.get(`${BASE_URL}/seller/${action.id}/products`)
         .then((response) => {
-          console.log('ici one seller middleware', response.data);
           store.dispatch(setOneSeller(response.data));
         })
         .catch((error) => {

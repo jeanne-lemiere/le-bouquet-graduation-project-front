@@ -7,15 +7,18 @@ import { NavLink, Link } from 'react-router-dom';
 import AuthModal from 'src/containers/AuthModal';
 
 const NavBar = ({
-  isLogged, toggleAuthModal, logOut, changeBackground, navBackground, userType, cartAmount, toggleBurger, burgerOpen, closeBurger,
+  isLogged, toggleAuthModal, logOut, userType, cartAmount, toggleBurger, burgerOpen, closeBurger, setScrollHeight, scrollHeight,
 }) => {
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      changeBackground(window.scrollY);
-    });
-  });
+    const updateScrollHeight = () => {
+      setScrollHeight(window.scrollY);
+    }
+    window.addEventListener('scroll', updateScrollHeight);
 
-  const navClass = navBackground || burgerOpen ? 'nav nav--active' : 'nav';
+    return () => { window.removeEventListener('scroll', updateScrollHeight) };
+  }, [scrollHeight]);
+
+  const navClass = scrollHeight >= 50 || burgerOpen ? 'nav nav--active' : 'nav';
   const joinUs = isLogged && userType === 'seller' ? null : <li className="nav__link"> <NavLink exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>;
   const joinUsBurger = isLogged && userType === 'seller' ? null : <li className="burger__link"> <NavLink onClick={toggleBurger} exact to="/inscription/pro">DEVENIR PARTENAIRE</NavLink></li>;
   const cartClass = isLogged && userType === 'seller' ? 'nav__icon nav__icon--disabled' : 'nav__icon';
@@ -80,7 +83,7 @@ const NavBar = ({
                 </div>
               </li>
             )
-              : null }
+              : null}
           </ul>
           <Link
             className={cartClass}
@@ -176,8 +179,8 @@ NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   toggleAuthModal: PropTypes.func.isRequired,
   logOut: PropTypes.func.isRequired,
-  changeBackground: PropTypes.func.isRequired,
-  navBackground: PropTypes.bool.isRequired,
+  setScrollHeight: PropTypes.func.isRequired,
+  scrollHeight: PropTypes.number.isRequired,
   userType: PropTypes.string.isRequired,
   cartAmount: PropTypes.number.isRequired,
   toggleBurger: PropTypes.func.isRequired,

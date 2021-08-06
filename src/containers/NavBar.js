@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import NavBar from 'src/components/NavBar';
 import { userLogout } from 'src/actions/loginActions';
 import {
-  toggleAuthModal, changeNavBackground, toggleBurger, closeBurger,
+  toggleAuthModal, setScrollHeight, toggleBurger, closeBurger,
 } from 'src/actions/displayActions';
 
 const mapState = (state) => {
@@ -12,14 +12,14 @@ const mapState = (state) => {
   } = state.login;
 
   const {
-    navBackground,
+    scrollHeight,
     cartAmount,
     burgerOpen,
   } = state.display;
 
   return {
     isLogged,
-    navBackground,
+    scrollHeight,
     userType,
     cartAmount,
     burgerOpen,
@@ -35,9 +35,8 @@ const mapDispatch = (dispatch) => ({
     const action = userLogout();
     dispatch(action);
   },
-  changeBackground: (screenHeight) => {
-    const data = screenHeight >= 50;
-    const action = changeNavBackground(data);
+  setScrollHeight: (screenHeight) => {
+    const action = setScrollHeight(screenHeight);
     dispatch(action);
   },
   toggleBurger: () => {

@@ -12,9 +12,6 @@ const SellerPage = ({
   let loading = true;
   if (products.length > 0) {
     loading = false;
-    console.log(`id selelr vaut ${sellerId}`);
-    console.log('ici sellerpage, products :', products);
-    console.log('ici sellerpage, name :', products[0].firstname);
   }
 
   useEffect(() => {

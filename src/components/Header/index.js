@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './styles.scss';
 import { Link } from 'react-router-dom';
 
-const Header = () => (
+const Header = () =>  (
   <div className="header">
     <div className="header__text">
-      <div className="text-container">
         <h1>Des fleurs oubliées, locales et de saison</h1>
         <p>
           Marre des orchidées d'Australie, et des roses du Kenya! Quel dommage d'aller chercher si
@@ -19,9 +18,8 @@ const Header = () => (
           </em>
         </p>
 
-        <Link className="homepage__link" to="/nos-fleurs">Découvrir nos fleurs →</Link>
+      <Link className="homepage__link" to="/nos-fleurs">Découvrir nos fleurs →</Link>
       </div>
-    </div>
   </div>
 );
 
